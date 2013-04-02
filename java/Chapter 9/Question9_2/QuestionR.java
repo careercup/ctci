@@ -23,11 +23,11 @@ public class QuestionR {
 			return true; // found a path
 		}
 		boolean success = false;
-		if (x >= 1 && isFree(x - 1, y)) { // Try right
-			success = getPath(x - 1, y, path); // Free!  Go right
+		if (x >= 1 && isFree(x - 1, y)) { // Try left
+			success = getPath(x - 1, y, path); // Free!  Go left
 		}
-		if (!success && y >= 1 && isFree(x, y - 1)) { // Try down
-			success = getPath(x, y - 1, path); // Free!  Go down
+		if (!success && y >= 1 && isFree(x, y - 1)) { // Try up
+			success = getPath(x, y - 1, path); // Free!  Go up
 		}
 		if (success) {
 			path.add(p); // Right way! Add to path.
