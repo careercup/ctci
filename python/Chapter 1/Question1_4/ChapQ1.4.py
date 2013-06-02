@@ -37,10 +37,12 @@ def changeSpacesForURL(spacestring):
     
     while index<len(spacestring):
         if (index + bqueue.queuelength) == len(spacestring):
+            #we need to operate differently if the back queue is full. direct transfer.
             spacestring[index]=bqueue.getFromQueue()
         else:
             thischar=spacestring[index]
             if bqueue.queuelength>0:            
+                #we need to operate differently if the back queue is empty. direct transfer.
                 spacestring[index]=bqueue.getFromQueue()
                 if thischar==" ":
                     bqueue.addToQueue("%")
@@ -63,7 +65,7 @@ def changeSpacesForURL(spacestring):
 #testing
 
 inputstring = ["M","r"," ","J","o","h","n"," ","S","m","i","t","h"," "," "," "," "]
-expectedoutputstring = ["M","r","%","2","0","J","o","h","n%","2","0","S","m","i","t","h"]
+expectedoutputstring = ["M","r","%","2","0","J","o","h","n","%","2","0","S","m","i","t","h"]
 
 outstring=""
 for char in changeSpacesForURL(inputstring):
@@ -74,4 +76,20 @@ for char in expectedoutputstring:
     expectedoutstring = expectedoutstring+char
 
 if outstring == expectedoutstring:
-    print "Passed Test"
+    print "Passed Test 1"
+
+
+#edge case where string is all spaces, 2 that need to be replaced, and 4 for the expansion room, 6 spaces total
+inputstring = [" "," "," "," "," "," "]
+expectedoutputstring = ["%","2","0","%","2","0"]
+
+outstring=""
+for char in changeSpacesForURL(inputstring):
+    outstring = outstring+char
+
+expectedoutstring=""
+for char in expectedoutputstring:
+    expectedoutstring = expectedoutstring+char
+
+if outstring == expectedoutstring:
+    print "Passed Test 2"
