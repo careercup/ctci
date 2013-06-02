@@ -20,22 +20,20 @@ public class QuestionA {
 				for (int i = 0; i < str.length(); i++) {
 					if (str.charAt(i) == '(') {
 						String s = insertInside(str, i);
-						/* Add s to set if it’s not already in there. Note: 	
+						/* Add s to set if it is not already in there. Note: 	
 						 * HashSet automatically checks for duplicates before
 						 * adding, so an explicit check is not necessary. */
-						set.add(s);					
+						set.add(s);			
 					}
 				}
-				if (!set.contains("()" + str)) {
-					set.add("()" + str);
-				}
+				set.add("()" + str);
 			}
 		}
 		return set;
 	}
 	
 	public static void main(String[] args) {
-		Set<String> list = generateParens(2);
+		Set<String> list = generateParens(4);
 		for (String s : list) {
 			System.out.println(s);
 		}
