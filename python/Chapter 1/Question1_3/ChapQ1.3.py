@@ -20,7 +20,7 @@ def isPermutationSort(s1,s2):
     for char in sorted(s1):
         if char!=s2sorted[index]:
             return False
-        index+=1
+        index += 1
     return True
 
 #O(n)
@@ -29,7 +29,7 @@ def isPermutationHash(s1,s2):
     charcountdict1 = makeCharCountDict(s1)
     charcountdict2 = makeCharCountDict(s2)
     for char in charcountdict1:
-        if not (char in charcountdict1 and char in charcountdict2 and charcountdict1[char]==charcountdict2[char]):
+        if not (char in charcountdict2 and charcountdict1[char]==charcountdict2[char]):
             return False        
     return True
 
