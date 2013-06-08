@@ -3,7 +3,7 @@
 #a rotation of s1 using only one call to isSubstring (e.g.,"waterbottle" is a rotation of "erbottlewat").
 
 def isSubstring(s1,s2):
-    return s1.find(s2)>-1
+    return s1.find(s2) > -1
 
 def rotatedStringHasSubstring(s1,s2):
     #doubling the string ensures a complete substring regardless of rotation

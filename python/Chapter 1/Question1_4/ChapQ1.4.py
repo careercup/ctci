@@ -1,8 +1,6 @@
 #Write a method to replace all spaces in a string with '%20'.
-
-
-#treating the string as a char array to make it challenging. otherwise would just use string replacement.
-#assuming the char array has 2 spaces at the end for every one space in the body
+#Treat the string as a char array to make it challenging. Otherwise you would just use string replacement.
+#Assume the char array has 2 spaces at the end for every one space in the body, so that you dont have to resize the array.
 
 #making an interface to use the back of the array as a queue
 class BackQueue:
@@ -42,7 +40,6 @@ def changeSpacesForURL(spacestring):
         else:
             thischar=spacestring[index]
             if bqueue.queuelength>0:            
-                #we need to operate differently if the back queue is empty. direct transfer.
                 spacestring[index]=bqueue.getFromQueue()
                 if thischar==" ":
                     bqueue.addToQueue("%")
@@ -51,6 +48,7 @@ def changeSpacesForURL(spacestring):
                 else:
                     bqueue.addToQueue(thischar)
             else:
+                #we need to operate differently depending on if the back queue is empty (direct transfer instead of using queue).
                 if thischar==" ":
                     spacestring[index]="%"
                     bqueue.addToQueue("2")
