@@ -10,7 +10,7 @@ class BinaryTree:
         self.depth = -1
 
     def __str__(self):
-        return "( " + str(self.content) + " ( " + str(self.right) + " | " + str(self.left) + "))" 
+        return "( " + str(self.content) + " ( " + str(self.left) + " | " + str(self.right) + "))" 
         
 #Implement a function to check if a binary tree is balanced. For the purposes of
 #this question, a balanced tree is defined to be a tree such that the heights of the
