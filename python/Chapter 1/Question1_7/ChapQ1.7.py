@@ -20,15 +20,11 @@ class MatrixProcessor:
     def zeroProcess(self):
         columnstozero=[]
         rowstozero=[]
-        rowcount=0
-        for row in self.matrix:
-            cellcount=0
-            for cell in row:
+        for rowcount,row in enumerate(self.matrix):
+            for cellcount, cell in enumerate(row):
                 if cell == 0:
                     columnstozero.append(cellcount)
                     rowstozero.append(rowcount)
-                cellcount += 1
-            rowcount += 1
         for rownum in rowstozero:
             self.zeroRow(rownum)
         for colnum in columnstozero:

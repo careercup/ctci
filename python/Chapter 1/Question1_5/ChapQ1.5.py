@@ -6,7 +6,9 @@
 
 
 def simpleCompress(compstring):
-    outstring=""
+    #Avoid using the + and += operators to accumulate a string within a loop. Since strings are immutable, this creates unnecessary temporary objects and results in quadratic rather than linear running time. Instead, add each substring to a list and ''.join the list after the loop terminates (or, write each substring to a cStringIO.StringIO buffer).
+    #Google python style guidelines http://google-styleguide.googlecode.com/svn/trunk/pyguide.html
+    outstring=[]
     lastchar=""
     charcount=0
     for char in compstring:
@@ -14,11 +16,12 @@ def simpleCompress(compstring):
             charcount += 1
         else:
             if lastchar != "":
-                outstring=outstring + lastchar + str(charcount)
+                outstring.append(lastchar + str(charcount))
             charcount = 1
         lastchar=char            
     #final write
-    outstring=outstring + lastchar + str(charcount)
+    outstring.append(lastchar + str(charcount))
+    outstring="".join(outstring)
     if len(outstring)<len(compstring):
         return outstring
     else:

@@ -15,12 +15,10 @@ def isPermutation(s1, s2):
 # big O complexity depends on python list sort complexity, which should be better than O(n^2)
 def isPermutationSort(s1,s2):
     #sort both strings, check if they are equal
-    index=0
     s2sorted=sorted(s2)
-    for char in sorted(s1):
+    for index, char in enumerate(sorted(s1)):
         if char!=s2sorted[index]:
             return False
-        index += 1
     return True
 
 #O(n)
