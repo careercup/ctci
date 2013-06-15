@@ -34,8 +34,7 @@ def hasAllUniqueChars(inputstring):
         if char in chardict:
             return False
         else:
-            #key/value is the same here, which is somewhat redundant, but allows us to use dict.
-            chardict[char]=char
+            chardict[char]=True
     return True
 
 #testing

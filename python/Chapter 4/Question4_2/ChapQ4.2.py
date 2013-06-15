@@ -2,28 +2,28 @@
 #between two nodes.
 
 class DirectedGraph:
-    def __init__(self, node_id):
-        self.node_id=node_id
+    def __init__(self,content):
+        self.content = content
         self.neighbours = []
 
 #"dynamic programming" used here, i.e. recursion plus caching
 #"cache" is our dict of visited nodes
 #"cache2" is our dict of routes (i.e. 3,5) that have already been checked.
 def is_route_between(node1,node2,cache={},cache2={}):    
-    if node1.node_id==node2.node_id:
+    if node1==node2:
         return True
-    if (str(node1.node_id) + "," + str(node2.node_id)) in cache2:
-        return cache2[(str(node1.node_id) + "," + str(node2.node_id))]    
+    if (str(hash(node1)) + "," + str(hash(node2))) in cache2:
+        return cache2[(str(hash(node1)) + "," + str(hash(node2)))]    
     nodefound=False
     for neighbour in node1.neighbours:
-        if neighbour.node_id in cache:
+        if neighbour in cache:
             #dont visit, we've checked this already in our route search
             continue
-        cache[neighbour.node_id]=True
+        cache[neighbour]=True
         nodefound=is_route_between(neighbour,node2,cache,cache2)
         if nodefound:
             break
-    cache2[(str(node1.node_id) + "," + str(node2.node_id))]=nodefound
+    cache2[(str(hash(node1)) + "," + str(hash(node2)))]=nodefound
     return nodefound
 
 #testing
