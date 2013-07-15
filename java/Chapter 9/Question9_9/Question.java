@@ -52,8 +52,8 @@ public class Question {
 	}
 	
 	public static void printBoard(Integer[] columns) {
-		System.out.println("-----------------");
-		for(int i = 0; i < GRID_SIZE; i++){
+        drawLine();
+        for(int i = 0; i < GRID_SIZE; i++){
 			System.out.print("|");
 			for (int j = 0; j < GRID_SIZE; j++){
 			    if (columns[i] == j) {
@@ -62,36 +62,20 @@ public class Question {
 			    	System.out.print(" |");
 			    }
 			}
-			System.out.println("\n-----------------");
+            System.out.print("\n");
+            drawLine();
 		}
 		System.out.println("");
 	}
-	
-	public static boolean equals(Integer[] first, Integer[] second) {
-		for (int k = 0; k < GRID_SIZE; k++) {
-			if (first[k] != second[k]) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	public static boolean isUnique(ArrayList<Integer[]> boards, int index) {
-		Integer[] first = boards.get(index);
-		for (int i = 0; i < index; i++) {
-			Integer[] second = boards.get(i);
-			if (equals(first, second)) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	public static void checkBoard(Integer[] columnsForRow) {
-		for (int i = 0; i < GRID_SIZE; i++) {
-			
-		}
-	}
+
+    private static void drawLine() {
+        StringBuilder line = new StringBuilder();
+        for (int i=0;i<GRID_SIZE*2+1;i++)
+            line.append('-');
+        System.out.println(line.toString());
+    }
+
+
 	
 	public static void printBoards(ArrayList<Integer[]> boards) {
 		for (int i = 0; i < boards.size(); i++) {
