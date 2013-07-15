@@ -52,8 +52,8 @@ public class Question {
 	}
 	
 	public static void printBoard(Integer[] columns) {
-		System.out.println("-----------------");
-		for(int i = 0; i < GRID_SIZE; i++){
+        drawLine();
+        for(int i = 0; i < GRID_SIZE; i++){
 			System.out.print("|");
 			for (int j = 0; j < GRID_SIZE; j++){
 			    if (columns[i] == j) {
@@ -62,12 +62,20 @@ public class Question {
 			    	System.out.print(" |");
 			    }
 			}
-			System.out.println("\n-----------------");
+            System.out.print("\n");
+            drawLine();
 		}
 		System.out.println("");
 	}
-	
-	public static boolean equals(Integer[] first, Integer[] second) {
+
+    private static void drawLine() {
+        StringBuilder line = new StringBuilder();
+        for (int i=0;i<GRID_SIZE*2+1;i++)
+            line.append('-');
+        System.out.println(line.toString());
+    }
+
+    public static boolean equals(Integer[] first, Integer[] second) {
 		for (int k = 0; k < GRID_SIZE; k++) {
 			if (first[k] != second[k]) {
 				return false;
