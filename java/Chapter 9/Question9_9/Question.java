@@ -75,31 +75,7 @@ public class Question {
         System.out.println(line.toString());
     }
 
-    public static boolean equals(Integer[] first, Integer[] second) {
-		for (int k = 0; k < GRID_SIZE; k++) {
-			if (first[k] != second[k]) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	public static boolean isUnique(ArrayList<Integer[]> boards, int index) {
-		Integer[] first = boards.get(index);
-		for (int i = 0; i < index; i++) {
-			Integer[] second = boards.get(i);
-			if (equals(first, second)) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	public static void checkBoard(Integer[] columnsForRow) {
-		for (int i = 0; i < GRID_SIZE; i++) {
-			
-		}
-	}
+
 	
 	public static void printBoards(ArrayList<Integer[]> boards) {
 		for (int i = 0; i < boards.size(); i++) {
