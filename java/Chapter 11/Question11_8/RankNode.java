@@ -20,6 +20,7 @@ public class RankNode {
 		} else {
 			if (right != null) {
 				right.insert(d);
+				right.left_size = 1 + this.left_size;
 			} else {
 				right = new RankNode(d);
 			}
