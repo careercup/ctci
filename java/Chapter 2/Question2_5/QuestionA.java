@@ -11,7 +11,7 @@ public class QuestionA {
              return null;
 		}
 		
-		LinkedListNode result = new LinkedListNode(carry, null, null);
+		LinkedListNode result = new LinkedListNode();
 		int value = carry;
 		if (l1 != null) {
 			value += l1.data;

@@ -1,41 +1,49 @@
 package Question9_8;
 
-public class Question {
-	public static int makeChange2(int n, int[] denoms, int k) {
-		if (k + 1 >= denoms.length) return 1;
+import java.util.Arrays;
+
+public class Question {	
+	public static int makeChange(int amount, int[] denoms, int index) {
+		if (index >= denoms.length - 1) return 1; // one denom remaining -> one way to do it
+		int denomAmount = denoms[index];
 		int ways = 0;
-		for (int i = 0; i * denoms[k] <= n; i++) {
-			ways += makeChange2(n - i * denoms[k], denoms, k + 1);
-		}
-		return ways;
-	}	
-	
-	public static int makeChange(int n, int denom) {
-		int next_denom = 0;
-		switch (denom) {
-		case 25:
-			next_denom = 10;
-			break;
-		case 10:
-			next_denom = 5;
-			break;
-		case 5:
-			next_denom = 1;
-			break;
-		case 1:
-			return 1;
-		}
-		int ways = 0;
-		for (int i = 0; i * denom <= n; i++) {
-			ways += makeChange(n - i * denom, next_denom);
+		for (int i = 0; i * denomAmount <= amount; i++) {
+			int amountRemaining = amount - i * denomAmount;
+			ways += makeChange(amountRemaining, denoms, index + 1); // go to next denom
 		}
 		return ways;
 	}
 	
-	public static int makeChange(int n) {
+	public static int makeChange1(int n) {
 		int[] denoms = {25, 10, 5, 1};
-		int x = makeChange2(n, denoms, 0);
-		int y = makeChange(n, 25);
+		return makeChange(n, denoms, 0);
+	}
+
+	public static int makeChange2(int n) {
+		int[] denoms = {25, 10, 5, 1};
+		int[][] map = new int[n + 1][denoms.length];
+		return makeChange2(n, denoms, 0, map);
+	}
+	
+	public static int makeChange2(int amount, int[] denoms, int index, int[][] map) {
+		if (map[amount][index] > 0) { // retrieve value
+			return map[amount][index];
+		}
+		if (index >= denoms.length - 1) return 1; // one denom remaining -> one way to do it
+		int denomAmount = denoms[index];
+		int ways = 0;
+		for (int i = 0; i * denomAmount <= amount; i++) {
+			// go to next denom, assuming i coins of denomAmount
+			int amountRemaining = amount - i * denomAmount;
+			ways += makeChange2(amountRemaining, denoms, index + 1, map);
+		}
+		map[amount][index] = ways;
+		return ways;
+	}	
+	
+	public static int makeChange(int n) {
+		int x = makeChange1(n);
+		int y = makeChange2(n);
 		if (x != y) {
 			System.out.println("Error: " + x + " " + y);
 		}
@@ -43,7 +51,7 @@ public class Question {
 	}
 	
 	public static void main(String[] args) {
-		for (int i = 100; i <= 100; i++) {
+		for (int i = 0; i <= 100; i++) {
 			System.out.println("makeChange(" + i + ") = " + makeChange(i));
 		}
 	}
