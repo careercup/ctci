@@ -28,8 +28,8 @@ public class Sample_Code {
 	}
 	
 	public static int clearBitsIthrough0(int num, int i) {
-		int mask = ~((1 << (i+1)) - 1);
-		return num & mask;
+		int mask = ~(-1 >>> (31 - i));
+		return (num & mask);
 	}
 	
 	public static void main(String[] args) {
@@ -67,15 +67,17 @@ public class Sample_Code {
 		System.out.println(num2);
 	
 		// Clear Bits MSB through i
+		number = 13242352;
 		System.out.println("\nClear bits MSB through 4");	
-		System.out.println(AssortedMethods.toFullBinaryString(13242352));
+		System.out.println(AssortedMethods.toFullBinaryString(number));
 		int num3 = clearBitsMSBthroughI(number, 4);
 		System.out.println(AssortedMethods.toFullBinaryString(num3));
 		
 		// Clear Bits i through 0
-		System.out.println("\nClear bits 4 through 0");	
-		System.out.println(AssortedMethods.toFullBinaryString(715477));
-		int num4 = clearBitsIthrough0(number, 4);
+		System.out.println("\nClear bits 6 through 0");	
+		number = -1;
+		System.out.println(AssortedMethods.toFullBinaryString(number));
+		int num4 = clearBitsIthrough0(number, 2);
 		System.out.println(AssortedMethods.toFullBinaryString(num4));
 	}
 
