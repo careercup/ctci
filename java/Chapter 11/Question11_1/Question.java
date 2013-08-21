@@ -17,30 +17,40 @@ public class Question {
 		int indexB = lastB - 1; /* Index of last element in array a */
 	
 		/* Merge a and b, starting from the last element in each */
-		while (indexA >= 0 && indexB >= 0) {
-			if (a[indexA] > b[indexB]) { /* end of a is bigger than end of b */
+		while (indexB >= 0) {
+			if (indexA >= 0 && a[indexA] > b[indexB]) { /* end of a is bigger than end of b */
 				a[indexMerged] = a[indexA]; // copy element
-				indexMerged--; // move indices
 				indexA--; 
 			} else {
 				a[indexMerged] = b[indexB]; // copy element
-				indexMerged--; // move indices
 				indexB--;
 			}
+			indexMerged--; // move indices			
 		}
 		
 		/* Copy remaining elements from b into place */
-		while (indexB >= 0) {
+		/*while (indexB >= 0) {
 			a[indexMerged] = b[indexB];
 			indexMerged--;
 			indexB--;
+		}*/
+	}
+	public static void merge2(int[] a, int[] b, int lastA, int lastB)
+	{
+		int indexMerged = (lastA--) + (lastB--) - 1;
+		while (lastB >= 0) {
+			if (lastA >= 0 && a[lastA] > b[lastB]) {
+				a[indexMerged--] = a[lastA--];
+			} else {
+				a[indexMerged--] = b[lastB--];
+			}
 		}
 	}
 	
 	public static void main(String[] args) {
-		int[] a = {1, 3, 4, 5, 6, 8, 10, 0, 0, 0, 0, 0};
-		int[] b = {4, 7, 9, 10, 12};
-		merge(a, b, 7, 5);
+		int[] a = {2, 3, 4, 5, 6, 8, 10, 100, 0, 0, 0, 0, 0, 0};
+		int[] b = {1, 4, 7, 6, 7, 7};
+		merge(a, b, 8, 6);
 		System.out.println(AssortedMethods.arrayToString(a));
 	}
 
