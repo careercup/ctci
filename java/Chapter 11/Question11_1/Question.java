@@ -27,24 +27,6 @@ public class Question {
 			}
 			indexMerged--; // move indices			
 		}
-		
-		/* Copy remaining elements from b into place */
-		/*while (indexB >= 0) {
-			a[indexMerged] = b[indexB];
-			indexMerged--;
-			indexB--;
-		}*/
-	}
-	public static void merge2(int[] a, int[] b, int lastA, int lastB)
-	{
-		int indexMerged = (lastA--) + (lastB--) - 1;
-		while (lastB >= 0) {
-			if (lastA >= 0 && a[lastA] > b[lastB]) {
-				a[indexMerged--] = a[lastA--];
-			} else {
-				a[indexMerged--] = b[lastB--];
-			}
-		}
 	}
 	
 	public static void main(String[] args) {
