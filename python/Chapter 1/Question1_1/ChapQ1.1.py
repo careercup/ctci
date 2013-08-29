@@ -37,6 +37,22 @@ def hasAllUniqueChars(inputstring):
             chardict[char]=True
     return True
 
+def hasAllUniqueCharsSet(inputstring):
+    #using a hash table (here as a set data structure)
+    if len(inputstring) > 256: return False
+    return len(set(inputstring)) == len(inputstring)
+    
+def hasAllUniqueCharsBitVector(inputstring):
+    #using a bit vector
+    #here as assumption in book, assume string only use  
+    if len(inputstring) > 26: return False
+    checker = 0
+    for char in inputstring:
+        if checker & (1 << ord(char)):
+            return False
+        checker |= (1 << ord(char))
+    return True
+
 #testing
 
 #positive test case
@@ -45,7 +61,7 @@ teststringtrue = "abcdefghijkl"
 teststringfalse = "aabvcgdfgbvxbj"
 
 #list of all functions to test
-funclist = [hasAllUniqueCharsNoDS,hasAllUniqueCharsList,hasAllUniqueChars]
+funclist = [hasAllUniqueCharsNoDS,hasAllUniqueCharsList,hasAllUniqueChars, hasAllUniqueCharsSet, hasAllUniqueCharsBitVector]
 
 for func in funclist:
     print "Testing function " + str(func)
