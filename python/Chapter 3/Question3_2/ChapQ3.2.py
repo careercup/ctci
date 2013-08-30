@@ -29,3 +29,4 @@ S2 = test_list
 for i in xrange(len(test_list)-1):
 	print "new pop", S1.pop(), S2.pop()
 	print "new min", S1.get_min(), min(S2)
+ 
