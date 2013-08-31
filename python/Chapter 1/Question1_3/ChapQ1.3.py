@@ -15,11 +15,8 @@ def isPermutation(s1, s2):
 # big O complexity depends on python list sort complexity, which should be better than O(n^2)
 def isPermutationSort(s1,s2):
     #sort both strings, check if they are equal
-    s2sorted=sorted(s2)
-    for index, char in enumerate(sorted(s1)):
-        if char!=s2sorted[index]:
-            return False
-    return True
+    if len(s1)!=len(s2): return False
+    return sorted(s1) == sorted(s2)
 
 #O(n)
 def isPermutationHash(s1,s2):
