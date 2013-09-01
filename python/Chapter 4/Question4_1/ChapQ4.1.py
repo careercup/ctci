@@ -15,12 +15,13 @@ class BinaryTree:
 #Implement a function to check if a binary tree is balanced. For the purposes of
 #this question, a balanced tree is defined to be a tree such that the heights of the
 #two subtrees of any node never differ by more than one.
-    
+
+#O(n^2) naive algorithm
 def is_balanced_binary_tree(btree):
     #compare depths of both sides
-    a = depth(btree.left)    
-    b = depth(btree.right)    
-    return (a==b) or (a==b+1) or (a==b-1)
+    if btree is None: return True
+    return (abs(depth(btree.left) - depth(btree.right)) <= 1) and \
+        is_balanced_binary_tree(btree.left) and is_balanced_binary_tree(btree.right)
 
 def depth(btree):
     if btree is None:
@@ -36,6 +37,18 @@ def depth(btree):
         else:
             btree.depth = 1 + max(depth(btree.left), depth(btree.right))
             return btree.depth
+
+#effcient algorithm, get heights of subtrees and check subtrees if balanced at the same time
+def is_balanced_binary_tree2(btree):
+    return check_balanced(btree)[0]
+    
+def check_balanced(btree):
+    if btree is None: return True, 0
+    left_balanced, left_depth = check_balanced(btree.left)
+    right_balanced, right_depth = check_balanced(btree.right)
+    btree.depth = 1 + max(left_depth, right_depth)
+    return left_balanced and right_balanced and \
+        (abs(depth(btree.left) - depth(btree.right)) <= 1), btree.depth
 
 #Testing
 
@@ -82,11 +95,33 @@ unbalanced_tree2.right.right.right = BinaryTree(random.randint(0, 100))
 #this unbalances it
 unbalanced_tree2.right.right.right.right = BinaryTree(random.randint(0, 100))
 
-if not is_balanced_binary_tree(unbalanced_tree):
-    print "Test 1 passed"
-if is_balanced_binary_tree(balanced_tree):
-    print "Test 2 passed"
-if is_balanced_binary_tree(balanced_tree2):
-    print "Test 3 passed"
-if not is_balanced_binary_tree(unbalanced_tree2):
-    print "Test 4 passed"
+#building testcase 5
+unbalanced_tree3 = BinaryTree(random.randint(0, 100))
+unbalanced_tree3.left = BinaryTree(random.randint(0, 100))
+unbalanced_tree3.left.right = BinaryTree(random.randint(0, 100))
+unbalanced_tree3.right = BinaryTree(random.randint(0, 100))
+unbalanced_tree3.right.right = BinaryTree(random.randint(0, 100))
+unbalanced_tree3.right.right.right = BinaryTree(random.randint(0, 100))
+
+test_func = [is_balanced_binary_tree, is_balanced_binary_tree2]
+for func in test_func:
+    if not func(unbalanced_tree):
+        print "Test 1 passed"
+    else:
+        print "Test 1 not passed"
+    if func(balanced_tree):
+        print "Test 2 passed"
+    else:
+        print "Test 2 not passed"
+    if func(balanced_tree2):
+        print "Test 3 passed"
+    else:
+        print "Test 3 not passed"
+    if not func(unbalanced_tree2):
+        print "Test 4 passed"
+    else:
+        print "Test 4 not passed"
+    if not func(unbalanced_tree3):
+        print "Test 5 passed"
+    else:
+        print "Test 5 not passed"
