@@ -34,7 +34,23 @@ def binary_tree_to_list_of_linked_lists(btree,depth=1,returnlist=[]):
         returnlist=binary_tree_to_list_of_linked_lists(btree.right,depth+1,returnlist)
     return returnlist
 
-
+def binary_tree_to_list(btree):
+    if btree is None:
+        return []
+    ret = [[btree.content]]
+    queue = [btree]
+    while len(queue) > 0:
+        new_queue = []
+        for node in queue:
+            if node.left is not None:
+                new_queue.append(node.left)
+            if node.right is not None:
+                new_queue.append(node.right)
+        queue = new_queue
+        if len(queue) == 0:
+            break
+        ret.append([x.content for x in queue])
+    return ret
 
 #building testcase 1
 def make_random_balanced_tree(depth):
@@ -59,6 +75,8 @@ count=0
 for ll in binary_tree_to_list_of_linked_lists(balanced_tree):
     count += 1
     print str(count) + ": " + str(ll)
+
+print "list version", binary_tree_to_list(balanced_tree)
     
 #sample output
 ##( 60 ( ( 59 ( ( 32 ( ( 95 ( ( 42 ( None | None)) | ( 11 ( None | None)))) | ( 1 ( ( 56 ( None | None)) | ( 11 ( None | None)))))) | ( 26 ( ( 25 ( ( 68 ( None | None)) | ( 56 ( None | None)))) | ( 29 ( ( 41 ( None | None)) | ( 21 ( None | None)))))))) | ( 88 ( ( 63 ( ( 58 ( ( 4 ( None | None)) | ( 70 ( None | None)))) | ( 30 ( ( 53 ( None | None)) | ( 38 ( None | None)))))) | ( 4 ( ( 93 ( ( 91 ( None | None)) | ( 21 ( None | None)))) | ( 55 ( ( 62 ( None | None)) | ( 25 ( None | None))))))))))
