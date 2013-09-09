@@ -26,6 +26,25 @@ def is_route_between(node1,node2,cache={},cache2={}):
     cache2[(str(hash(node1)) + "," + str(hash(node2)))]=nodefound
     return nodefound
 
+#bfs algorithm
+def is_route_between2(node1, node2):
+    if node1 is node2:
+        return True
+    elif node1 is None or node2 is None:
+        return False
+    visited = set([node1, node2])
+    from Queue import deque
+    queue = deque([node1])
+    while len(queue) > 0:
+        node = queue.popleft()
+        for child in node.neighbours:
+            if child is node2:
+                return True
+            elif child not in visited:
+                visited.add(child)
+                queue.append(child)
+    return False
+
 #testing
 
 n1 = DirectedGraph(1)
@@ -41,11 +60,14 @@ n2.neighbours.append(n4)
 n4.neighbours.append(n5)
 n4.neighbours.append(n1)
 
-if is_route_between(n1,n5):
-    print "Test 1 passed"
+test_func = [is_route_between, is_route_between2]
 
-if not is_route_between(n5,n1):
-    print "Test 2 passed"
+for func in test_func:
+    if func(n1,n5):
+        print "Test 1 passed"
 
-if not is_route_between(n1,n6):
-    print "Test 3 passed"
+    if not func(n5,n1):
+        print "Test 2 passed"
+
+    if not func(n1,n6):
+        print "Test 3 passed"
