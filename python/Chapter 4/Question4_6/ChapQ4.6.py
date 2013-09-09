@@ -15,6 +15,7 @@ class BinaryTree:
 def find_next_btree(btree):
 	if btree is None: return None
 	if btree.right is None:
+		#be careful here!
 		ret = btree.parent
 		while ret is not None and ret.content <= btree.content:
 			ret = ret.parent
