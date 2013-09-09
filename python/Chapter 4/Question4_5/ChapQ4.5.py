@@ -4,7 +4,6 @@ class BinaryTree:
         self.content = content
         self.left = None
         self.right = None
-        self.parent = None
 
     def __str__(self):
         return "( " + str(self.content) + " ( " + str(self.left) + " | " + str(self.right) + "))" 
