@@ -6,7 +6,7 @@ public class Question {
 	public static String[] digits = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
 	public static String[] teens = {"Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
 	public static String[] tens = {"Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
-	public static String[] bigs = {"", "Thousand", "Million"};
+	public static String[] bigs = {"", "Thousand", "Million", "Billion"};
 	
 	public static String numToString(int number) {
 		if (number == 0) {
@@ -85,16 +85,23 @@ public class Question {
 		}		
 		
 		
-		/* numbers between 100000 and 1000000 */
+		/* numbers between 100000 and 100000000 */
 		for (int i = 0; i < 10; i++) {
 			int value = AssortedMethods.randomIntInRange(100000, 100000000);
 			String s = numToString(value);
 			System.out.println(value + ": " + s);
 		}	
 		
-		/* numbers between 100000 and 1000000 */
+		/* numbers between 100000000 and 1000000000 */
 		for (int i = 0; i < 10; i++) {
 			int value = AssortedMethods.randomIntInRange(100000000, 1000000000);
+			String s = numToString(value);
+			System.out.println(value + ": " + s);
+		}			
+                
+		/* numbers between 1000000000 and Integer.MAX_VALUE */
+		for (int i = 0; i < 10; i++) {
+			int value = AssortedMethods.randomIntInRange(1000000000, Integer.MAX_VALUE);
 			String s = numToString(value);
 			System.out.println(value + ": " + s);
 		}			
