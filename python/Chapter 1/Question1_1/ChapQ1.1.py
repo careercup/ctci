@@ -26,6 +26,20 @@ def hasAllUniqueCharsList(inputstring):
             charlist.append(char)
     return True
 
+def hasAllUniqueCharsList2(inputstring):
+    #another way to use a list
+    #O(n)
+    if len(inputstring) > 256: #assume inputstring is ASCII
+        return False
+    else:
+        charList = [False] * 256;
+        for char in inputstring:
+            if charList[ord(char)]:
+                return False
+            else:
+                charList[ord(char)] = True
+        return True
+
 def hasAllUniqueChars(inputstring):
     #using a hash table (here as a dictionary of key/values)
     chardict = {}
@@ -61,7 +75,7 @@ teststringtrue = "abcdefghijkl"
 teststringfalse = "aabvcgdfgbvxbj"
 
 #list of all functions to test
-funclist = [hasAllUniqueCharsNoDS,hasAllUniqueCharsList,hasAllUniqueChars, hasAllUniqueCharsSet, hasAllUniqueCharsBitVector]
+funclist = [hasAllUniqueCharsNoDS,hasAllUniqueCharsList,hasAllUniqueCharsList2,hasAllUniqueChars, hasAllUniqueCharsSet, hasAllUniqueCharsBitVector]
 
 for func in funclist:
     print "Testing function " + str(func)
