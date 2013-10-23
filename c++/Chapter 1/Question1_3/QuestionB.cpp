@@ -1,8 +1,3 @@
-/*
- * 1.3 Given two strings, write a method to decide if one is a permutation of the other.
- * By using definition of anagram - two words with the same character counts.
- */
-
 #include<iostream>
 #include<string>
 #include<algorithm>

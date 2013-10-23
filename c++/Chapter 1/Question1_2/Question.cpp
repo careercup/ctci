@@ -1,8 +1,3 @@
-/*
- * 1.2 Implement a function void reverse(char* str) in Cor C++ which reverses a null-terminated string.
- *
- */
-
 #include<iostream>
 using namespace std;
 
