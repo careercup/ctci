@@ -1,7 +1,5 @@
 package Question9_1;
 
-import java.util.HashMap;
-
 public class Question {
 
 	public static int countWaysDP(int n, int[] map) {
