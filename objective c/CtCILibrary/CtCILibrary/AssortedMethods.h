@@ -36,4 +36,5 @@
 //- (Trie)getTrieDictionary;
 //- (NSArray *)getListOfWords;
 
+- (NSArray *)getCharacterArray:(NSString *)string;
 @end

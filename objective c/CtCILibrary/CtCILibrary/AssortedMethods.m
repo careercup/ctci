@@ -157,4 +157,13 @@ static AssortedMethods *instance;
 //   
 //}
 
+- (NSArray *)getCharacterArray:(NSString *)string {
+   NSMutableArray *charArray = [[NSMutableArray alloc] initWithCapacity:[string length]];
+   for (int i=0; i<string.length; ++i) {
+      NSString *charStr = [string substringWithRange:NSMakeRange(i, 1)];
+      [charArray addObject:charStr];
+   }
+   return charArray;
+}
+
 @end

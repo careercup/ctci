@@ -9,18 +9,10 @@
 //  of the other.
 
 #import <Foundation/Foundation.h>
-
-NSArray *getCharacterArray(NSString * string) {
-   NSMutableArray *charArray = [[NSMutableArray alloc] initWithCapacity:[string length]];
-   for (int i=0; i<string.length; ++i) {
-      NSString *charStr = [string substringWithRange:NSMakeRange(i, 1)];
-      [charArray addObject:charStr];
-   }
-   return charArray;
-}
+#import "AssortedMethods.h"
 
 NSString *sort(NSString *string) {
-   NSArray *charArray = getCharacterArray(string);
+   NSArray *charArray = [[AssortedMethods sharedInstance] getCharacterArray:string];
    
    NSArray *content = [charArray sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
    
