@@ -20,12 +20,16 @@
     <ClCompile Include="Question1_5\Question1_5.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Misc\SimpleHashTable.h" />
     <ClInclude Include="Question1_1\Question1_1.h" />
     <ClInclude Include="Question1_2\Question1_2.h" />
     <ClInclude Include="Question1_3\Question1_3.h" />
     <ClInclude Include="Question1_3\Question1_3_B.h" />
     <ClInclude Include="Question1_4\Question1_4.h" />
     <ClInclude Include="Question1_5\Question1_5.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Misc\SimpleHashTable.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4B79D473-DF1B-4844-90CA-A853705C8465}</ProjectGuid>

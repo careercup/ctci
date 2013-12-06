@@ -37,6 +37,9 @@
     <Filter Include="1.5">
       <UniqueIdentifier>{ca9175fb-f4fb-4558-923e-d89d51b8bdae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{894c7ac2-27d8-498d-b539-6b426a3ba490}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Question1_5\Question1_5.h">
@@ -57,5 +60,13 @@
     <ClInclude Include="Question1_1\Question1_1.h">
       <Filter>1.1</Filter>
     </ClInclude>
+    <ClInclude Include="Misc\SimpleHashTable.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Misc\SimpleHashTable.inl">
+      <Filter>Misc</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -13,6 +13,4 @@ public:
     string result(bool value);
 }; 
 
-
-
 #endif // __Question_1_1_h__
