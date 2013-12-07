@@ -20,6 +20,15 @@
       <Filter>1.5</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Question1_6\Question1_6.cpp">
+      <Filter>1.6</Filter>
+    </ClCompile>
+    <ClCompile Include="Question1_7\Question1_7.cpp">
+      <Filter>1.7</Filter>
+    </ClCompile>
+    <ClCompile Include="Question1_8\Question1_8.cpp">
+      <Filter>1.8</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="1.1">
@@ -37,7 +46,16 @@
     <Filter Include="1.5">
       <UniqueIdentifier>{ca9175fb-f4fb-4558-923e-d89d51b8bdae}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Misc">
+    <Filter Include="1.6">
+      <UniqueIdentifier>{c708870a-0006-4d33-8715-c7014541b318}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1.7">
+      <UniqueIdentifier>{5b3e5077-b0f4-4520-9f15-6e62bc3391cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1.8">
+      <UniqueIdentifier>{7aafdd18-05b9-4d4b-badb-ccaf9bb4e242}</UniqueIdentifier>
+    </Filter>
+	<Filter Include="Misc">
       <UniqueIdentifier>{894c7ac2-27d8-498d-b539-6b426a3ba490}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -62,6 +80,15 @@
     </ClInclude>
     <ClInclude Include="Misc\SimpleHashTable.h">
       <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Question1_6\Question1_6.h">
+      <Filter>1.6</Filter>
+    </ClInclude>
+    <ClInclude Include="Question1_7\Question1_7.h">
+      <Filter>1.7</Filter>
+    </ClInclude>
+    <ClInclude Include="Question1_8\Question1_8.h">
+      <Filter>1.8</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -8,11 +8,12 @@ using std::string;
 class Question1_5 {
 public:
     int run();
-    int stringToInt(string value);
+    int stringToInt(const string& value);
     string intToString(int value);
-    string charToString(char value);
-    int countCompression(string str);
-    string compressBetter(string str);
+    int countCompression(const string& str);
+
+    /// C++ std::string is efficient and no need to use a "StringBuffer"-like structure.
+    string compressBetter(const string& str);
 }; 
 
 

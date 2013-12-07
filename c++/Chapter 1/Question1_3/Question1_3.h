@@ -8,7 +8,7 @@ using std::string;
 class Question1_3 {
 public:
     int run();
-    bool permutation(string a, string b);
+    bool permutation(const string& a, const string& b);
     string result(bool value);
 }; 
 

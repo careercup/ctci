@@ -18,6 +18,9 @@
     <ClCompile Include="Question1_3\Question1_3_B.cpp" />
     <ClCompile Include="Question1_4\Question1_4.cpp" />
     <ClCompile Include="Question1_5\Question1_5.cpp" />
+    <ClCompile Include="Question1_6\Question1_6.cpp" />
+    <ClCompile Include="Question1_7\Question1_7.cpp" />
+    <ClCompile Include="Question1_8\Question1_8.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Misc\SimpleHashTable.h" />
@@ -27,6 +30,9 @@
     <ClInclude Include="Question1_3\Question1_3_B.h" />
     <ClInclude Include="Question1_4\Question1_4.h" />
     <ClInclude Include="Question1_5\Question1_5.h" />
+    <ClInclude Include="Question1_6\Question1_6.h" />
+    <ClInclude Include="Question1_7\Question1_7.h" />
+    <ClInclude Include="Question1_8\Question1_8.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Misc\SimpleHashTable.inl" />

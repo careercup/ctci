@@ -4,7 +4,7 @@
 class Question1_2 {
 public:
     int run();
-    void reverse(char *str);
+    void reverse(char* str);
 }; 
 
 #endif // __Question_1_2_h__

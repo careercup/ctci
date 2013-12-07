@@ -5,14 +5,12 @@
 
 using namespace std;
 
-//method to convert string to integer. C11 provides new methods to do the same.
-int Question1_5::stringToInt(string value) {
+int Question1_5::stringToInt(const string& value) {
     int temp;
     stringstream(value) >> temp;
     return temp;
 }
 
-//method to convert integer to string. C11 provides new method to do the same.
 string Question1_5::intToString(int value) {
     string temp;
     stringstream convert;
@@ -21,16 +19,7 @@ string Question1_5::intToString(int value) {
     return temp;
 }
 
-//method to convert single character to string. C11 provides new method to do the same.
-string Question1_5::charToString(char value) {
-    string temp;
-    stringstream ss;
-    ss << value;
-    ss >> temp;
-    return temp;
-}
-
-int Question1_5::countCompression(string str) {
+int Question1_5::countCompression(const string& str) {
     if(str.length() == 0) {
         return 0;
     }
@@ -52,11 +41,12 @@ int Question1_5::countCompression(string str) {
     return size;
 }
 
-string Question1_5::compressBetter(string str) {
+string Question1_5::compressBetter(const string& str) {
     int size = countCompression(str);
     if(size >= str.length()) {
         return str;
     }
+
     string newstr;
     char last = str.at(0);
     int count = 1;
@@ -64,13 +54,13 @@ string Question1_5::compressBetter(string str) {
         if(str.at(i) == last) {
             count++;
         } else {
-            newstr.append(charToString(last));
+            newstr += last;
             newstr.append(intToString(count));
             last = str.at(i);
             count = 1;
         }
     }
-    newstr.append(charToString(last));
+    newstr += last;
     newstr.append(intToString(count));
     return newstr;
 }

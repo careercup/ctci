@@ -4,6 +4,9 @@
 #include "Question1_3/Question1_3_B.h"
 #include "Question1_4/Question1_4.h"
 #include "Question1_5/Question1_5.h"
+#include "Question1_6/Question1_6.h"
+#include "Question1_7/Question1_7.h"
+#include "Question1_8/Question1_8.h"
 #include "Misc/SimpleHashTable.h"
 #include <iostream>
 #include <stdexcept>
@@ -14,7 +17,7 @@ using namespace std;
  * Main for running exercises from Chapter 1
  */
 int main() {
-    Question1_1().run();
+    Question1_8().run();
 
     //SimpleHashTable<int, bool> map(5);
     //map.insert(10, true);

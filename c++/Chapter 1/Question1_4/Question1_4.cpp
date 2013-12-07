@@ -12,19 +12,21 @@ void Question1_4::replaceSpaces(char str[], int length) {
             spaceCount++;
         }
     }
+
     //calculate new string size.
     newLength = length + spaceCount * 2;
     str[newLength] = '\0';
+
     //copying the characters backwards and inserting %20
     for(int i = length - 1; i >= 0; i--) {
         if(str[i] == ' ') {
             str[newLength - 1] = '0';
             str[newLength - 2] = '2';
             str[newLength - 3] = '%';
-            newLength = newLength - 3;
+            newLength -= 3;
         } else {
             str[newLength - 1] = str[i];
-            newLength = newLength - 1;
+            newLength--;
         }
     }
 }

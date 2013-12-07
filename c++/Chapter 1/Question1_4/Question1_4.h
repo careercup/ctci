@@ -7,6 +7,4 @@ public:
     void replaceSpaces(char str[], int length);
 }; 
 
-
-
 #endif // __Question_1_4_h__

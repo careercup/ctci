@@ -8,8 +8,8 @@ using std::string;
 class Question1_1 {
 public:
     int run();
-    bool isUniqueChars(string str);
-    bool isUniqueChars2(string str);
+    bool isUniqueChars(const string& str);
+    bool isUniqueChars2(const string& str);
     string result(bool value);
 }; 
 
