@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Question1_1\Question1_1.cpp">
+      <Filter>1.1</Filter>
+    </ClCompile>
+    <ClCompile Include="Question1_2\Question1_2.cpp">
+      <Filter>1.2</Filter>
+    </ClCompile>
+    <ClCompile Include="Question1_3\Question1_3.cpp">
+      <Filter>1.3</Filter>
+    </ClCompile>
+    <ClCompile Include="Question1_3\Question1_3_B.cpp">
+      <Filter>1.3</Filter>
+    </ClCompile>
+    <ClCompile Include="Question1_4\Question1_4.cpp">
+      <Filter>1.4</Filter>
+    </ClCompile>
+    <ClCompile Include="Question1_5\Question1_5.cpp">
+      <Filter>1.5</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Question1_6\Question1_6.cpp">
+      <Filter>1.6</Filter>
+    </ClCompile>
+    <ClCompile Include="Question1_7\Question1_7.cpp">
+      <Filter>1.7</Filter>
+    </ClCompile>
+    <ClCompile Include="Question1_8\Question1_8.cpp">
+      <Filter>1.8</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="1.1">
+      <UniqueIdentifier>{22f75db4-e0dc-4de7-83f4-d7fcbe347d1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1.2">
+      <UniqueIdentifier>{6a12e795-b857-4800-a25b-6180ce520694}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1.3">
+      <UniqueIdentifier>{d1550651-fdc9-4f77-91b1-9ec4da4420e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1.4">
+      <UniqueIdentifier>{bb8c1d75-09e0-4d6e-8bd7-7a053b94abd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1.5">
+      <UniqueIdentifier>{ca9175fb-f4fb-4558-923e-d89d51b8bdae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1.6">
+      <UniqueIdentifier>{c708870a-0006-4d33-8715-c7014541b318}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1.7">
+      <UniqueIdentifier>{5b3e5077-b0f4-4520-9f15-6e62bc3391cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1.8">
+      <UniqueIdentifier>{7aafdd18-05b9-4d4b-badb-ccaf9bb4e242}</UniqueIdentifier>
+    </Filter>
+	<Filter Include="Misc">
+      <UniqueIdentifier>{894c7ac2-27d8-498d-b539-6b426a3ba490}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Question1_5\Question1_5.h">
+      <Filter>1.5</Filter>
+    </ClInclude>
+    <ClInclude Include="Question1_4\Question1_4.h">
+      <Filter>1.4</Filter>
+    </ClInclude>
+    <ClInclude Include="Question1_3\Question1_3.h">
+      <Filter>1.3</Filter>
+    </ClInclude>
+    <ClInclude Include="Question1_3\Question1_3_B.h">
+      <Filter>1.3</Filter>
+    </ClInclude>
+    <ClInclude Include="Question1_2\Question1_2.h">
+      <Filter>1.2</Filter>
+    </ClInclude>
+    <ClInclude Include="Question1_1\Question1_1.h">
+      <Filter>1.1</Filter>
+    </ClInclude>
+    <ClInclude Include="Misc\SimpleHashTable.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Question1_6\Question1_6.h">
+      <Filter>1.6</Filter>
+    </ClInclude>
+    <ClInclude Include="Question1_7\Question1_7.h">
+      <Filter>1.7</Filter>
+    </ClInclude>
+    <ClInclude Include="Question1_8\Question1_8.h">
+      <Filter>1.8</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Misc\SimpleHashTable.inl">
+      <Filter>Misc</Filter>
+    </None>
+  </ItemGroup>
+</Project>
