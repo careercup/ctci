@@ -61,21 +61,24 @@ public class Question {
 		if (max_stack == null) {
 			max_stack = new ArrayList<Box>();
 		}
+		else {
+		  max_stack = new ArrayList<Box>(max_stack);
+		}
 		if (bottom != null) {
 			max_stack.add(0, bottom);
 		}
 		stack_map.put(bottom, max_stack);
 		
-		return (ArrayList<Box>)max_stack.clone();
+		return max_stack;
 	}
 		
 	
 	public static void main(String[] args) {
-		Box[] boxes = { new Box(1, 7, 4), new Box(2, 6, 9), new Box(4, 9, 6), new Box(10, 12, 8),
+		Box[] boxes = { new Box(1, 7, 4), new Box(2, 6, 9), new Box(4, 9, 6), new Box(4, 9, 6), new Box(10, 12, 8),
 						new Box(6, 2, 5), new Box(3, 8, 5), new Box(5, 7, 7), new Box(2, 10, 16), new Box(12, 15, 9)};
 
-		//ArrayList<Box> stack = createStackDP(boxes, null, new HashMap<Box, ArrayList<Box>>());
-		ArrayList<Box> stack = createStackR(boxes, null);		
+		ArrayList<Box> stack = createStackDP(boxes, null, new HashMap<Box, ArrayList<Box>>());
+		//ArrayList<Box> stack = createStackR(boxes, null);		
 		for (int i = stack.size() - 1; i >= 0; i--) {
 			Box b = stack.get(i);
 			System.out.println(b.toString());
