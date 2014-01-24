@@ -158,3 +158,5 @@ $RECYCLE.BIN/
 # Original ignores from ctci repo 
 */bin/*
 java/Chapter 11/Question11_8/RankNode.java
+/.classpath
+/.project
