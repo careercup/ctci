@@ -3,8 +3,7 @@ from revstr import *
 
 class TestReversal(unittest.TestCase):
     def testEmpty(self):
-        '''revStr must return the same string for empty strings'''
-        
+        '''revStr must return the same string for empty strings'''        
         self.assertEqual('', revStr(''))
 
     def testSingle(self):
