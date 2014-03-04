@@ -18,30 +18,31 @@ public class QuestionR {
 	}
 	
 	public static boolean getPath(int x, int y, ArrayList<Point> path) {
-		Point p = new Point(x, y);
-		if (x == 0 && y == 0) {
-			return true; // found a path
+		// If out of bounds or not available, return.
+		if (y < 0 || x < 0 || !isFree(x, y)) {
+			return false;
 		}
-		boolean success = false;
-		if (x >= 1 && isFree(x - 1, y)) { // Try left
-			success = getPath(x - 1, y, path); // Free!  Go left
+		
+		boolean isAtOrigin = (x == 0) && (y == 0);
+		
+		// If there's a path from the start to my current location, add my location.
+		if (isAtOrigin || getPath(x, y - 1, path) || getPath(x - 1, y, path)) { 
+			Point p = new Point(x, y);
+			path.add(p);
+			return true;
 		}
-		if (!success && y >= 1 && isFree(x, y - 1)) { // Try up
-			success = getPath(x, y - 1, path); // Free!  Go up
-		}
-		if (success) {
-			path.add(p); // Right way! Add to path.
-		}
-		return success;
+		
+		return false;
 	}
 	
 	public static void main(String[] args) {
-		maze = AssortedMethods.randomMatrix(10, 10, 0, 4);
+		int size = 5;
+		maze = AssortedMethods.randomMatrix(size, size, 0, 5);
 		
 		AssortedMethods.printMatrix(maze);
 		
 		ArrayList<Point> path = new ArrayList<Point>();
-		boolean success = getPath(9, 9, path);
+		boolean success = getPath(size - 1, size - 1, path);
 		if (success) {
 			String s = AssortedMethods.listOfPointsToString(path);
 			System.out.println(s);

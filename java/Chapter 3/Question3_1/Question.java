@@ -1,5 +1,7 @@
 package Question3_1;
 
+import java.util.EmptyStackException;
+
 public class Question {
 	static int stackSize = 10;
 	static int [] buffer = new int [stackSize * 3];
@@ -22,7 +24,7 @@ public class Question {
 	static void push(int stackNum, int value) throws Exception {
 		/* Check that we have space for the next element */
 		if (stackPointer[stackNum] + 1 >= stackSize) { 
-			throw new Exception("Out of space.");
+			throw new FullStackException();
 		}
 		/* Increment stack pointer and then update top value*/		
 		stackPointer[stackNum]++;
@@ -30,8 +32,8 @@ public class Question {
 	}
 
 	static int pop(int stackNum) throws Exception {
-		if (stackPointer[stackNum] == -1) {
-			throw new Exception("Trying to pop an empty stack.");
+		if (isEmpty(stackNum)) {
+			throw new EmptyStackException();
 		}
 		int value = buffer[absTopOfStack(stackNum)]; // Get top
 		buffer[absTopOfStack(stackNum)] = 0; // Clear index
@@ -40,6 +42,9 @@ public class Question {
 	}
 
 	static int peek(int stackNum) {
+		if (isEmpty(stackNum)) {
+			throw new EmptyStackException();
+		}		
 		return buffer[absTopOfStack(stackNum)];
 	}
 

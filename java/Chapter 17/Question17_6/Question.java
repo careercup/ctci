@@ -44,27 +44,26 @@ public class Question {
 	
 	public static void findUnsortedSequence(int[] array) {
 		// find left subsequence
-		int end_left = findEndOfLeftSubsequence(array);
+		int end_left = findEndOfLeftSubsequence(array);	
 		
-		// find right subsequence
-		int start_right = findStartOfRightSubsequence(array);		
-		
-		// find min and max element of middle
-		int min_index = end_left + 1;
-		if (min_index >= array.length) {
+		if (end_left >= array.length - 1) {
 			//System.out.println("The array is already sorted.");
 			return; // Already sorted
 		}
 		
-		int max_index = start_right - 1;
-		for (int i = end_left; i <= start_right; i++) {
+		// find right subsequence
+		int start_right = findStartOfRightSubsequence(array);	
+		
+		int max_index = end_left; // max of left side
+		int min_index = start_right; // min of right side
+		for (int i = end_left + 1; i < start_right; i++) {
 			if (array[i] < array[min_index]) {
 				min_index = i;
 			}
 			if (array[i] > array[max_index]) {
 				max_index = i;
 			}
-		}
+		}		
 		
 		// slide left until less than array[min_index]
 		int left_index = shrinkLeft(array, min_index, end_left);
@@ -94,13 +93,13 @@ public class Question {
 		for (int i = 1; i < array.length; i++) {
 			if (array[i-1] > array[i]) {
 				return false;
-			}
+			}		
 		}
 		return true;
 	}
 	
 	public static void main(String[] args) {
-		int[] array = {1, 2, 3, 4, 5, 11, 7, 12, 6, 7, 16, 18, 19};
+		int[] array = {1, 2, 4, 7, 10, 11, 8, 12, 5, 7, 16, 18, 19};
 		findUnsortedSequence(array);
 	}
 

@@ -42,7 +42,7 @@ public class Question {
 	
 	public static ArrayList<Box> createStackDP(Box[] boxes, Box bottom, HashMap<Box, ArrayList<Box>> stack_map) {
 		if (bottom != null && stack_map.containsKey(bottom)) {
-			return stack_map.get(bottom);
+			return (ArrayList<Box>) stack_map.get(bottom).clone();
 		}
 		
 		int max_height = 0;
@@ -66,16 +66,15 @@ public class Question {
 		}
 		stack_map.put(bottom, max_stack);
 		
-		return (ArrayList<Box>)max_stack.clone();
+		return max_stack;
 	}
 		
 	
 	public static void main(String[] args) {
-		Box[] boxes = { new Box(1, 7, 4), new Box(2, 6, 9), new Box(4, 9, 6), new Box(10, 12, 8),
-						new Box(6, 2, 5), new Box(3, 8, 5), new Box(5, 7, 7), new Box(2, 10, 16), new Box(12, 15, 9)};
+		Box[] boxes = { new Box(3, 4, 1), new Box(8, 6, 2), new Box(7, 8, 3)};
 
-		//ArrayList<Box> stack = createStackDP(boxes, null, new HashMap<Box, ArrayList<Box>>());
-		ArrayList<Box> stack = createStackR(boxes, null);		
+		ArrayList<Box> stack = createStackDP(boxes, null, new HashMap<Box, ArrayList<Box>>());
+		//ArrayList<Box> stack = createStackR(boxes, null);		
 		for (int i = stack.size() - 1; i >= 0; i--) {
 			Box b = stack.get(i);
 			System.out.println(b.toString());

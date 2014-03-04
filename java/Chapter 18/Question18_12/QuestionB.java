@@ -28,7 +28,7 @@ public class QuestionB {
 	private static int[][] precomputeMatrix(int[][] matrix) {
 		int[][] sumMatrix = new int[matrix.length][matrix[0].length];
 		for (int i = 0; i < matrix.length; i++) {
-			for (int j = 0; j < matrix.length; j++) {
+			for (int j = 0; j < matrix[0].length; j++) {
 				if (i == 0 && j == 0) { // first cell
 					sumMatrix[i][j] = matrix[i][j];
 				} else if (j == 0) { // cell in first column
