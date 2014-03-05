@@ -8,17 +8,14 @@ public class Foo {
 	public int pauseTime = 1000;
 	public Semaphore sem1;
 	public Semaphore sem2;
-	public Semaphore sem3;
 	
 	public Foo() {	
 		try {
 			sem1 = new Semaphore(1);
 			sem2 = new Semaphore(1);
-			sem3 = new Semaphore(1);
 			
 			sem1.acquire();
 			sem2.acquire();
-			sem3.acquire();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -55,7 +52,6 @@ public class Foo {
 			System.out.println("Started Executing 3");
 			Thread.sleep(pauseTime);
 			System.out.println("Finished Executing 3");
-			sem3.release();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

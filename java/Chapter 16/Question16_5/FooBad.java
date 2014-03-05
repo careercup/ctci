@@ -6,17 +6,14 @@ public class FooBad {
 	public int pauseTime = 1000;
 	public ReentrantLock lock1;
 	public ReentrantLock lock2;
-	public ReentrantLock lock3;
 	
 	public FooBad() {	
 		try {
 			lock1 = new ReentrantLock();
 			lock2 = new ReentrantLock();
-			lock3 = new ReentrantLock();
 			
 			lock1.lock();
 			lock2.lock();
-			lock3.lock();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -53,7 +50,6 @@ public class FooBad {
 			System.out.println("Started Executing 3");
 			Thread.sleep(pauseTime);
 			System.out.println("Finished Executing 3");
-			lock3.unlock();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

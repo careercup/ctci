@@ -2,9 +2,9 @@ package Question16_5;
 
 public class MyThread extends Thread {
 	private String method;
-	private Foo foo;
+	private FooBad foo;
 	
-	public MyThread(Foo foo, String method) {
+	public MyThread(FooBad foo, String method) {
 		this.method = method;
 		this.foo = foo;
 	}
