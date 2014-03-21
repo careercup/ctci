@@ -35,13 +35,12 @@ class SinglyLinkedList
   def remove data
     @head = @head.next and return if @head.data == data
     prev = @head
-    current_node = @head.next
-    self.each do
-      if current_node.data == data
-        return prev.next = current_node.next
+    self.each do |node|
+      if node.data == data
+        return prev.next = node.next
       end
-      prev = current_node
-      current_node = current_node.next
+      prev = node
+      node = node.next
     end
   end
 end
