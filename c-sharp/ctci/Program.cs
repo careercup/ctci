@@ -1,4 +1,3 @@
-﻿
 using System;
 using ctci.Contracts;
 using Introduction;
