@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7867FE4-E80B-44DD-9666-C82E6D401B8A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ctci</RootNamespace>
+    <AssemblyName>ctci</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Chapter01\Chapter01.csproj">
+      <Project>{3f2df0fa-d7a0-479b-b720-3ab7411e9539}</Project>
+      <Name>Chapter01</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chapter02\Chapter02.csproj">
+      <Project>{d1ace913-9486-4cdc-b980-a5f848a67108}</Project>
+      <Name>Chapter02</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chapter03\Chapter03.csproj">
+      <Project>{9fdd0b75-3b21-4ab9-aa86-5c4c9b2fbf98}</Project>
+      <Name>Chapter03</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chapter04\Chapter04.csproj">
+      <Project>{73c1fac4-eb22-4328-aa1d-bd2f1280b009}</Project>
+      <Name>Chapter04</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chapter05\Chapter05.csproj">
+      <Project>{6515f74f-66c6-414d-b5ec-10260aad473c}</Project>
+      <Name>Chapter05</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chapter07\Chapter07.csproj">
+      <Project>{97397b7a-a9e6-4419-b5bf-ccd8d1e17c97}</Project>
+      <Name>Chapter07</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chapter09\Chapter09.csproj">
+      <Project>{0e08d7f7-c337-4cd0-945a-d1c5b68e5cf2}</Project>
+      <Name>Chapter09</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chapter11\Chapter11.csproj">
+      <Project>{90d56a57-cead-42f8-a978-bc2d33530e0e}</Project>
+      <Name>Chapter11</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chapter17\Chapter17.csproj">
+      <Project>{64036bb0-00fb-4896-b611-d6fc041f7465}</Project>
+      <Name>Chapter17</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chapter18\Chapter18.csproj">
+      <Project>{e1fb6099-ff08-4f46-a23e-8b04aa84e964}</Project>
+      <Name>Chapter18</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ctci.Contracts\ctci.Contracts.csproj">
+      <Project>{d1b538b9-de81-4fff-93b2-a958ed2ce4da}</Project>
+      <Name>ctci.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Introduction\Introduction.csproj">
+      <Project>{af745a68-20a9-4ff4-801c-86a3b0383c49}</Project>
+      <Name>Introduction</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
