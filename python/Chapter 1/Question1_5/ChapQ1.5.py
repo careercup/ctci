@@ -1,6 +1,6 @@
 #Implement a method to perform basic string compression using the counts of repeated characters
 
-#aabcccccaa would become a2blc5a3.
+#aabcccccaaa would become a2blc5a3.
 
 #do nothing if this would not make the string smaller.
 
