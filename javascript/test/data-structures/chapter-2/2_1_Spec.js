@@ -1,10 +1,10 @@
 require('../../test_helper');
-describe(LinkedList, function () {
-  describe('LinkedList deleteDuplicatesA', function () {
+describe(LinkedList_2_1, function () {
+  describe('LinkedList_2_1 deleteDuplicatesA', function () {
 
   it('returns 0 length list if 0 length list', function () {
       var l = new SinglyLinkedList();
-      LinkedList.deleteDuplicatesA(l);
+      LinkedList_2_1.deleteDuplicatesA(l);
 
       expect(l.head).to.be.undefined;
     });
@@ -12,7 +12,7 @@ describe(LinkedList, function () {
     it('returns 1 length list if 1 length list', function () {
       var l = new SinglyLinkedList();
       l.addBottom(new Node("foo"));
-      LinkedList.deleteDuplicatesA(l);
+      LinkedList_2_1.deleteDuplicatesA(l);
 
       expect(l.head).to.be.not.null;
       expect(l.head.next).to.be.undefined;
@@ -22,7 +22,7 @@ describe(LinkedList, function () {
       var l = new SinglyLinkedList();
       l.addBottom(new Node("foo"));
       l.addBottom(new Node("foo"));
-      LinkedList.deleteDuplicatesA(l);
+      LinkedList_2_1.deleteDuplicatesA(l);
 
       expect(l.head).to.be.not.null;
       expect(l.head.next).to.be.undefined;
@@ -33,7 +33,7 @@ describe(LinkedList, function () {
       l.addBottom(new Node("foo"));
       l.addBottom(new Node("foo"));
       l.addBottom(new Node("bar"));
-      LinkedList.deleteDuplicatesA(l);
+      LinkedList_2_1.deleteDuplicatesA(l);
 
       expect(l.head).to.be.not.null;
       expect(l.head.next).to.be.not.null;
@@ -41,11 +41,11 @@ describe(LinkedList, function () {
     });
     
   });
-describe('LinkedList deleteDuplicatesB', function () {
+describe('LinkedList_2_1 deleteDuplicatesB', function () {
 
   it('returns 0 length list if 0 length list', function () {
       var l = new SinglyLinkedList();
-      LinkedList.deleteDuplicatesB(l);
+      LinkedList_2_1.deleteDuplicatesB(l);
 
       expect(l.head).to.be.undefined;
     });
@@ -53,7 +53,7 @@ describe('LinkedList deleteDuplicatesB', function () {
     it('returns 1 length list if 1 length list', function () {
       var l = new SinglyLinkedList();
       l.addBottom(new Node("foo"));
-      LinkedList.deleteDuplicatesB(l);
+      LinkedList_2_1.deleteDuplicatesB(l);
 
       expect(l.head).to.be.not.null;
       expect(l.head.next).to.be.undefined;
@@ -63,7 +63,7 @@ describe('LinkedList deleteDuplicatesB', function () {
       var l = new SinglyLinkedList();
       l.addBottom(new Node("foo"));
       l.addBottom(new Node("foo"));
-      LinkedList.deleteDuplicatesB(l);
+      LinkedList_2_1.deleteDuplicatesB(l);
 
       expect(l.head).to.be.not.null;
       expect(l.head.next).to.be.undefined;
@@ -74,7 +74,7 @@ describe('LinkedList deleteDuplicatesB', function () {
       l.addBottom(new Node("foo"));
       l.addBottom(new Node("foo"));
       l.addBottom(new Node("bar"));
-      LinkedList.deleteDuplicatesB(l);
+      LinkedList_2_1.deleteDuplicatesB(l);
 
       expect(l.head).to.be.not.null;
       expect(l.head.next).to.be.not.null;

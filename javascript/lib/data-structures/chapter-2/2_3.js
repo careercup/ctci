@@ -1,4 +1,4 @@
-module.exports = LinkedList = (function() {
+module.exports = LinkedList_2_3 = (function() {
   var deleteNode = function(node) {
     if(!node || !node.next) return;
     var next = node.next;

@@ -1,10 +1,10 @@
 require('../../test_helper');
-describe(LinkedList, function () {
+describe(LinkedList_2_3, function () {
   describe('deleteNode)', function () {
 
   it('runs if 0 length list', function () {
       var l = new SinglyLinkedList();
-      LinkedList.deleteNode(l, new Node("foo"));
+      LinkedList_2_3.deleteNode(l, new Node("foo"));
       expect(l).to.be.not.null;
     });
     
@@ -14,7 +14,7 @@ describe(LinkedList, function () {
       var n = new Node("foo");
       l.addBottom(n);
       l.addBottom(new Node("bar"));
-      LinkedList.deleteNode(n);
+      LinkedList_2_3.deleteNode(n);
       expect(l.head).to.equal(n);
       expect(l.head.data).to.equal("bar");
     });
@@ -28,7 +28,7 @@ describe(LinkedList, function () {
       l.addBottom(new Node("d"));
       l.addBottom(new Node("e"));
       
-      LinkedList.deleteNode(n);
+      LinkedList_2_3.deleteNode(n);
       expect(l.head).to.be.not.null;
       expect(l.head.data).to.equal("a");
       expect(l.head.next.data).to.equal("b");

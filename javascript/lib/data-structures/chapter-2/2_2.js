@@ -1,4 +1,4 @@
-module.exports = LinkedList = (function() {
+module.exports = LinkedList_2_2 = (function() {
   /* 
    * Return the kth element from the end
    * Make a stack of pointers to each linked list element
