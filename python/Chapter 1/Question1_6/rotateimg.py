@@ -11,6 +11,9 @@ def rotate(seq):
         seq[idx] = [orig[n][idx] for n in r]
     return seq
 
+def rotate3(seq):
+    return zip(*seq[::-1])
+
 if __name__ == '__main__':
     x = [ ['p00', 'p01', 'p02', 'p03'],
           ['p10', 'p11', 'p12', 'p13'],
