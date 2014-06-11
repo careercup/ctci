@@ -27,6 +27,19 @@ def find_next_btree(btree):
 			ret = ret.left
 		return ret
 
+# recursive solution
+
+def find_next_node(tree):
+    assert isinstance(tree, Tree)
+    if tree.is_leaf():
+        print tree.value, tree.is_leaf()
+        return tree.value
+    if tree.right!=None:
+        return find_next_node(tree.right)
+    if tree.left!=None:
+        return find_next_node(tree.left)
+
+
 #test
 from random import randrange
 def make_random_bsearch_tree(depth = 2, l = -10, r = 10, parent = None):
