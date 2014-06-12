@@ -1,4 +1,4 @@
-module.exports = LinkedList = (function() {
+module.exports = LinkedList_2_1 = (function() {
   var deleteDuplicatesA = function(linkedList) {
     if(!linkedList || !linkedList.head) return;
     var values = {};
