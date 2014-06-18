@@ -1,19 +1,17 @@
-﻿from collections import OrderedDict
-
-def compress(s):
-	d = OrderedDict()
-	for i in s:
-		if i in d:
-			d[i] += 1
-		else:
-			d[i] = 1
-	cs = ''
-	for i in zip(d.keys(), d.values()):
-		cs += str(i[0]) # letter, eg. a
-		cs += str(i[1]) # count, eg. 3
-	return cs if len(cs) < len(s) else s
+def compress(string):
+    previous_character = string[0]
+    counter = 1
+    result = ''
+    for c in string[1:]:
+        if c == previous_character:
+            counter += 1
+        else:
+            result += previous_character + str(counter)
+            previous_character = c
+            counter = 1
+    return result + c + str(counter)
 
 if __name__ == '__main__':
-    words = ('aaabbbbcccccdee', 'abc', 'a', '', ' ', 'aabccdde', 'aab', 'aaabb')
+    words = ('aabcccccaaa', 'aaabbbbcccccdee', 'abc', 'a', '', ' ', 'aabccdde', 'aab', 'aaabb')
     for w in words:
         print('compress({}): {}'.format(w, compress(w)))
