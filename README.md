@@ -1,7 +1,7 @@
 ctci
 ====
 
-Solutions for "Cracking the Coding Interview v5"
+Cracking the Coding Interview
 
-Adding equivalent solutions in Objective-C
-Adding my own solutions
+
+Including my Python solutions.
