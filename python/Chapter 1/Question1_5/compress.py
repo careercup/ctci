@@ -13,7 +13,12 @@ def compress(string):
             result += previous_character + str(counter)
             previous_character = c
             counter = 1
-    return result + c + str(counter)
+    result = result + c + str(counter)
+    if len(result) < len(string):
+        return result
+    else:
+        return string
+
 
 import itertools
 
