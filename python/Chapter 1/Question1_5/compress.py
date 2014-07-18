@@ -1,4 +1,8 @@
 def compress(string):
+
+    if len(string) < 2:
+        return string
+
     previous_character = string[0]
     counter = 1
     result = ''
