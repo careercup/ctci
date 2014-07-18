@@ -1,12 +1,12 @@
-def compress(string):
+def compress(str_):
 
-    if len(string) < 2:
-        return string
+    if len(str_) < 2:
+        return str_
 
-    previous_character = string[0]
+    previous_character = str_[0]
     counter = 1
     result = ''
-    for c in string[1:]:
+    for c in str_[1:]:
         if c == previous_character:
             counter += 1
         else:
@@ -14,10 +14,10 @@ def compress(string):
             previous_character = c
             counter = 1
     result = result + c + str(counter)
-    if len(result) < len(string):
+    if len(result) < len(str_):
         return result
     else:
-        return string
+        return str_
 
 
 import itertools
