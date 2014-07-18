@@ -3,17 +3,19 @@ def compress(str_):
     if len(str_) < 2:
         return str_
 
+    groups = []
     previous_character = str_[0]
     counter = 1
-    result = ''
+
     for c in str_[1:]:
         if c == previous_character:
             counter += 1
         else:
-            result += previous_character + str(counter)
+            groups.append(previous_character + str(counter))
             previous_character = c
             counter = 1
-    result = result + c + str(counter)
+    groups.append(c + str(counter))
+    result = ''.join(groups)
     if len(result) < len(str_):
         return result
     else:
