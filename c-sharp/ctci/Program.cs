@@ -28,7 +28,7 @@ namespace ctci
                 new Q02_1(),                    new Q02_2(), new Q02_3(), new Q02_4(), new Q02_5(), new Q02_6(), new Q02_7(),
                 new Q03_1_A(), new Q03_1_B(),   new Q03_2(), new Q03_3(), new Q03_4(), new Q03_5(), new Q03_6(), new Q03_7(),
                 new Q04_1(),                    new Q04_2(), new Q04_3(), new Q04_4(), new Q04_5(), new Q04_6(), new Q04_7(), new Q04_8(), new Q04_9(),
-                                                new Q05_2(),
+                                                new Q05_1(), new Q05_2(),
                                                                                                     new Q07_6(),
                                                                                                     new Q09_6(),
                 new Q11_1(),                    new Q11_2(),
