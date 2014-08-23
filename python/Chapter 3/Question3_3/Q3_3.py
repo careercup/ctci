@@ -36,12 +36,12 @@ def test():
     print ""
 
     for i in range(5):
-        print "Poped", setofstacks.pop()
+        print "Popped", setofstacks.pop()
 
     print "Test for popAt"
     for i in range(5):
         for i in range(3):
-            print "Poped", setofstacks.popAt(i+1)
+            print "Popped", setofstacks.popAt(i+1)
 
 
 if __name__ == "__main__":
