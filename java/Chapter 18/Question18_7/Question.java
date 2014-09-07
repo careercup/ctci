@@ -1,11 +1,7 @@
 package Question18_7;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Set;
-
-import CtCILibrary.AssortedMethods;
 
 public class Question {
 	public static String printLongestWord(String arr[]) {

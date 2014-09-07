@@ -36,7 +36,7 @@ public class QuestionC {
 			/* If we’re currently at p or q, and we also found one of those
 			 * nodes in a subtree, then this is truly an ancestor and the
 			 * flag should be true. */
-			boolean isAncestor = rx.node != null || ry.node != null ? true : false;
+			boolean isAncestor = rx.node != null || ry.node != null;
 			return new Result(root, isAncestor);
 		} else {
 			return new Result(rx.node != null ? rx.node : ry.node, false);

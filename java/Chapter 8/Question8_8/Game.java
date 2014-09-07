@@ -1,9 +1,5 @@
 package Question8_8;
 
-import java.util.ArrayList;
-
-import CtCILibrary.AssortedMethods;
-
 public class Game {
 	private Player[] players;
 	private static Game instance;

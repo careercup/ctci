@@ -1,7 +1,5 @@
 package Question17_6;
 
-import CtCILibrary.AssortedMethods;
-
 public class Question {
 
 	public static int findEndOfLeftSubsequence(int[] array) {

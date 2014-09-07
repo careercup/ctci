@@ -3,7 +3,7 @@ package Question1_1;
 public class Question {
 
 	public static boolean isUniqueChars(String str) {
-		if (str.length() > 256) {
+		if (str.length() > 128) {
 			return false;
 		}
 		int checker = 0;
@@ -16,10 +16,10 @@ public class Question {
 	}
 	
 	public static boolean isUniqueChars2(String str) {
-		if (str.length() > 256) {
+		if (str.length() > 128) {
 			return false;
 		}
-		boolean[] char_set = new boolean[256];
+		boolean[] char_set = new boolean[128];
 		for (int i = 0; i < str.length(); i++) {
 			int val = str.charAt(i);
 			if (char_set[val]) return false;

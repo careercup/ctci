@@ -6,7 +6,7 @@ public class QuestionB {
 			return false;
 		}
 		
-		int[] letters = new int[256];
+		int[] letters = new int[128];
 		 
 		char[] s_array = s.toCharArray();
 		for (char c : s_array) { // count number of each char in s.
