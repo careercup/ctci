@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using ctci.Contracts;
 using ctci.Library;
+using System;
 
 namespace Chapter02
 {
     public class Q02_4 : IQuestion
     {
-        LinkedListNode Partition(LinkedListNode node, int x)
+        LinkedListNode Partition(LinkedListNode node, int pivot)
         {
             LinkedListNode beforeStart = null;
             LinkedListNode beforeEnd = null;
@@ -17,9 +17,10 @@ namespace Chapter02
             /* Partition list */
             while (node != null)
             {
-                LinkedListNode next = node.Next;
+                var next = node.Next;
                 node.Next = null;
-                if (node.Data < x)
+
+                if (node.Data < pivot)
                 {
                     if (beforeStart == null)
                     {
@@ -55,10 +56,11 @@ namespace Chapter02
             }
 
             beforeEnd.Next = afterStart;
+
             return beforeStart;
         }
 
-        LinkedListNode Partition2(LinkedListNode node, int x)
+        LinkedListNode Partition2(LinkedListNode node, int pivot)
         {
             LinkedListNode beforeStart = null;
             LinkedListNode afterStart = null;
@@ -66,8 +68,9 @@ namespace Chapter02
             /* Partition list */
             while (node != null)
             {
-                LinkedListNode next = node.Next;
-                if (node.Data < x)
+                var next = node.Next;
+
+                if (node.Data < pivot)
                 {
                     /* Insert node into start of before list */
                     node.Next = beforeStart;
@@ -88,24 +91,28 @@ namespace Chapter02
                 return afterStart;
             }
 
-            LinkedListNode head = beforeStart;
+            var head = beforeStart;
+
             while (beforeStart.Next != null)
             {
                 beforeStart = beforeStart.Next;
             }
+
             beforeStart.Next = afterStart;
+            
             return head;
         }
 
         LinkedListNode Partition3(LinkedListNode listHead, int pivot)
         {
-            LinkedListNode leftList = new LinkedListNode(); // empty temp node to not have an IF inside the loop
-            LinkedListNode rightList = new LinkedListNode(pivot, null, null);
+            var leftList = new LinkedListNode(); // empty temp node to not have an IF inside the loop
+            var rightList = new LinkedListNode(pivot, null, null);
 
-            LinkedListNode leftListHead = leftList; // Used at the end to remove the empty node.
-            LinkedListNode rightListHead = rightList; // Used at the end to merge lists.
+            var leftListHead = leftList; // Used at the end to remove the empty node.
+            var rightListHead = rightList; // Used at the end to merge lists.
 
-            LinkedListNode currentNode = listHead;
+            var currentNode = listHead;
+
             while (currentNode != null)
             {
                 if (currentNode.Data < pivot)
@@ -122,7 +129,7 @@ namespace Chapter02
 
             leftList.Next = rightListHead;
 
-            LinkedListNode finalList = leftListHead.Next;
+            var finalList = leftListHead.Next;
             leftListHead.Next = null; // remove the temp node, GC will release the mem
 
             return finalList;
@@ -130,16 +137,16 @@ namespace Chapter02
 
         LinkedListNode Partition4(LinkedListNode listHead, int pivot)
         {
-            LinkedListNode nextNode = null;
             LinkedListNode leftSubList = null;
             LinkedListNode rightSubList = null;
             LinkedListNode rightSubListHead = null;
             LinkedListNode pivotNode = null;
 
-            LinkedListNode currentNode = listHead;
+            var currentNode = listHead;
+
             while (currentNode != null)
             {
-                nextNode = currentNode.Next;
+                var nextNode = currentNode.Next;
                 currentNode.Next = null;
 
                 if (currentNode.Data < pivot)
@@ -173,22 +180,24 @@ namespace Chapter02
         {
 		    /* Create linked list */
 		    int[] vals = {1, 3, 7, 5, 2, 9, 4};
-		    LinkedListNode head = new LinkedListNode(vals[0], null, null);
-		    LinkedListNode current = head;
-		    for (int i = 1; i < vals.Length; i++) {
+		    var head = new LinkedListNode(vals[0], null, null);
+		    var current = head;
+
+		    for (var i = 1; i < vals.Length; i++) 
+            {
 			    current = new LinkedListNode(vals[i], null, current);
 		    }
 		    Console.WriteLine(head.PrintForward());
 
-            LinkedListNode head2 = head.Clone();
-            LinkedListNode head3 = head.Clone();
-            LinkedListNode head4 = head.Clone();
+            var head2 = head.Clone();
+            var head3 = head.Clone();
+            var head4 = head.Clone();
 		
 		    /* Partition */
-		    LinkedListNode h = Partition(head, 5);
-            LinkedListNode h2 = Partition2(head2, 5);
-            LinkedListNode h3 = Partition3(head3, 5);
-            LinkedListNode h4 = Partition4(head4, 5);
+            var h = Partition(head, 5);
+            var h2 = Partition2(head2, 5);
+            var h3 = Partition3(head3, 5);
+            var h4 = Partition4(head4, 5);
 		
 		    /* Print Result */
             Console.WriteLine(h.PrintForward());

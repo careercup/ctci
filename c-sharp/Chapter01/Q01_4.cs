@@ -1,41 +1,40 @@
 ﻿
-using System;
-
 using ctci.Contracts;
+using System;
 
 namespace Chapter01
 {
     public class Q01_4 : IQuestion
     {
-        void ReplaceSpaces(char[] str, int length) 
+        void ReplaceSpaces(char[] input, int length) 
         {
-            int spaceCount = 0;
+            var spaceCount = 0;
 
             // count the number of spaces
-            foreach (char c in str)
+            foreach (var character in input)
             {
-                if (c == ' ')
+                if (character == ' ')
                 {
                     spaceCount++;
                 }
             }
 
             // calculate new string size
-            int index = length + spaceCount * 2;
+            var index = length + spaceCount * 2;
 
             // copying the characters backwards and inserting %20
-            for (int i = length - 1; i >= 0; i--)
+            for (var i = length - 1; i >= 0; i--)
             {
-                if (str[i] == ' ')
+                if (input[i] == ' ')
                 {
-                    str[index - 1] = '0';
-                    str[index - 2] = '2';
-                    str[index - 3] = '%';
+                    input[index - 1] = '0';
+                    input[index - 2] = '2';
+                    input[index - 3] = '%';
                     index -= 3;
                 }
                 else
                 {
-                    str[index - 1] = str[i];
+                    input[index - 1] = input[i];
                     index--;
                 }
             }
@@ -43,13 +42,16 @@ namespace Chapter01
 
         public void Run()
         {
-            String str = "abc d e f";
-		    char[] arr = new char[str.Length + 3 * 2 + 1];
-		    for (int i = 0; i < str.Length; i++) {
-			    arr[i] = str[i];
+            const string input = "abc d e f";
+		    var characterArray = new char[input.Length + 3 * 2 + 1];
+
+		    for (var i = 0; i < input.Length; i++) 
+            {
+			    characterArray[i] = input[i];
 		    }
-		    ReplaceSpaces(arr, str.Length);	
-		    Console.WriteLine("{0} -> {1}", str, new string(arr));
+
+		    ReplaceSpaces(characterArray, input.Length);	
+		    Console.WriteLine("{0} -> {1}", input, new string(characterArray));
         }
     }
 }
