@@ -93,15 +93,18 @@ namespace ctci.Library
 		    return sb.ToString();
 	    }
 	
-	    public static string ToFullBinarystring(int a)
+	    public static string ToFullBinarystring(int number)
         {
-		    string s = "";
-		    for (int i = 0; i < 32; i++) {
-			    int lsb = a & 1;
-                s = string.Format("{0}{1}", lsb, s);
-			    a = a >> 1;
+		    var binaryString = "";
+		    
+            for (var i = 0; i < 32; i++) 
+            {
+			    var lsb = number & 1;
+                binaryString = string.Format("{0}{1}", lsb, binaryString);
+			    number = number >> 1;
 		    }
-		    return s;
+
+		    return binaryString;
 	    }
 	
 	    public static string ToBaseNstring(int a, int baseN)
