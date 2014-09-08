@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using ctci.Contracts;
+using System;
+using System.Collections.Generic;
 
 namespace Chapter03
 {
@@ -11,6 +12,7 @@ namespace Chapter03
             public Node Above {get; set;}
             public Node Below { get; set; }
             public int Value { get; set; }
+
             public Node(int value)
             {
                 Value = value;
@@ -37,27 +39,45 @@ namespace Chapter03
 
             public void join(Node above, Node below)
             {
-                if (below != null) below.Above = above;
-                if (above != null) above.Below = below;
+                if (below != null)
+                {
+                    below.Above = above;
+                }
+
+                if (above != null)
+                {
+                    above.Below = below;
+                }
             }
 
-            public bool Push(int v)
+            public bool Push(int value)
             {
-                if (Size >= _capacity) return false;
+                if (Size >= _capacity)
+                {
+                    return false;
+                }
+
                 Size++;
-                Node n = new Node(v);
-                if (Size == 1) Bottom = n;
-                join(n, Top);
-                Top = n;
+                var node = new Node(value);
+
+                if (Size == 1)
+                {
+                    Bottom = node;
+                }
+
+                join(node, Top);
+                Top = node;
+                
                 return true;
             }
 
             public int Pop()
             {
-                Node t = Top;
+                var top = Top;
                 Top = Top.Below;
                 Size--;
-                return t.Value;
+
+                return top.Value;
             }
 
             public bool IsEmpty()
@@ -67,11 +87,17 @@ namespace Chapter03
 
             public int RemoveBottom()
             {
-                Node b = Bottom;
+                var bottomNode = Bottom;
                 Bottom = Bottom.Above;
-                if (Bottom != null) Bottom.Below = null;
+
+                if (Bottom != null)
+                {
+                    Bottom.Below = null;
+                }
+                
                 Size--;
-                return b.Value;
+                
+                return bottomNode.Value;
             }
         }
 
@@ -91,33 +117,39 @@ namespace Chapter03
                 {
                     return null;
                 }
+
                 return _stacks[_stacks.Count - 1];
             }
 
-            public void Push(int v)
+            public void Push(int value)
             {
-                Stack last = GetLastStack();
+                var last = GetLastStack();
+
                 if (last != null && !last.IsFull())
-                { // add to last
-                    last.Push(v);
+                { 
+                    // add to last
+                    last.Push(value);
                 }
                 else
-                { // must create new stack
-                    Stack stack = new Stack(Capacity);
-                    stack.Push(v);
+                { 
+                    // must create new stack
+                    var stack = new Stack(Capacity);
+                    stack.Push(value);
                     _stacks.Add(stack);
                 }
             }
 
             public int Pop()
             {
-                Stack last = GetLastStack();
-                int v = last.Pop();
+                var last = GetLastStack();
+                var value = last.Pop();
+
                 if (last.Size == 0)
                 {
                     _stacks.RemoveAt(_stacks.Count - 1);
                 }
-                return v;
+
+                return value;
             }
 
             public int PopAt(int index)
@@ -127,25 +159,26 @@ namespace Chapter03
 
             public int LeftShift(int index, bool removeTop)
             {
-                Stack stack = _stacks[index];
-                int removedItem;
-                if (removeTop) removedItem = stack.Pop();
-                else removedItem = stack.RemoveBottom();
+                var stack = _stacks[index];
+                var removedItem = (removeTop) ? stack.Pop() : stack.RemoveBottom();
+
                 if (stack.IsEmpty())
                 {
                     _stacks.RemoveAt(index);
                 }
                 else if (_stacks.Count > index + 1)
                 {
-                    int v = LeftShift(index + 1, false);
+                    var v = LeftShift(index + 1, false);
                     stack.Push(v);
                 }
+
                 return removedItem;
             }
 
             public bool IsEmpty()
             {
-                Stack last = GetLastStack();
+                var last = GetLastStack();
+                
                 return last == null || last.IsEmpty();
             }
         }
@@ -153,14 +186,26 @@ namespace Chapter03
         public void Run()
         {
 		    const int capacityPerSubstack = 5;
-		    SetOfStacks set = new SetOfStacks(capacityPerSubstack);
-		    for (int i = 0; i < 34; i++)
+		    var set = new SetOfStacks(capacityPerSubstack);
+
+            Console.WriteLine("IsEmpty? {0}", set.IsEmpty());
+
+		    for (var i = 0; i < 34; i++)
             {
 			    set.Push(i);
 		    }
-		    for (int i = 0; i < 34; i++)
+            Console.WriteLine("IsEmpty? {0}", set.IsEmpty());
+
+		    for (var i = 0; i < 34; i++)
             {
-			    Console.WriteLine("Popped " + set.Pop());
+                if (i == 0)
+                {
+                    set.PopAt(i);
+                }
+                else
+                {
+                    Console.WriteLine("Popped " + set.Pop());    
+                }
 		    }
         }
     }

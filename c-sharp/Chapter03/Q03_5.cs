@@ -46,44 +46,60 @@ namespace Chapter03
             public T Peek()
             {
                 ShiftStacks();
-                return _stackOldest.Peek(); // retrieve the oldest item.
+
+                // retrieve the oldest item.
+                return _stackOldest.Peek(); 
             }
 
             public T Dequeue()
             {
                 ShiftStacks();
-                return _stackOldest.Pop(); // pop the oldest item.
+
+                // pop the oldest item.
+                return _stackOldest.Pop(); 
             }
         }
 
         public void Run()
         {
-		    MyQueue<int> myQueue = new MyQueue<int>();	
+		    var myQueue = new MyQueue<int>();	
 
             // Let's test our code against a "real" queue
-            Queue<int> testQueue = new Queue<int>();
+            var testQueue = new Queue<int>();
 
-            for (int i = 0; i < 100; i++) {
-			    int choice = AssortedMethods.RandomIntInRange(0, 10);
-			    if (choice <= 5) { // enqueue
-                    int element = AssortedMethods.RandomIntInRange(1, 10);
+            for (var i = 0; i < 100; i++) 
+            {
+			    var choice = AssortedMethods.RandomIntInRange(0, 10);
+			
+                if (choice <= 5)
+                { 
+                    // enqueue
+                    var element = AssortedMethods.RandomIntInRange(1, 10);
 				    testQueue.Enqueue(element);
 				    myQueue.Enqueue(element);
                     Console.WriteLine("Enqueued " + element);
-			    } else if (testQueue.Count > 0) {
-				    int top1 = testQueue.Dequeue();
-				    int top2 = myQueue.Dequeue();
-				    if (top1 != top2) { // Check for error
+			    } 
+                else if (testQueue.Count > 0) 
+                {
+				    var top1 = testQueue.Dequeue();
+                    var top2 = myQueue.Dequeue();
+
+				    if (top1 != top2) 
+                    { // Check for error
 					    Console.WriteLine("******* FAILURE - DIFFERENT TOPS: " + top1 + ", " + top2);
 				    } 
 				    Console.WriteLine("Dequeued " + top1);
 			    }
 
-                if (testQueue.Count == myQueue.Size()) {
-				    if (testQueue.Count > 0 && testQueue.Peek() != myQueue.Peek()) {
+                if (testQueue.Count == myQueue.Size()) 
+                {
+				    if (testQueue.Count > 0 && testQueue.Peek() != myQueue.Peek()) 
+                    {
 					    Console.WriteLine("******* FAILURE - DIFFERENT TOPS: " + testQueue.Peek() + ", " + myQueue.Peek() + " ******");
 				    }
-			    } else {
+			    } 
+                else 
+                {
 				    Console.WriteLine("******* FAILURE - DIFFERENT SIZES ******");
 			    }
 		    }
