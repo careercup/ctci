@@ -52,6 +52,7 @@ object Chapter1{
     for(i <-0 until matrix.length; if(matrix(i)(0) == 0)){
       for(j<-1 until matrix(0).length) matrix(i)(j) = 0
     } 
+
     for(i <-0 until matrix(0).length; if(matrix(0)(i) == 0)){
       for(j<-1 until matrix.length) matrix(j)(i) = 0
     } 
@@ -61,6 +62,13 @@ object Chapter1{
 
     if(firstColZero)
       for(j<-0 until matrix.length) matrix(j)(0) = 0
+  }
+
+
+  def isRotation(str1: String, str2: String) = {
+    if(str1.length == str2.length)
+      (str1+str1).contains(str2)
+    false
   }
 
 }

@@ -64,6 +64,18 @@ class Chapter1Test extends Specification {
   }
   /*==============================================================*/
 
+  /* 
+  *Question1_8 
+  */
+  "Question1_8" should {
+    "is two strs rotation each other" in {
+
+      isRotation("abc", "bca") == true
+      isRotation("abcd", "bca") == false 
+    }
+  }
+  /*==============================================================*/
+
 
 
 }
