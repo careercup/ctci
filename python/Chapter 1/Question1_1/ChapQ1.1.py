@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #Implement an algorithm to determine if a string has all unique characters.
 #What if you cannot use additional data structures?
 
@@ -55,10 +56,10 @@ def hasAllUniqueCharsSet(inputstring):
     #using a hash table (here as a set data structure)
     if len(inputstring) > 256: return False
     return len(set(inputstring)) == len(inputstring)
-    
+
 def hasAllUniqueCharsBitVector(inputstring):
     #using a bit vector
-    #here as assumption in book, assume string only use  
+    #here as assumption in book, assume string only use
     if len(inputstring) > 26: return False
     checker = 0
     for char in inputstring:
@@ -83,7 +84,7 @@ for func in funclist:
         print "Test 1 passed"
     else:
         print "Test 1 failed"
-    
+
     if not func(teststringfalse):
         print "Test 2 passed"
     else:
