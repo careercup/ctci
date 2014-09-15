@@ -68,6 +68,24 @@ def hasAllUniqueCharsBitVector(inputstring):
         checker |= (1 << ord(char))
     return True
 
+# My alternative solutions
+
+# Using library available to us but could be considered 'cheating'
+def hasUniqueCharsCount(inputstring):
+  # Either #O(n^2) assuming string.count interates over the string
+  for char in inputstring:
+    if inputstring.count(char) > 1:
+      return False
+  return True
+
+def hasUniqueCharsWhile(inputstring):
+  #O(n^2)
+  charList = list(inputstring)
+  while len(charList) > 0:
+    if charList.pop() in charList:
+      return False
+  return True
+
 #testing
 
 #positive test case
@@ -76,7 +94,7 @@ teststringtrue = "abcdefghijkl"
 teststringfalse = "aabvcgdfgbvxbj"
 
 #list of all functions to test
-funclist = [hasAllUniqueCharsNoDS,hasAllUniqueCharsList,hasAllUniqueCharsList2,hasAllUniqueChars, hasAllUniqueCharsSet, hasAllUniqueCharsBitVector]
+funclist = [hasAllUniqueCharsNoDS,hasAllUniqueCharsList,hasAllUniqueCharsList2,hasAllUniqueChars, hasAllUniqueCharsSet, hasAllUniqueCharsBitVector, hasUniqueCharsCount, hasUniqueCharsWhile]
 
 for func in funclist:
     print "Testing function " + str(func)
