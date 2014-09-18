@@ -9,7 +9,7 @@ def isPermutation(s1, s2):
             if s2.find(char)==-1:
                 return False
             else:
-                s2.replace(char,"",1)
+                s2 = s2.replace(char,"",1)
         return True
 
 # big O complexity depends on python list sort complexity, which should be better than O(n^2)
