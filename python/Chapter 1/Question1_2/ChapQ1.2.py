@@ -8,13 +8,23 @@ def reverseStringRecursive(str1):
     else:
         return ""
 
+# My Solution
+# There are also built in ways:
+# inputString[::-1]
+# "".join(reversed(inputString))
+def reverseString(inputString):
+  reversedString = ""
+  for i in range(len(inputString)-1, -1, -1):
+    reversedString +=  inputString[i]
+  return reversedString
+
 #testing
 
 palindrome = "abcdedcba"
 nonpalindrome = "hello!"
 
 #palindrome can be reversed and would still be equal to itself, by definition.
-if palindrome == reverseStringRecursive(palindrome):
+if palindrome == reverseString(palindrome):
     print "Test 1 passed"
-if nonpalindrome != reverseStringRecursive(nonpalindrome):
+if "!olleh" == reverseString(nonpalindrome):
     print "Test 2 passed"
