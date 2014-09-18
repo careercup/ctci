@@ -23,13 +23,13 @@ def isPermutationHash(s1,s2):
     #using a dict as a hash table to count occurences, then comparing the 2 dict
     charcountdict1 = makeCharCountDict(s1)
     charcountdict2 = makeCharCountDict(s2)
-    
+
     if len(charcountdict1) != len(charcountdict2):
         return false
-        
+
     for char in charcountdict1:
         if not (char in charcountdict2 and charcountdict1[char]==charcountdict2[char]):
-            return False        
+            return False
     return True
 
 #My Solutions
@@ -52,7 +52,6 @@ def isPermitation3(first,second):
       return False
   return True
 
-    
 #testing
 
 #permutation
