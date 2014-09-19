@@ -16,18 +16,21 @@ using namespace std;
 /**
  * Main for running exercises from Chapter 1
  */
-int main() {
+int main() 
+{
     Question1_8().run();
 
-    //SimpleHashTable<int, bool> map(5);
-    //map.insert(10, true);
-    //cout << map.get(10) << endl;
-    //map.printTable();
-    //map.remove(10);
-    //try {
-    //    map.get(10);
-    //} catch(const out_of_range&) {
-    //    cout << "Attempted to remove a non existing key from the hash table." << endl;
-    //}
-    
+/*    SimpleHashTable<int, bool> map(5);
+    map.insert(10, true);
+    cout << map.get(10) << endl;
+    map.printTable();
+    map.remove(10);
+    try 
+    {
+        map.get(10);
+    }
+    catch(const out_of_range&) 
+    {
+        cout << "Attempted to remove a non existing key from the hash table." << endl;
+    }  */ 
 }

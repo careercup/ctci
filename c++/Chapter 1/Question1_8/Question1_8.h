@@ -5,7 +5,8 @@
 
 using std::string;
 
-class Question1_8 {
+class Question1_8 
+{
 public:
     string result(bool value);
     bool isRotation(const string& s1, const string& s2);

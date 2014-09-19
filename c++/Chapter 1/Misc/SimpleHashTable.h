@@ -22,7 +22,8 @@ using std::hash;
  *
  */
 template<class Key, class Value>
-class SimpleHashTable {
+class SimpleHashTable 
+{
 public:
     /// Ctor - initialize hash map
     SimpleHashTable(size_t size);
