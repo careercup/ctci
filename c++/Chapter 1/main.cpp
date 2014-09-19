@@ -10,6 +10,13 @@
 #include "Misc/SimpleHashTable.h"
 #include <iostream>
 #include <stdexcept>
+#include "Question2_1.h"
+#include "Question2_2.h"
+#include "Question2_3.h"
+#include "Question2_4.h"
+#include "Question2_5.h"
+#include "Question2_6.h"
+#include "Question2_7.h"
 
 using namespace std;
 
@@ -18,7 +25,7 @@ using namespace std;
  */
 int main() 
 {
-    Question1_8().run();
+    Question2_7().run();
 
 /*    SimpleHashTable<int, bool> map(5);
     map.insert(10, true);
