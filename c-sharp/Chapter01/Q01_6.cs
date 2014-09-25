@@ -1,6 +1,7 @@
-﻿using System;
+﻿
 using ctci.Contracts;
 using ctci.Library;
+using System;
 
 namespace Chapter01
 {
@@ -38,7 +39,9 @@ namespace Chapter01
             const int size = 3;
 
             var matrix = AssortedMethods.RandomMatrix(size, size, 0, 9);
+
             AssortedMethods.PrintMatrix(matrix);
+            
             Rotate(matrix, size);
             Console.WriteLine();
             AssortedMethods.PrintMatrix(matrix);

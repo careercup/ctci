@@ -1,7 +1,6 @@
 ﻿
-using System;
-
 using ctci.Contracts;
+using System;
 
 namespace Chapter01
 {
@@ -13,13 +12,19 @@ namespace Chapter01
             {
                 return false;
             }
-            int checker = 0;
-            for (int i = 0; i < str.Length; i++)
+
+            var checker = 0;
+            for (var i = 0; i < str.Length; i++)
             {
-                int val = str[i] - 'a';
-                if ((checker & (1 << val)) > 0) return false;
+                var val = str[i] - 'a';
+
+                if ((checker & (1 << val)) > 0)
+                {
+                    return false;
+                }
                 checker |= (1 << val);
             }
+            
             return true;
         }
 
@@ -29,20 +34,28 @@ namespace Chapter01
             {
                 return false;
             }
-            bool[] char_set = new bool[256];
-            for (int i = 0; i < str.Length; i++)
+
+            var charSet = new bool[256];
+
+            for (var i = 0; i < str.Length; i++)
             {
                 int val = str[i];
-                if (char_set[val]) return false;
-                char_set[val] = true;
+
+                if (charSet[val])
+                {
+                    return false;
+                }
+                charSet[val] = true;
             }
+            
             return true;
         }
 
         public void Run()
         {
             string[] words = {"abcde", "hello", "apple", "kite", "padle"};
-            foreach (string word in words)
+            
+            foreach (var word in words)
             {
                 Console.WriteLine(word + ": " + IsUniqueChars(word) + " " + IsUniqueChars2(word));
     		}

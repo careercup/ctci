@@ -1,7 +1,6 @@
 ﻿
-using System;
-
 using ctci.Contracts;
+using System;
 
 namespace Chapter01
 {

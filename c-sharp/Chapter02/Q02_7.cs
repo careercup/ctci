@@ -25,11 +25,13 @@ namespace Chapter02
             {
                 return new Result(null, true);
             }
-            else if (length == 1)
+            
+            if (length == 1)
             {
                 return new Result(head.Next, true);
             }
-            else if (length == 2)
+            
+            if (length == 2)
             {
                 return new Result(head.Next.Next, head.Data == head.Next.Data);
             }
@@ -40,12 +42,11 @@ namespace Chapter02
             {
                 return res; // Only "result" member is actually used in the call stack.
             }
-            else
-            {
-                res.result = head.Data == res.Node.Data;
-                res.Node = res.Node.Next;
-                return res;
-            }
+
+            res.result = head.Data == res.Node.Data;
+            res.Node = res.Node.Next;
+
+            return res;
         }
 
         bool IsPalindrome(LinkedListNode head)
@@ -95,6 +96,7 @@ namespace Chapter02
 			    }
 			    slow = slow.Next;
 		    }
+
 		    return true;
 	    }
 
@@ -114,7 +116,9 @@ namespace Chapter02
                 {
 				    nodes[i].SetNext(nodes[i + 1]);
 			    }
-			    if (i > 0) {
+
+			    if (i > 0) 
+                {
 				    nodes[i].SetPrevious(nodes[i - 1]);
 			    }
 		    }

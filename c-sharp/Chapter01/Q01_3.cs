@@ -44,6 +44,7 @@ namespace Chapter01
             foreach (var character in valueToTestAsArray)
             {
                 letters[character]--;
+
                 if (letters[character] < 0) 
                 {
                     return false;
