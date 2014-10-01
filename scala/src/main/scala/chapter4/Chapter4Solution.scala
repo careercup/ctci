@@ -187,13 +187,57 @@ object Chapter4 {
     }
   }
 
+  
   // 4.8
-  def containsTree = {
-    
+  def containsTree[T](t1:Tree[T], t2:Tree[T]) : Boolean = {
+    def matchTree(tree1:Tree[T], tree2: Tree[T]) : Boolean =
+      (tree1, tree2) match {
+        case (Node(v1, left1, right1), Node(v2, left2, right2)) =>
+          if(v1 == v2)
+            matchTree(left1, left2) && matchTree(right1, right2)
+          else
+            false
+        case (End, End) =>
+          true
+        case _ =>
+          false
+      }
+
+    t2 match {
+      case End =>
+        true
+      case Node(v1, _, _) =>
+        t1 match {
+          case Node(v, l, r) =>
+            if (v == v1)
+              matchTree(t1, t2)
+            else {
+              containsTree(l, t2) || containsTree(r, t2)
+            }
+          case End =>
+            false
+        }
+    }
   }
 
   // 4.9
-  def findSum = {
+  def findSum(tree:Tree[Int], sum:Int)= {
+    def findSumRec(tree:Tree[Int], prevResult:Int, prevPath:List[Int]) : Set[List[Int]] = {
+      tree match {
+        case Node(v, left, right) =>
+          (if (prevResult + v == sum) {
+            Set(prevPath :+ v)
+          } else
+            Set()) ++
+          findSumRec(left,  v+prevResult, prevPath :+ v) ++
+          findSumRec(left,  0, Nil) ++
+          findSumRec(right, v+prevResult, prevPath :+ v) ++
+          findSumRec(right, 0, Nil)
+        case End =>
+          Set()
+      }
+    }
 
+    findSumRec(tree, 0, Nil)
   }
 }
