@@ -64,3 +64,73 @@ def in_order_check(btree):
 tree = make_random_bsearch_tree()
 print tree
 in_order_check(tree)
+
+# ---------First solution with different notation--------------
+class TreeNode:
+	def __init__(self,key):
+		self.key = key
+		self.left = None
+		self.right = None
+		self.p = None
+
+	def __str__(self):
+		return str(self.key)
+
+class BinarySearchTree:
+	def __init__(self):
+		self.root = None
+
+	def addUsingKey(self, key):
+		treenode = TreeNode(key)
+		if self.root == None:
+			self.root = treenode
+		else:
+			buff = self.root
+			current =self.root
+			while current != None:
+				if current.key < treenode.key:
+					buff = current
+					current = current.right
+				else:
+					buff = current
+					current = current.left
+			if buff.key < treenode.key:
+				buff.right = treenode
+				treenode.p = buff
+			else:
+				buff.left = treenode
+				treenode.p = buff
+
+def inorderSucc(treenode):
+	if treenode != None:
+		if treenode.right != None:
+			return leftMostChild(treenode.right)
+		else:
+			p = treenode.p
+			while p != None:
+				if p.left == treenode:
+					break
+				else:
+					treenode = p
+					p = treenode.p
+			return p
+	return None
+
+def leftMostChild(treenode):
+	if treenode == None:
+		return None
+	else:
+		n = treenode
+		child = treenode.left
+		while child != None:
+			n = child
+			child = n.left
+		return n
+# test
+bst1 = BinarySearchTree()
+bst1.addUsingKey(0)
+bst1.addUsingKey(1)
+bst1.addUsingKey(-1)
+bst1.addUsingKey(2)
+
+print inorderSucc(bst1.root.right)
