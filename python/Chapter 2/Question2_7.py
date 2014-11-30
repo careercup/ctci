@@ -72,3 +72,35 @@ for i in range(3, 0, -1):
 print "L3:", L2
 print "isPalindrome_iter: ", isPalindrome_iter(L2)
 print "isPalindrome_recu: ", isPalindrome_recu(L2)
+
+# Another method: reverse the list and check if they are the same
+def isPalindrome(L1):
+	reverseL1 = reverseList(L1)
+	return isEqual(L1, reverseL1)
+
+def reverseList(L1):
+	reverseL1 = LinkedList()
+	current = L1.head
+	while current != None:
+		reverseL1.addNode(current.value)
+		current = current.next
+	return reverseL1
+
+def isEqual(L1,L2):
+	curr1 = L1.head
+	curr2 = L2.head
+	while curr1 != None and curr2 != None:
+		if curr1.value != curr2.value:
+			return False
+		curr1 = curr1.next
+		curr2 = curr2.next
+	if curr1 != None or curr2 != None:
+		return False
+	else:
+		return True
+
+
+for i in range(27):
+	L1 = randomLinkedList(3, 3, 5)
+	print L1
+	print isPalindrome(L1)
