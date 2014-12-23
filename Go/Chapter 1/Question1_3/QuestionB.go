@@ -5,7 +5,7 @@ func permutation (str1, str2 string) bool {
   if len(str1) != len(str2) {
     return false
   }
-  count1 := make(map[rune] int) //declare a map of rune to int
+  count1 := make([]int) //declare a map of rune to int
   // For each character in input1 string, increment count
   for _ , v := range str1 {
     count1[rune(v)]++
