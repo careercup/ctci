@@ -23,10 +23,9 @@ func compress(str string) string {
 	var buffer bytes.Buffer
 	originalStr := []rune(str)
 	for i := 0; i < len(str); {
-		buffer.WriteString(string(originalStr[i]))
+		buffer.WriteString(string(originalStr[i])) // append the char first
 		countSame := countSame(originalStr, i)
-		fmt.Println(countSame)
-		buffer.WriteString(fmt.Sprintf("%d", countSame))
+		buffer.WriteString(fmt.Sprintf("%d", countSame)) // append its count then
 		i = i + countSame
 	}
 	stringReturn := buffer.String()
