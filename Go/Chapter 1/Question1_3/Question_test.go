@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestIsUniqueChars(t *testing.T) {
+func TestPermutation(t *testing.T) {
 	cases := []struct {
 		input1 string
 		input2 string
