@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestIsUniqueChars(t *testing.T) {
+func TestReverse(t *testing.T) {
 	cases := []struct {
 		input  string
 		expect string
