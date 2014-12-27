@@ -8,7 +8,7 @@ import Cocoa
 @param: c:Int Input Number
 @return: returns the next Higher number with the same number of 1's
 */
-func nextHiger(x:Int) -> Int {
+func nextHigher(x:Int) -> Int {
     var rightOne:Int
     var nextHigherOneBit:Int
     var rightOnesPattern:Int
@@ -45,7 +45,7 @@ func nextHiger(x:Int) -> Int {
 
 
 //tested in Playground
-//nextHiger(32) 
+//nextHigher(32) 
 
 
 
