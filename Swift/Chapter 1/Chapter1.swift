@@ -38,12 +38,31 @@ extension String {
         
         return true
     }
+    
+    //added O(len) solution
+    func isContainsDuplicate() -> Bool { //time: O(len)
+        var str = Array(self)
+        var strLen = countElements(str)
+        if strLen > 256 { return false }
+        var char_set = [Bool](count: 256, repeatedValue: false)
+        var containerAsCString = Array(self.utf8).map { CChar($0) } + [0]
+        for i in (0..<strLen) {
+            var index = containerAsCString[i].hashValue //to get the value of the character
+            if char_set[index] {
+                return true
+            }
+            char_set[index] = true
+        }
+        return false
+    }
 }
 
 println("hello".isUnique())
 println("fox".isUnique())
 println("hello".isUniqueWithoutAdditionalDataStructure())
 println("fox".isUniqueWithoutAdditionalDataStructure())
+println("hello".isContainsDuplicate())  //true
+println("fox".isContainsDuplicate())    //false
 
 // 1.2
 
