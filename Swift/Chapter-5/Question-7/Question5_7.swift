@@ -1,5 +1,3 @@
-
-
 // Author: Prakash Natarajan (c) 2015
 // Email: nprakashece@gmail.com | pn33@buffalo.edu
 // License: GNU GPLv3
@@ -35,7 +33,7 @@ class Question5_7 {
         if( size < 0 ) { return 0 }
         var oneBit:[Int] = [],zeroBit:[Int] = []    //got variable not declared error so added []
         for element in num {
-            if(element % 2) == 0 {
+            if(element % 2) == 0 {  // used to access the last element
                 zeroBit.append(element >> 1)
             } else {
                 oneBit.append(element >> 1)
@@ -54,8 +52,7 @@ class Question5_7 {
 }
 
 var program = Question5_7()
-var num = [0,1,2,3,5,6]
-
+var num = [0,4,8,1,2,3,5,6,7]
+num.count
 var result = program.findMissing(num)
-result
-
+result // 4
