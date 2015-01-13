@@ -3,7 +3,7 @@
 /*
 Algorithm REMOVER_DUPLICATES(list): [Using temp buffer]
  1.Get the input linked list
- 2.Create a map of [string]boolean
+ 2.Create a map of [int]boolean
  4.For i from 1 to len(list) iterate through the nodes nd of the list
 		if nd present in the map then remove current node
 		else put nd to the map --> map[nd]=true
@@ -37,6 +37,7 @@ func removeDuplicate(l *list.List) *list.List {
 	for e := l.Front(); e != nil; e = next {
 		next = e.Next()
 		m := e.Value.(int)
+		//To verify whether the node value present in the map
 		if sMap[m] == true {
 			l.Remove(e)
 		} else {
