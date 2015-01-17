@@ -4,8 +4,8 @@
 Algorithm REMOVER_DUPLICATES(list): [Using temp buffer]
  1.Get the input linked list
  2.Create a map of [int]boolean
- 4.For i from 1 to len(list) iterate through the nodes nd of the list
-		if nd present in the map then remove current node
+ 4.For i from 1 to len(list) iterate through the nodes n of the list
+		if n present in the map then remove current node
 		else put nd to the map --> map[nd]=true
  5.return list
 */
@@ -27,6 +27,7 @@ func main() {
 	l.PushFront(7)
 	l.PushBack(9)
 	l = removeDuplicate(l)
+	//print the result list
 	for e := l.Front(); e != nil; e = e.Next() {
 		fmt.Println(e.Value)
 	}

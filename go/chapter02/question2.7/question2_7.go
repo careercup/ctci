@@ -86,6 +86,8 @@ func isPalindrome(l *list.List) bool {
 	return true
 }
 
+//APPROACH - II
+
 //Stack implementation
 type Stack struct {
 	top  *Node
