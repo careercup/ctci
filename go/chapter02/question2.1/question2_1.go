@@ -6,15 +6,18 @@ Algorithm REMOVER_DUPLICATES(list): [Using temp buffer]
  2.Create a map of [int]boolean
  4.For i from 1 to len(list) iterate through the nodes n of the list
 		if n present in the map then remove current node
-		else put nd to the map --> map[nd]=true
+		else put n to the map --> map[nd]=true
  5.return list
 */
 package main
+
 import (
-	"container/list"
 	"fmt"
+	"go/chapter02-linkedlists/list"
 )
+
 var sMap map[int]bool
+
 func main() {
 	l := list.New()
 	l.PushFront(4)

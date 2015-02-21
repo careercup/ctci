@@ -14,9 +14,10 @@
 package main
 
 import (
-	"container/list"
 	"fmt"
+	"go/chapter02-linkedlists/list"
 )
+
 func main() {
 	l := list.New()
 	l.PushFront(4)
@@ -29,6 +30,7 @@ func main() {
 		fmt.Println(e.Value)
 	}
 }
+
 //Function to split the list around the value x
 func splitAroundX(l *list.List, x int) *list.List {
 	if l == nil {

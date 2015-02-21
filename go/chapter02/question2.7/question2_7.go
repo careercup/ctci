@@ -22,8 +22,9 @@
 package main
 
 import (
-	"container/list"
 	"fmt"
+	"go/chapter02-linkedlists/list"
+	"go/chapter02-linkedlists/stack"
 )
 
 var head *list.Element
@@ -43,7 +44,6 @@ func main() {
 	m.PushFront(8)
 	m.PushFront(6)
 	res := isPalindrome(l)
-	//stackImplementation()
 	fmt.Println(res)
 	res = isPalindromeUsingStack(l)
 	fmt.Println(res)
@@ -87,67 +87,12 @@ func isPalindrome(l *list.List) bool {
 }
 
 //APPROACH - II
-
-//Stack implementation
-type Stack struct {
-	top  *Node
-	size int
-}
-
-type Node struct {
-	value interface{}
-	next  *Node
-}
-
-func (s *Stack) Length() int {
-	return s.size
-}
-
-func (s *Stack) IsEmpty() bool {
-	return s.size == 0
-}
-
-func (s *Stack) Push(val interface{}) {
-	s.top = &Node{val, s.top}
-	s.size++
-}
-
-func (s *Stack) Peek() interface{} {
-	return s.top.value
-}
-
-func (s *Stack) Pop() (val interface{}) {
-	if s.size > 0 {
-		val, s.top = s.top.value, s.top.next
-		s.size--
-		return
-	}
-	return ""
-}
-
-//Test Stack operations
-func stackImplementation() {
-	st := new(Stack)
-
-	st.Push("1")
-	st.Push("2")
-	st.Push("3")
-	st.Push("4")
-	st.Push("5")
-	st.Push("6")
-
-	for st.Length() > 0 {
-		fmt.Printf("%s ", st.Pop().(string))
-	}
-	fmt.Println()
-}
-
 func isPalindromeUsingStack(l *list.List) bool {
 
 	if l == nil {
 		return false
 	}
-	st := new(Stack)
+	st := stack.New()
 	slow := l.Front()
 	fast := l.Front()
 
@@ -162,7 +107,7 @@ func isPalindromeUsingStack(l *list.List) bool {
 		slow = slow.Next()
 	}
 
-	for ;slow != nil; {
+	for slow != nil {
 		m := st.Pop().(int)
 		n := slow.Value.(int)
 		if m != n {

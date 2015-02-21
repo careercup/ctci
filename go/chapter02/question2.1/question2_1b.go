@@ -3,7 +3,7 @@
 /*
 Algorithm REMOVER_DUPLICATES(list): [Without using temp buffer]
  1.Get the input linked list
- 2.For e from first to last node iterate through the nodes m of the list
+ 2.For element e from first to last node iterate through the nodes m of the list
  		for f from e to last node iterate through the nodes n of the list
 			if m==n then remove f 
  3.return list
@@ -11,9 +11,10 @@ Algorithm REMOVER_DUPLICATES(list): [Without using temp buffer]
 package main
 
 import (
-	"container/list"
 	"fmt"
+	"go/chapter02-linkedlists/list"
 )
+
 func main() {
 	l := list.New()
 	l.PushFront(4)

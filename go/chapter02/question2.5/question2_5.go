@@ -11,10 +11,12 @@
  5.return the result list
 */
 package main
+
 import (
-	"container/list"
 	"fmt"
+	"go/chapter02-linkedlists/list"
 )
+
 func main() {
 	l := list.New()
 	l.PushFront(4)
@@ -32,6 +34,7 @@ func main() {
 	}
 	fmt.Println(" ")
 }
+
 //Function to add the list 
 func addLists(l *list.List, m *list.List) *list.List {
 	if l == nil && m == nil {

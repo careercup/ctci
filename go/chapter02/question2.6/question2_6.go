@@ -1,6 +1,5 @@
 // Author: Dinesh Appavoo (dineshappavoo) <dinesha.cit@gmail.com>
 
-
 /*
  Algorithm FIND_LOOP_STARTING_POINT(list):
  1.Get the input list
@@ -17,9 +16,10 @@
 package main
 
 import (
-	"container/list"
 	"fmt"
+	"go/chapter02-linkedlists/list"
 )
+
 func main() {
 	l := list.New()
 	l.PushBack(0)
@@ -31,20 +31,13 @@ func main() {
 
 	e6 := l.PushBack(6)
 	l.PushBack(7)
-	e8 :=l.PushBack(8)
-	e9 := l.InsertAfter(9,e8)
+	e8 := l.PushBack(8)
+	e9 := l.InsertAfter(9, e8)
 	l.InsertBefore(e9, e6)
 
-	for e:=l.Front() ; e !=nil ; e=e.Next() {
+	for e := l.Front(); e != nil; e = e.Next() {
 		fmt.Println(e.Value)
 	}
-	/*
-	for i := 1 ;i < 100 ; i++ {
-		l.PushBack(i)
-	}*/
-	res := findLoopsInList(l)
-	fmt.Println(res.Value.(int))
-	fmt.Println(" ")
 }
 func findLoopsInList(l *list.List) *list.Element {
 	if l == nil {
@@ -64,7 +57,7 @@ func findLoopsInList(l *list.List) *list.Element {
 		return nil
 	}
 	slow = head
-	for ;slow != fast; {
+	for slow != fast {
 		slow = slow.Next()
 		fast = fast.Next()
 	}
