@@ -1,13 +1,8 @@
 Cracking The Coding Interview
 =============================
 
-This repository contains the solutions for 'Cracking The Coding Interview' book problems
+This repository contains the solutions for 'Cracking The Coding Interview' book problems in GO
 
-
-##Install
-
-This library has the solutions in Go.
-  
-###Project Contributor
+###Contributor
 
 * Dinesh Appavoo ([@DineshAppavoo](https://twitter.com/DineshAppavoo))
