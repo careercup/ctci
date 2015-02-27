@@ -40,17 +40,15 @@ func main() {
 	t1 := binarytree.NewMinimalHeightBST(inArr, 0, len(inArr)-1)
 	binarytree.InOrderTraverse(t1)
 	fmt.Println("Left", t1.Left.Value)
-	in_order_successor := getInOrderSuccessor(t1.Left)
-	fmt.Println("In Order succesor? ", in_order_successor.Value)
+	//Parent is not set in the tree construction for testing
+	//in_order_successor := getInOrderSuccessor(t1.Left)
+	//fmt.Println("In Order succesor? ", in_order_successor.Value)
 }
 
 func getInOrderSuccessor(root *binarytree.Tree) *binarytree.Tree {
 	if root == nil {
 		return nil
 	}
-	fmt.Println("Root", root.Value)
-	fmt.Println("Parent", root.Parent)
-
 	if root.Right == nil {
 		if root.Parent != nil {
 			if root.Parent.Left == root {

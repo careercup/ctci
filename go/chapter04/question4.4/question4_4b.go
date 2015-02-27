@@ -1,12 +1,15 @@
 // Author: Dinesh Appavoo (dineshappavoo) <dinesha.cit@gmail.com>
 
-/*Algorithm BST_MINIMAL_HEIGHT(arr, low, high): 
-1.Get the input array arr
-2.find the mid element using low and high . mid =(low+high)/2
-3.t.Value = arr[mid]
-4.t.Left=BST_MINIMAL_HEIGHT(arr, low, mid)
-5.t.Right=BST_MINIMAL_HEIGHT(arr, mid+1, high)
-6.return t
+/*Algorithm GET_LEVEL_BASED_BST(root, level): 
+1.Get the input tree roor, level
+2.crete new array of list nodeList
+3.create two list parents and current
+4.current.add(root)
+5.while(len(current)>0)
+	add current to nodeList, assign current to parent and reinitialize current
+	for node in parents
+		current.add(node.Left) && current.add(node.Right) 
+6.return nodeList
 */
 package main
 import (
@@ -28,7 +31,7 @@ func main() {
 		fmt.Print("[ ")
 		for x := value.Front(); x != nil; x = x.Next() {
 			treeNode := x.Value.(*binarytree.Tree)
-			fmt.Print(treeNode, " ")
+			fmt.Print(treeNode.Value, " ")
 		}
 		fmt.Println("]")
 	}

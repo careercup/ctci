@@ -14,6 +14,8 @@
 				return t2.Parent
 			else
 				t2 = t2.Parent
+		t1.Visited = true
+		t2.Visited = true
 4.return nil
 */
 package main
@@ -28,7 +30,7 @@ func main() {
 	inArr := []int{4, 5, 7, 8, 9}
 	t1 := binarytree.NewMinimalHeightBST(inArr, 0, len(inArr)-1)
 	binarytree.InOrderTraverse(t1)
-	ancestor := findCommonAncestor(t1, t1)
+	ancestor := findCommonAncestor(t1, t1.Right)
 	fmt.Println("Common Ancestor : ", ancestor)
 }
 
@@ -49,6 +51,8 @@ func findCommonAncestor(t1 *binarytree.Tree, t2 *binarytree.Tree) *binarytree.Tr
 				return t2.Parent
 			}
 		}
+		t1.Visited = true
+		t2.Visited = true
 		t1 = t1.Parent
 		t2 = t2.Parent
 	}
