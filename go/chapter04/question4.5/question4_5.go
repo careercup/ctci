@@ -13,7 +13,7 @@ package main
 
 import (
 	"fmt"
-	"go/chapter04-treesandgraphs/binarytree"
+	"go/chapter04/binarytree"
 )
 
 const MaxInt = int(^uint(0) >> 1)
@@ -24,6 +24,11 @@ func main() {
 	inArr := []int{4, 5, 7, 8, 9}
 	t1 := binarytree.NewMinimalHeightBST(inArr, 0, len(inArr)-1)
 	isBST := isBTaBST(t1, MinInt, MaxInt)
+	fmt.Println("Is BST? ", isBST)
+
+	inArr1 := []int{10, 5, 7, 8, 9}
+	t2 := binarytree.NewMinimalHeightBST(inArr1, 0, len(inArr1)-1)
+	isBST = isBTaBST(t2, MinInt, MaxInt)
 	fmt.Println("Is BST? ", isBST)
 }
 func isBTaBST(t *binarytree.Tree, min int, max int) bool {

@@ -13,7 +13,7 @@ package main
 
 import (
 	"fmt"
-	"go/chapter02-linkedlists/list"
+	"go/chapter02/list"
 )
 
 var sMap map[int]bool

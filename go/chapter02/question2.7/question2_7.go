@@ -23,8 +23,8 @@ package main
 
 import (
 	"fmt"
-	"go/chapter02-linkedlists/list"
-	"go/chapter02-linkedlists/stack"
+	"go/chapter02/list"
+	"go/chapter02/stack"
 )
 
 var head *list.Element

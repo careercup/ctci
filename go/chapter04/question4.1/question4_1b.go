@@ -1,19 +1,29 @@
 // Author: Dinesh Appavoo (dineshappavoo) <dinesha.cit@gmail.com>
 
-/*
+/*Algorithm CHECK_HEIGHT(t):
+1.get the input tree t
+2.left_height = CHECK_HEIGHT(t.Left)
+3.if left_height == -1   then return -1
+4.right_height = CHECK_HEIGHT(t.Right) if right_height == -1  then return -1 //This -1 is bypass multiple iterations
+4.height = Abs(left_height - right_height)
+5.if height > 1 then return -1 else  return Max(left_height, right_height)+1
 
+If CHECK_HEIGHT(root) gives -1 then the tree is not balanced else it is balanced
 */
 package main
 
 import (
 	"fmt"
-	"go/chapter04-treesandgraphs/binarytree"
+	"go/chapter04/binarytree"
 	"math"
 )
 
 func main() {
+	inArr := []int{4, 5, 7, 8, 9}
+	t1 := binarytree.NewMinimalHeightBST(inArr, 0, len(inArr)-1)
+	binarytree.InOrderTraverse(t1)
 
-	t1 := binarytree.New(100, 1)
+	//t1 := binarytree.New(100, 1)
 	isBalanced(t1)
 
 	t2 := binarytree.New(100, 1)

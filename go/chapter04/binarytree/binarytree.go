@@ -19,15 +19,17 @@ package binarytree
 
 import (
 	"fmt"
-	"math/rand"
 	"math"
+	"math/rand"
 )
 
 // A Tree is a binary tree with integer values.
 type Tree struct {
-	Left  *Tree
-	Value int
-	Right *Tree
+	Left   *Tree
+	Value  int
+	Right  *Tree
+	Parent *Tree
+	Visited bool
 }
 
 // Walk traverses a tree depth-first,
@@ -82,8 +84,8 @@ func New(n, k int) *Tree {
 
 // New returns a new, empty binary tree
 func NewTree() *Tree {
-	return &Tree{nil, 0, nil}
-}	
+	return &Tree{nil, 0, nil, nil, false}
+}
 
 //NewMinimalHeightBST gives the minimal height tree from the given sorted array
 func NewMinimalHeightBST(arr []int, low int, high int) *Tree {
@@ -98,9 +100,9 @@ func NewMinimalHeightBST(arr []int, low int, high int) *Tree {
 	return t1
 }
 
-//Traverse prints the tree
+//Traverse the tree using in-order traversal
 func InOrderTraverse(t *Tree) {
-	if t==nil {
+	if t == nil {
 		return
 	}
 	InOrderTraverse(t.Left)
@@ -110,16 +112,24 @@ func InOrderTraverse(t *Tree) {
 
 //Height gives the height of the BST
 func Height(t *Tree) float64 {
-	if t==nil {
+	if t == nil {
 		return 0
 	}
-	return math.Max(Height(t.Left), Height(t.Right))+1
+	return math.Max(Height(t.Left), Height(t.Right)) + 1
 }
 
-
+//Inserts a node into the BST
 func insert(t *Tree, v int) *Tree {
 	if t == nil {
-		return &Tree{nil, v, nil}
+		return &Tree{nil, v, nil, t, false}
+	}
+	if t.Left == nil && t.Right == nil {
+		if v < t.Value{
+			t.Left = &Tree{nil, v, nil, t, false}
+		} else {
+			t.Right = &Tree{nil, v, nil, t, false}
+		}
+		return t
 	}
 	if v < t.Value {
 		t.Left = insert(t.Left, v)
@@ -130,9 +140,13 @@ func insert(t *Tree, v int) *Tree {
 }
 
 func main() {
-	t1 := New(100, 1)
-	fmt.Println(Compare(t1, New(100, 1)), "Same Contents")
-	fmt.Println(Compare(t1, New(99, 1)), "Differing Sizes")
-	fmt.Println(Compare(t1, New(100, 2)), "Differing Values")
-	fmt.Println(Compare(t1, New(101, 2)), "Dissimilar")
+	//t1 := New(100, 1)
+	//fmt.Println(Compare(t1, New(100, 1)), "Same Contents")
+	//fmt.Println(Compare(t1, New(99, 1)), "Differing Sizes")
+	//fmt.Println(Compare(t1, New(100, 2)), "Differing Values")
+	//fmt.Println(Compare(t1, New(101, 2)), "Dissimilar")
+
+	inArr := []int{4, 5, 7, 8, 9}
+	t1 := NewMinimalHeightBST(inArr, 0, len(inArr)-1)
+	InOrderTraverse(t1)
 }
