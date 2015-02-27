@@ -19,11 +19,8 @@ package main
 
 import (
 	"fmt"
-	"go/chapter04-treesandgraphs/binarytree"
+	"go/chapter04/binarytree"
 )
-
-const MaxInt = int(^uint(0) >> 1)
-const MinInt = -MaxInt - 1
 
 func main() {
 

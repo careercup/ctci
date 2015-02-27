@@ -12,7 +12,7 @@ package main
 
 import (
 	"fmt"
-	"go/chapter04-treesandgraphs/binarytree"
+	"go/chapter04/binarytree"
 )
 
 func main() {

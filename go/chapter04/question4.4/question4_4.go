@@ -1,40 +1,56 @@
 // Author: Dinesh Appavoo (dineshappavoo) <dinesha.cit@gmail.com>
 
-/*Algorithm BST_MINIMAL_HEIGHT(arr, low, high): 
-1.Get the input array arr
-2.find the mid element using low and high . mid =(low+high)/2
-3.t.Value = arr[mid]
-4.t.Left=BST_MINIMAL_HEIGHT(arr, low, mid)
-5.t.Right=BST_MINIMAL_HEIGHT(arr, mid+1, high)
-6.return t
+/*Algorithm GET_LEVEL_BASED_LIST(list, t, level): 
+1.Get the array of list, node t, level
+2.create a linkelist l
+3.if len(list) == level  //To identify whether a list is available for the level
+	l = list.New()
+	l.add(t.Value)
+ else
+ 	l = list[level]
+ 	l.add(t.Value)
+ GET_LEVEL_BASED_LIST(list, t.Left, level+1)
+ GET_LEVEL_BASED_LIST(list, t.Right, level+1)
 */
 package main
 
 import (
 	"fmt"
-	"go/chapter04-treesandgraphs/binarytree"
-	"go/chapter02-linkedlists/list"
+	"go/chapter02/list"
+	"go/chapter04/binarytree"
 )
 
 func main() {
-
 	inArr := []int{4, 5, 7, 8, 9}
-	t1 := getMinimalBST(inArr, 0, len(inArr)-1)
+	t1 := binarytree.NewMinimalHeightBST(inArr, 0, len(inArr)-1)
 	binarytree.InOrderTraverse(t1)
-	fmt.Println("")
-}
-
-func getLevelbasedList(nodeList []*list.List, t *binarytree.Tree, level int) []*list.List {
-
-}
-func getMinimalBST(arr []int, low int, high int) *binarytree.Tree {
-	if high < low {
-		return nil
+	var nodeList []*list.List
+	getLevelbasedList(&nodeList, t1, 0)
+	fmt.Println()
+	for _, value := range nodeList {
+		fmt.Print("[ ")
+		for x := value.Front(); x != nil; x = x.Next() {
+			fmt.Print(x.Value.(int), " ")
+		}
+		fmt.Println("]")
 	}
-	mid := (low + high) / 2
-	t1 := binarytree.NewTree()
-	t1.Value = arr[mid]
-	t1.Left = getMinimalBST(arr, low, mid-1)
-	t1.Right = getMinimalBST(arr, mid+1, high)
-	return t1
+}
+
+//Here *[]*list.List used in the function argument to input pass by referrence slice
+func getLevelbasedList(nodeList *[]*list.List, t *binarytree.Tree, level int) {
+	if t == nil {
+		return
+	}
+	l := list.New()
+	if len(*nodeList) == level {
+		l = list.New()
+		l.PushFront(t.Value)
+		*nodeList = append(*nodeList, l)
+
+	} else {
+		l = (*nodeList)[level] //index operator doesn't automatically dereference pointers. we need to use parentheses to specify what is dereferenced.
+		l.PushFront(t.Value)
+	}
+	getLevelbasedList(nodeList, t.Left, level+1)
+	getLevelbasedList(nodeList, t.Right, level+1)
 }
