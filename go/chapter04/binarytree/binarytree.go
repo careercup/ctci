@@ -100,7 +100,7 @@ func NewMinimalHeightBST(arr []int, low int, high int) *Tree {
 	return t1
 }
 
-//Traverse prints the tree
+//Traverse the tree using in-order traversal
 func InOrderTraverse(t *Tree) {
 	if t == nil {
 		return
@@ -118,6 +118,7 @@ func Height(t *Tree) float64 {
 	return math.Max(Height(t.Left), Height(t.Right)) + 1
 }
 
+//Inserts a node into the BST
 func insert(t *Tree, v int) *Tree {
 	if t == nil {
 		return &Tree{nil, v, nil, t, false}
