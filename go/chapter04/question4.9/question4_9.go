@@ -8,8 +8,8 @@
 	val+=path[i]
 	if val == sum then print the path
 5. Call left and right sub tree
-	 FIND_PATH_EQUALS_SUM(t.Left, path, sum, level) 
-	 FIND_PATH_EQUALS_SUM(t.Right, path, sum, level):
+	 FIND_PATH_EQUALS_SUM(t.Left, path, sum, level+1) 
+	 FIND_PATH_EQUALS_SUM(t.Right, path, sum, level+1)
 */
 package main
 
