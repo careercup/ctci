@@ -85,6 +85,26 @@ extension Node {
 }
 
 
+// MARK: Question 2.2
+extension Node {
+    
+    func kthToLast(kth:Int) -> Node? {
+        var k: Node? = head
+        var end: Node? = head
+        var count = 0
+        while (count < kth-1 && end?.next != nil) {
+            end = end?.next!
+            count++
+        }
+        while (end?.next != nil) {
+            k = k?.next
+            end = end?.next
+        }
+        return k
+    }
+    
+}
+
 // MARK: Test Questions
 var head = Node(data: 10)
 head.addToTailWithData(11)
@@ -97,3 +117,13 @@ println(head.toString())
 
 head.removeDuplicates()
 println(head.toString())
+
+head = head.kthToLast(5)!
+println(head.toString())
+
+
+
+
+
+
+
