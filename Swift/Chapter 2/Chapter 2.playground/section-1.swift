@@ -21,23 +21,15 @@ class Node {
         node.next = next
     }
     
-    func deleteNode(d:Int) {
-        var head = self
-        if self.data == d {
-            if let next = head.next {
-                head.data = next.data
-                head.next = next.next
-            }
-            return
+    func deleteNode() ->  Node? {
+        var node: Node? = self
+        if let next = self.next {
+            node!.data = next.data
+            node!.next = next.next
+        } else {
+            node = nil
         }
-        var node = head
-        while (node.next != nil) {
-            if node.next!.data == d {
-                node.next = node.next!.next
-                return
-            }
-            node = node.next!
-        }
+        return node
     }
     
     func toString() -> String {
@@ -58,26 +50,48 @@ class Node {
 
 // MARK: Question 2.1
 extension Node {
+    
+    /// Remove duplicates nodes using a buffer
     func removeDuplicates() {
-        var set = [Int:Bool]()
+        var buffer = [Int:Bool]()
         var node = self
+        buffer[node.data] = true
         while (node.next != nil) {
-            if set[node.next!.data] == true {
-                node.deleteNode(node.next!.data)
+            if buffer[node.next!.data] == true {
+                node.next = node.next!.deleteNode()
             } else {
-                set[node.next!.data] = true
+                buffer[node.next!.data] = true
                 node = node.next!
             }
+        }
+    }
+    
+    /// Remove duplicates nodes without buffer
+    func removeDuplicatesWithoutBuffer() {
+        var node = self
+        while (node.next != nil) {
+            
+            var runner: Node? = node.next
+            var previous = node
+            while (runner != nil) {
+                if node.data == runner?.data {
+                    runner = runner?.deleteNode()
+                }
+                runner = runner?.next
+            }
+            node = node.next!
         }
     }
 }
 
 
+// MARK: Test Questions
 var head = Node(data: 10)
 head.addToTailWithData(11)
 head.addToTailWithData(12)
 head.addToTailWithData(13)
 head.addToTailWithData(11)
+head.addToTailWithData(10)
 head.addToTailWithData(14)
 println(head.toString())
 
