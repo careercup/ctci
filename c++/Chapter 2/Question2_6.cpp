@@ -9,7 +9,6 @@ Node* findCycleBegin(Node* head)
 
   Node* slow = head;
   Node* fast = head;
-  int diff = 0;
 
   while (fast != NULL && fast->next != NULL)
   {
