@@ -4,7 +4,7 @@
 using namespace std;
 
 bool Question1_1::isUniqueChars(const string& str) {
-    if(str.length() > 256) {
+    if(str.length() > 26) {
         return false;
     }
     unsigned int checker = 0;
