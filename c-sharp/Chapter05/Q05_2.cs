@@ -1,65 +1,69 @@
 ﻿
+using ctci.Contracts;
 using System;
 using System.Text;
-using ctci.Contracts;
-using ctci.Library;
 
 namespace Chapter05
 {
     public class Q05_2 : IQuestion
     {
-        string PrintBinary(double num)
+        string PrintBinary(double number)
         {
-            if (num >= 1 || num <= 0)
+            if (number >= 1 || number <= 0)
             {
                 return "ERROR";
             }
 
-            StringBuilder binary = new StringBuilder();
+            var binary = new StringBuilder();
             binary.Append(".");
-            while (num > 0)
+
+            while (number > 0)
             {
                 /* Setting a limit on length: 32 characters */
                 if (binary.Length > 32)
                 {
                     return "ERROR";
                 }
-                double r = num * 2;
+
+                var r = number * 2;
+
                 if (r >= 1)
                 {
                     binary.Append(1);
-                    num = r - 1;
+                    number = r - 1;
                 }
                 else
                 {
                     binary.Append(0);
-                    num = r;
+                    number = r;
                 }
             }
+
             return binary.ToString();
         }
 
-        string PrintBinary2(double num)
+        string PrintBinary2(double number)
         {
-            if (num >= 1 || num <= 0)
+            if (number >= 1 || number <= 0)
             {
                 return "ERROR";
             }
 
-            StringBuilder binary = new StringBuilder();
-            double frac = 0.5;
+            var binary = new StringBuilder();
+            var frac = 0.5;
             binary.Append(".");
-            while (num > 0)
+
+            while (number > 0)
             {
                 /* Setting a limit on length: 32 characters */
                 if (binary.Length >= 32)
                 {
                     return "ERROR";
                 }
-                if (num >= frac)
+                if (number >= frac)
                 {
                     binary.Append(1);
-                    num -= frac;
+                    number -= frac;
                 }
                 else
                 {
@@ -67,19 +71,21 @@ namespace Chapter05
                 }
                 frac /= 2;
             }
+
             return binary.ToString();
         }
 
         public void Run()
         {
-		    string bs = PrintBinary2(.125);
-		    Console.WriteLine(bs);
+		    var binaryString = PrintBinary2(.125);
+		    Console.WriteLine(binaryString);
 		
-		    for (int i = 0; i < 1000; i++)
+		    for (var i = 0; i < 1000; i++)
             {
-			    double num = i / 1000.0;
-			    string binary = PrintBinary(num);
-			    string binary2 = PrintBinary2(num);
+                var num = i / 1000.0;
+                var binary = PrintBinary(num);
+                var binary2 = PrintBinary2(num);
+
 			    if (!binary.Equals("ERROR") || !binary2.Equals("ERROR"))
                 {
 				    Console.WriteLine(num + " : " + binary + " " + binary2);

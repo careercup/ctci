@@ -1,6 +1,7 @@
-﻿using System;
+﻿
 using ctci.Contracts;
 using ctci.Library;
+using System;
 using System.Collections.Generic;
 
 namespace Chapter03
@@ -16,13 +17,15 @@ namespace Chapter03
                 return inStack;
             }
 
-            Stack<int> left = new Stack<int>();
-            Stack<int> right = new Stack<int>();
-            int count = 0;
+            var left = new Stack<int>();
+            var right = new Stack<int>();
+            var count = 0;
+
             while (inStack.Count != 0)
             {
                 count++;
                 _c++;
+
                 if (count % 2 == 0)
                 {
                     left.Push(inStack.Pop());
@@ -56,7 +59,8 @@ namespace Chapter03
                 }
             }
 
-            Stack<int> reverseStack = new Stack<int>();
+            var reverseStack = new Stack<int>();
+
             while (inStack.Count > 0)
             {
                 _c++;
@@ -66,39 +70,52 @@ namespace Chapter03
             return reverseStack;
         }
 
-        Stack<int> Sort(Stack<int> s)
+        // TODO: Fix this method. It is currently unused and appears not to function properly.
+        Stack<int> Sort(Stack<int> stack)
         {
-            Stack<int> r = new Stack<int>();
-            while (s.Count != 0)
+            var sortedStack = new Stack<int>();
+
+            while (stack.Count != 0)
             {
-                int tmp = s.Pop();
-                while (r.Count != 0 && r.Peek() > tmp)
+                var tmp = stack.Pop();
+
+                while (sortedStack.Count != 0 && sortedStack.Peek() > tmp)
                 {
-                    s.Push(r.Pop());
+                    stack.Push(sortedStack.Pop());
                 }
-                r.Push(tmp);
+                sortedStack.Push(tmp);
             }
-            return r;
+
+            return sortedStack;
         }
 
         public void Run()
         {
-		    for (int k = 1; k < 10; k++) {
+		    for (var k = 1; k < 10; k++)
+            {
 			    _c = 0;
-			    Stack<int> s = new Stack<int>();
-			    for (int i = 0; i < 10 * k; i++) {
-				    int r = AssortedMethods.RandomIntInRange(0,  1000);
-				    s.Push(r);
+			    var stack = new Stack<int>();
+
+			    for (var i = 0; i < 10 * k; i++) 
+                {
+				    var randomNum = AssortedMethods.RandomIntInRange(0,  1000);
+				    stack.Push(randomNum);
 			    }
-			    s = Mergesort(s);
-			    int last = int.MaxValue;
-			    while(s.Count != 0) {
-				    int curr = s.Pop();
-				    if (curr > last) {
+
+                stack = Mergesort(stack);
+                var last = int.MaxValue;
+
+                while (stack.Count != 0)
+                {
+                    var curr = stack.Pop();
+
+                    if (curr > last)
+                    {
                         Console.WriteLine("Error: " + last + " " + curr);
-				    }
-				    last = curr;
-			    }
+                    }
+                    last = curr;
+                }
+
 			    Console.WriteLine(_c);
 		    }            
         }

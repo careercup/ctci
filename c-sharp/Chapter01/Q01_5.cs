@@ -1,7 +1,7 @@
 ﻿
-using System;
 
 using ctci.Contracts;
+using System;
 using System.Text;
 
 namespace Chapter01
@@ -10,40 +10,48 @@ namespace Chapter01
     {
         int CountCompression(string str)
         {
-            if (string.IsNullOrEmpty(str))
+            if (string.IsNullOrEmpty(str)) 
+            { 
                 return 0;
+            }
 
-            char last = str[0];
-            int size = 0;
-            int count = 0;
+            var last = str[0];
+            var size = 0;
+            var count = 0;
 
-            for (int i = 1; i < str.Length; i++)
+            for (var i = 1; i < str.Length; i++)
             {
-                if (str[i] == last)
+                if (str[i] == last) 
+                {
                     count++;
+                }
                 else
                 {
                     last = str[i];
-                    size += 1 + string.Format("{0}",count).Length;
+                    size += 1 + string.Format("{0}", count).Length;
                     count = 1;
                 }
             }
 
             size += 1 + string.Format("{0}", count).Length;
+
             return size;
         }
 
         string CompressBetter(string str)
         {
-            int size = CountCompression(str);
+            var size = CountCompression(str);
+            
             if (size >= str.Length)
             {
                 return str;
             }
-            StringBuilder mystr = new StringBuilder();
-            char last = str[0];
-            int count = 1;
-            for (int i = 1; i < str.Length; i++)
+
+            var sb = new StringBuilder();
+            var last = str[0];
+            var count = 1;
+
+            for (var i = 1; i < str.Length; i++)
             {
                 if (str[i] == last)
                 {
@@ -51,21 +59,22 @@ namespace Chapter01
                 }
                 else
                 {
-                    mystr.Append(last);
-                    mystr.Append(count);
+                    sb.Append(last);
+                    sb.Append(count);
                     last = str[i];
                     count = 1;
                 }
             }
-            mystr.Append(last);
-            mystr.Append(count);
-            return mystr.ToString();
+            sb.Append(last);
+            sb.Append(count);
+
+            return sb.ToString();
         }
 
         public void Run()
         {
-		    string original = "abbccccccde";
-            string compressed = CompressBetter(original);
+		    const string original = "abbccccccde";
+            var compressed = CompressBetter(original);
             Console.WriteLine("Original  : {0}", original);
             Console.WriteLine("Compressed: {0}", compressed);
         }

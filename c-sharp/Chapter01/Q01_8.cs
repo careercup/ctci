@@ -1,7 +1,6 @@
 ﻿
-using System;
-
 using ctci.Contracts;
+using System;
 
 namespace Chapter01
 {
@@ -14,30 +13,34 @@ namespace Chapter01
 
         public static bool IsRotation(String s1, String s2)
         {
-            int len = s1.Length;
+            var len = s1.Length;
+
             /* check that s1 and s2 are equal length and not empty */
             if (len == s2.Length && len > 0)
             {
                 /* concatenate s1 and s1 within new buffer */
-                String s1s1 = s1 + s1;
-                return IsSubstring(s1s1, s2);
+                var s1S1 = s1 + s1;
+                return IsSubstring(s1S1, s2);
             }
+
             return false;
         }
 
         public void Run()
         {
-		    string[][] pairs = new string[][]
-		    {
+		    string[][] pairs =
+            {
 		        new string[]{"apple", "pleap"},
                 new string[]{"waterbottle", "erbottlewat"},
                 new string[]{"camera", "macera"}
 		    };
-		    foreach (string[] pair in pairs) {
-			    String word1 = pair[0];
-			    String word2 = pair[1];
-                bool isRotation = IsRotation(word1, word2);
-                System.Console.WriteLine("{0}, {1}: {2}", word1, word2, isRotation);
+
+		    foreach (var pair in pairs) 
+            {
+			    var word1 = pair[0];
+			    var word2 = pair[1];
+                var isRotation = IsRotation(word1, word2);
+                Console.WriteLine("{0}, {1}: {2}", word1, word2, isRotation);
 		    }
         }
     }

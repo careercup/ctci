@@ -29,6 +29,30 @@
     <ClCompile Include="Question1_8\Question1_8.cpp">
       <Filter>1.8</Filter>
     </ClCompile>
+    <ClCompile Include="..\Chapter 2\Question2_1.cpp">
+      <Filter>2.1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Chapter 2\LinkedListClass\LinkedList.cpp">
+      <Filter>LinkedListClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Chapter 2\Question2_2.cpp">
+      <Filter>2.2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Chapter 2\Question2_3.cpp">
+      <Filter>2.3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Chapter 2\Question2_4.cpp">
+      <Filter>2.4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Chapter 2\Question2_5.cpp">
+      <Filter>2.5</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Chapter 2\Question2_6.cpp">
+      <Filter>2.6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Chapter 2\Question2_7.cpp">
+      <Filter>2.7</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="1.1">
@@ -55,8 +79,32 @@
     <Filter Include="1.8">
       <UniqueIdentifier>{7aafdd18-05b9-4d4b-badb-ccaf9bb4e242}</UniqueIdentifier>
     </Filter>
-	<Filter Include="Misc">
+    <Filter Include="Misc">
       <UniqueIdentifier>{894c7ac2-27d8-498d-b539-6b426a3ba490}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2.1">
+      <UniqueIdentifier>{64bb3b82-1797-4ddf-81ed-aa6c5a44a0a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LinkedListClass">
+      <UniqueIdentifier>{c6db1300-61a0-4e33-b33a-37fede55abfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2.2">
+      <UniqueIdentifier>{825484ed-a0ad-47f1-a343-53656d8ce566}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2.3">
+      <UniqueIdentifier>{75eb8dfe-0742-4e87-96b1-10056e7e459f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2.4">
+      <UniqueIdentifier>{8a629ad1-69fa-488d-915e-af7c00da132b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2.5">
+      <UniqueIdentifier>{d33d865f-a54b-4478-934c-4040fdc95b09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2.6">
+      <UniqueIdentifier>{2c9af840-364d-4a23-81df-1050997a40e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2.7">
+      <UniqueIdentifier>{621ea815-ad4e-4e78-af4b-51a4e2b0966f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +137,30 @@
     </ClInclude>
     <ClInclude Include="Question1_8\Question1_8.h">
       <Filter>1.8</Filter>
+    </ClInclude>
+    <ClInclude Include="Question2_1.h">
+      <Filter>2.1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Chapter 2\LinkedListClass\LinkedList.h">
+      <Filter>LinkedListClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Question2_2.h">
+      <Filter>2.2</Filter>
+    </ClInclude>
+    <ClInclude Include="Question2_3.h">
+      <Filter>2.3</Filter>
+    </ClInclude>
+    <ClInclude Include="Question2_4.h">
+      <Filter>2.4</Filter>
+    </ClInclude>
+    <ClInclude Include="Question2_5.h">
+      <Filter>2.5</Filter>
+    </ClInclude>
+    <ClInclude Include="Question2_6.h">
+      <Filter>2.6</Filter>
+    </ClInclude>
+    <ClInclude Include="Question2_7.h">
+      <Filter>2.7</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -93,15 +93,18 @@ namespace ctci.Library
 		    return sb.ToString();
 	    }
 	
-	    public static string ToFullBinarystring(int a)
+	    public static string ToFullBinarystring(int number)
         {
-		    string s = "";
-		    for (int i = 0; i < 32; i++) {
-			    int lsb = a & 1;
-                s = string.Format("{0}{1}", lsb, s);
-			    a = a >> 1;
+		    var binaryString = "";
+		    
+            for (var i = 0; i < 32; i++) 
+            {
+			    var lsb = number & 1;
+                binaryString = string.Format("{0}{1}", lsb, binaryString);
+			    number = number >> 1;
 		    }
-		    return s;
+
+		    return binaryString;
 	    }
 	
 	    public static string ToBaseNstring(int a, int baseN)
@@ -191,33 +194,47 @@ namespace ctci.Library
 	    }
 	
 	    /* Creates tree by mapping the array left to right, top to bottom. */
-	    public static TreeNode CreateTreeFromArray(int[] array) {
-		    if (array.Length > 0) {
-			    TreeNode root = new TreeNode(array[0]);
-			    Queue<TreeNode> queue =
-                    new Queue<TreeNode>();
+	    public static TreeNode CreateTreeFromArray(int[] array) 
+        {
+		    if (array.Length > 0) 
+            {
+			    var root = new TreeNode(array[0]);
+                var queue = new Queue<TreeNode>();
 			    queue.Enqueue(root);
-			    bool done = false;
-			    int i = 1 ;
-			    while (!done) {
-				    TreeNode r = (TreeNode) queue.Peek();
-				    if (r.Left == null) {
-					    r.Left = new TreeNode(array[i]);
+                var done = false;
+                var i = 1;
+
+			    while (!done) 
+                {
+                    var treeNode = queue.Peek();
+				    
+                    if (treeNode.Left == null) 
+                    {
+					    treeNode.Left = new TreeNode(array[i]);
 					    i++;
-                        queue.Enqueue(r.Left);
-				    } else if (r.Right == null) {
-					    r.Right = new TreeNode(array[i]);
+                        queue.Enqueue(treeNode.Left);
+				    } 
+                    else if (treeNode.Right == null) 
+                    {
+					    treeNode.Right = new TreeNode(array[i]);
 					    i++;
-                        queue.Enqueue(r.Right);
-				    } else {
+                        queue.Enqueue(treeNode.Right);
+				    } 
+                    else 
+                    {
 					    queue.Dequeue();
 				    }
-				    if (i == array.Length) done = true;
+
+                    if (i == array.Length)
+                    {
+                        done = true;
+                    }
 			    }
+
 			    return root;
-		    } else {
-			    return null;
-		    }
+		    } 
+
+		    return null;
 	    }
 	
 	    public static string GetLongTextBlob() {
