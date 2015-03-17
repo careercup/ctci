@@ -48,7 +48,7 @@ func getLoopBegin(l *list.List) *list.Node{
        pfast been circulating the n circles in the ring (1 <= n).
        let r be the loop length
        then pfast has travelled s + nr to meet the pslow.
-       Hence meeting point = (s + nr) = x { due to the loop }
+       Hence meeting point = (s + nr) = s { due to the loop }
        The total movement of pfast from head is k + s + nr.
        so from meeting node pfast needs to move k times to reach loopBeginNode.
        from head, k steps is needed to reach the loopBeginNode.
