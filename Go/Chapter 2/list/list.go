@@ -5,7 +5,10 @@ import (
     "fmt"
     "math/rand"
     "time"
+    "strings"
+    "strconv"
 )
+
 type Node struct {
     Next *Node
     Data int
@@ -37,6 +40,7 @@ func (l *List) String() string {
 		buffer.WriteString(fmt.Sprintf("%v", current.Data))
         buffer.WriteString(" -> ")
 	}
+    buffer.WriteString("nil")
     return buffer.String()
 }
 
@@ -61,6 +65,20 @@ func RandomLinkedList(N, min, max int) *List{
     l := new(List)
     for i := 0; i < N; i++ {
         l.PushFront(RandIntBetween(min, max))
+    }
+    return l
+}
+// "6->1->7" to { 6->1->7->nil }
+func ParseAndBuildList(s string) *List {
+    l := new(List)
+    r := strings.Split(s, "->") // ["6" "1" "7"]
+    /* reverse the array */
+    for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
+        r[i], r[j] = r[j], r[i]
+	}
+    for _, v := range r {
+        num, _ := strconv.Atoi(v)
+        l.PushFront(num)
     }
     return l
 }
