@@ -20,7 +20,7 @@ package main
  * Output: 9->1->2. That is, 912.
  */
 import (
-    "../list" //  this implements a doubly linked list
+    "../list"
     "fmt"
 )
 

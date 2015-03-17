@@ -6,7 +6,7 @@ package main
  */
 
 import (
-    "../list" //  this implements a doubly linked list
+    "../list"
     "fmt"
 )
 

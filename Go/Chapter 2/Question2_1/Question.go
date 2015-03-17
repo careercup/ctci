@@ -6,7 +6,7 @@ package main
     How would you solve this problem if a temporary buffer is not allowed?
 */
 import (
-    "../list" //  this implements a doubly linked list
+    "../list" //  this implements a singly linked list
     "fmt"
 )
 
