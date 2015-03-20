@@ -1,6 +1,6 @@
 ﻿
-using System;
 using ctci.Contracts;
+using System;
 using System.Collections.Generic;
 
 namespace Chapter04
@@ -26,12 +26,15 @@ namespace Chapter04
                 Adjacent = new Node[adjacentLength];
             }
     
-            public void AddAdjacent(Node x)
+            public void AddAdjacent(Node node)
             {
-                if (AdjacentCount < 30) {
-                    Adjacent[AdjacentCount] = x;
+                if (AdjacentCount < 30) 
+                {
+                    Adjacent[AdjacentCount] = node;
                     AdjacentCount++;
-                } else {
+                } 
+                else 
+                {
                     Console.Write("No more adjacent can be added");
                 }
             }
@@ -48,12 +51,15 @@ namespace Chapter04
 		        Count = 0;
             }
 	
-            public void AddNode(Node x)
+            public void AddNode(Node node)
             {
-		        if (Count < 30) {
-			        Nodes[Count] = x;
+		        if (Count < 30) 
+                {
+                    Nodes[Count] = node;
 			        Count++;
-		        } else {
+		        } 
+                else 
+                {
 			        Console.Write("Graph full");
 		        }
             }
@@ -61,70 +67,78 @@ namespace Chapter04
 
 	    Graph CreateNewGraph()
 	    {
-		    Graph g = new Graph();        
-		    Node[] temp = new Node[6];
+		    var graph = new Graph();        
+		    var nodes = new Node[6];
 
-		    temp[0] = new Node("a", 3);
-		    temp[1] = new Node("b", 0);
-		    temp[2] = new Node("c", 0);
-		    temp[3] = new Node("d", 1);
-		    temp[4] = new Node("e", 1);
-		    temp[5] = new Node("f", 0);
+		    nodes[0] = new Node("a", 3);
+		    nodes[1] = new Node("b", 0);
+		    nodes[2] = new Node("c", 0);
+		    nodes[3] = new Node("d", 1);
+		    nodes[4] = new Node("e", 1);
+		    nodes[5] = new Node("f", 0);
 
-		    temp[0].AddAdjacent(temp[1]);
-		    temp[0].AddAdjacent(temp[2]);
-		    temp[0].AddAdjacent(temp[3]);
-		    temp[3].AddAdjacent(temp[4]);
-		    temp[4].AddAdjacent(temp[5]);
-		    for (int i = 0; i < 6; i++) {
-			    g.AddNode(temp[i]);
+		    nodes[0].AddAdjacent(nodes[1]);
+		    nodes[0].AddAdjacent(nodes[2]);
+		    nodes[0].AddAdjacent(nodes[3]);
+		    nodes[3].AddAdjacent(nodes[4]);
+		    nodes[4].AddAdjacent(nodes[5]);
+		    for (var i = 0; i < 6; i++) 
+            {
+			    graph.AddNode(nodes[i]);
 		    }
-		    return g;
+
+		    return graph;
 	    }
 
-        bool Search(Graph g,Node start,Node end)
+        bool Search(Graph graph, Node start, Node end)
         {  
-            LinkedList<Node> q = new LinkedList<Node>();
-            foreach (Node n in g.Nodes)
+            var nodeList = new LinkedList<Node>();
+
+            foreach (var node in graph.Nodes)
             {
-                n.State = State.Unvisited;
+                node.State = State.Unvisited;
             }
+
             start.State = State.Visiting;
-            q.AddLast(start);
-            while(q.Count!=0)
+            nodeList.AddLast(start);
+
+            while(nodeList.Count != 0)
             {
-                Node u = q.First.Value;
-                q.RemoveFirst();
-                if (u != null)
+                var unvisited = nodeList.First.Value;
+                nodeList.RemoveFirst();
+
+                if (unvisited != null)
                 {
-	                foreach (Node v in u.Adjacent)
+	                foreach (var adjacentNode in unvisited.Adjacent)
                     {
-	                    if (v.State == State.Unvisited)
+	                    if (adjacentNode.State == State.Unvisited)
                         {
-	                        if (v == end)
+	                        if (adjacentNode == end)
                             {
 	                            return true;
 	                        }
                             else
                             {
-	                            v.State = State.Visiting;
-	                            q.AddLast(v);
+	                            adjacentNode.State = State.Visiting;
+	                            nodeList.AddLast(adjacentNode);
 	                        }
 	                    }
 	                }
-	                u.State = State.Visited;
+	                unvisited.State = State.Visited;
                 }
             }
+
             return false;
         }
 
         public void Run()
         {
-		    Graph g = CreateNewGraph();
-            Node[] n = g.Nodes;
-		    Node start = n[3];
-		    Node end = n[5];
-		    Console.WriteLine(Search(g, start, end));
+		    var graph = CreateNewGraph();
+            var nodes = graph.Nodes;
+            var start = nodes[3];
+            var end = nodes[5];
+
+		    Console.WriteLine(Search(graph, start, end));
         }
     }
 }

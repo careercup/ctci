@@ -11,6 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Chapter 2\LinkedListClass\LinkedList.cpp" />
+    <ClCompile Include="..\Chapter 2\Question2_1.cpp" />
+    <ClCompile Include="..\Chapter 2\Question2_2.cpp" />
+    <ClCompile Include="..\Chapter 2\Question2_3.cpp" />
+    <ClCompile Include="..\Chapter 2\Question2_4.cpp" />
+    <ClCompile Include="..\Chapter 2\Question2_5.cpp" />
+    <ClCompile Include="..\Chapter 2\Question2_6.cpp" />
+    <ClCompile Include="..\Chapter 2\Question2_7.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Question1_1\Question1_1.cpp" />
     <ClCompile Include="Question1_2\Question1_2.cpp" />
@@ -23,6 +31,7 @@
     <ClCompile Include="Question1_8\Question1_8.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Chapter 2\LinkedListClass\LinkedList.h" />
     <ClInclude Include="Misc\SimpleHashTable.h" />
     <ClInclude Include="Question1_1\Question1_1.h" />
     <ClInclude Include="Question1_2\Question1_2.h" />
@@ -33,6 +42,13 @@
     <ClInclude Include="Question1_6\Question1_6.h" />
     <ClInclude Include="Question1_7\Question1_7.h" />
     <ClInclude Include="Question1_8\Question1_8.h" />
+    <ClInclude Include="Question2_1.h" />
+    <ClInclude Include="Question2_2.h" />
+    <ClInclude Include="Question2_3.h" />
+    <ClInclude Include="Question2_4.h" />
+    <ClInclude Include="Question2_5.h" />
+    <ClInclude Include="Question2_6.h" />
+    <ClInclude Include="Question2_7.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Misc\SimpleHashTable.inl" />

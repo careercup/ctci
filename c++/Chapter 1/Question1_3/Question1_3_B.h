@@ -5,7 +5,8 @@
 
 using std::string;
 
-class Question1_3_B {
+class Question1_3_B 
+{
 public:
     int run();
     bool permutation(const string& a, const string& b);

@@ -1,28 +1,33 @@
-﻿using System;
+﻿
 using ctci.Contracts;
 using ctci.Library;
+using System;
 
 namespace Chapter02
 {
     public class Q02_3 : IQuestion
     {
-        bool DeleteNode(LinkedListNode n)
+        bool DeleteNode(LinkedListNode node)
         {
-            if (n == null || n.Next == null)
+            if (node == null || node.Next == null)
             {
                 return false; // Failure
             }
-            LinkedListNode next = n.Next;
-            n.Data = next.Data;
-            n.Next = next.Next;
+            
+            var next = node.Next;
+            node.Data = next.Data;
+            node.Next = next.Next;
+
             return true;
         }
 
         public void Run()
         {
-		    LinkedListNode head = AssortedMethods.RandomLinkedList(10, 0, 10);
+		    var head = AssortedMethods.RandomLinkedList(10, 0, 10);
 		    Console.WriteLine(head.PrintForward());
-            DeleteNode(head.Next.Next.Next.Next); // delete node 4
+
+            var deleted = DeleteNode(head.Next.Next.Next.Next); // delete node 4
+            Console.WriteLine("deleted? {0}", deleted);
 		    Console.WriteLine(head.PrintForward());
         }
     }

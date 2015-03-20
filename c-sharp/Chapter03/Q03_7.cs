@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using ctci.Contracts;
+using System;
+using System.Collections.Generic;
 
 namespace Chapter03
 {
@@ -9,18 +10,18 @@ namespace Chapter03
         abstract class Animal
         {
             int _order;
-            protected readonly string _name;
+            protected readonly string Name;
 
-            protected Animal(String n)
+            protected Animal(String name)
             {
-                _name = n;
+                Name = name;
             }
 
             public abstract String GetName();
 
-            public void SetOrder(int ord)
+            public void SetOrder(int order)
             {
-                _order = ord;
+                _order = order;
             }
 
             public int GetOrder()
@@ -28,31 +29,33 @@ namespace Chapter03
                 return _order;
             }
 
-            public bool IsOlderThan(Animal a)
+            public bool IsOlderThan(Animal animal)
             {
-                return _order < a.GetOrder();
+                return _order < animal.GetOrder();
             }
         }
 
-        class Cat : Animal {
-	        public Cat(String n) :
-                base(n)
+        class Cat : Animal 
+        {
+	        public Cat(String name) :
+                base(name)
             {}
 
             public override String GetName()
             {
-		        return "Cat: " + _name;
+		        return "Cat: " + Name;
 	        }
         }
 
-        class Dog : Animal {
-	        public Dog(String n) :
-                base(n)
+        class Dog : Animal 
+        {
+	        public Dog(String name) :
+                base(name)
             {}
 
             public override String GetName()
             {
-		        return "Dog: " + _name;
+		        return "Dog: " + Name;
 	        }
         }
 
@@ -67,16 +70,18 @@ namespace Chapter03
                 _order = 0;
             }
 
-            public void Enqueue(Animal a) {
-		        a.SetOrder(_order);
+            public void Enqueue(Animal animal) 
+            {
+		        animal.SetOrder(_order);
 		        _order++;
-		        if (a.GetType() == typeof(Dog))
+
+		        if (animal.GetType() == typeof(Dog))
                 {
-			        _dogs.Add((Dog) a);
+			        _dogs.Add((Dog) animal);
                 }
-                else if (a.GetType() == typeof(Cat))
+                else if (animal.GetType() == typeof(Cat))
                 {
-			        _cats.Add((Cat)a);
+			        _cats.Add((Cat)animal);
 		        }
 	        }
 
@@ -90,18 +95,22 @@ namespace Chapter03
                 {
                     return DequeueDogs();
                 }
-                Dog dog = _dogs[0];
-                Cat cat = _cats[0];
+
+                var dog = _dogs[0];
+                var cat = _cats[0];
+
                 if (dog.IsOlderThan(cat))
                 {
-                    Dog d = _dogs[0];
+                    var d = _dogs[0];
                     _dogs.RemoveAt(0);
+
                     return d;
                 }
                 else
                 {
-                    Cat c = _cats[0];
+                    var c = _cats[0];
                     _cats.RemoveAt(0);
+
                     return c;
                 }
             }
@@ -116,8 +125,10 @@ namespace Chapter03
                 {
                     return _dogs[0];
                 }
-                Dog dog = _dogs[0];
-                Cat cat = _cats[0];
+
+                var dog = _dogs[0];
+                var cat = _cats[0];
+
                 if (dog.IsOlderThan(cat))
                 {
                     return dog;
@@ -135,10 +146,10 @@ namespace Chapter03
 
             public Dog DequeueDogs()
             {
-                Dog d = _dogs[0];
+                var dog = _dogs[0];
                 _dogs.RemoveAt(0);
 
-                return d;
+                return dog;
             }
 
             public Dog PeekDogs()
@@ -148,10 +159,10 @@ namespace Chapter03
 
             public Cat DequeueCats()
             {
-                Cat c = _cats[0];
+                var cat = _cats[0];
                 _cats.RemoveAt(0);
 
-                return c;
+                return cat;
             }
 
             public Cat PeekCats()
@@ -162,7 +173,7 @@ namespace Chapter03
 
         public void Run()
         {
-		    AnimalQueue animals = new AnimalQueue();
+		    var animals = new AnimalQueue();
 		    animals.Enqueue(new Cat("Callie"));
 		    animals.Enqueue(new Cat("Kiki"));
 		    animals.Enqueue(new Dog("Fido"));
@@ -172,6 +183,11 @@ namespace Chapter03
 		    animals.Enqueue(new Dog("Dobo"));
 		    animals.Enqueue(new Cat("Copa"));
 		
+            Console.WriteLine("Peek a dog and cat:");
+            Console.WriteLine(animals.PeekDogs().GetName());
+            Console.WriteLine(animals.PeekCats().GetName());
+            Console.WriteLine();
+
 		    Console.WriteLine(animals.DequeueAny().GetName());
             Console.WriteLine(animals.DequeueAny().GetName());
             Console.WriteLine(animals.DequeueAny().GetName());	
@@ -179,7 +195,8 @@ namespace Chapter03
 		    animals.Enqueue(new Dog("Dapa"));
 		    animals.Enqueue(new Cat("Kilo"));
 		
-		    while (animals.Size() != 0) {
+		    while (animals.Size() != 0) 
+            {
                 Console.WriteLine(animals.DequeueAny().GetName());	
 		    }
         }

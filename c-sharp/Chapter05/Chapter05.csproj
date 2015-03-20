@@ -36,6 +36,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Q05_1.cs" />
     <Compile Include="Q05_2.cs" />
+    <Compile Include="Q05_3.cs" />
+    <Compile Include="Q05_5.cs" />
+    <Compile Include="Q05_6.cs" />
+    <Compile Include="Q05_7.cs" />
+    <Compile Include="Q05_8.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ctci.Contracts\ctci.Contracts.csproj">

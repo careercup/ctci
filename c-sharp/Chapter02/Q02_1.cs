@@ -22,22 +22,27 @@ namespace Chapter02
             }
         }
 
-        void DeleteDupsA(LinkedListNode n)
+        void DeleteDupsA(LinkedListNode node)
         {
-            Dictionary<int, bool> table = new Dictionary<int, bool>();
+            var table = new Dictionary<int, bool>();
             LinkedListNode previous = null;
-            while (n != null)
+
+            while (node != null)
             {
-                if (table.ContainsKey(n.Data))
+                if (table.ContainsKey(node.Data))
                 {
-                    previous.Next = n.Next;
+                    if (previous != null)
+                    {                     
+                        previous.Next = node.Next;
+                    }
                 }
                 else
                 {
-                    table.Add(n.Data, true);
-                    previous = n;
+                    table.Add(node.Data, true);
+                    previous = node;
                 }
-                n = n.Next;
+
+                node = node.Next;
             }
         }
 
@@ -45,14 +50,17 @@ namespace Chapter02
         {
             if (head == null) return;
 
-            LinkedListNode current = head;
+            var current = head;
+
             while (current != null)
             {
                 /* Remove all future nodes that have the same value */
-                LinkedListNode runner = current;
+                var runner = current;
+
                 while (runner.Next != null)
                 {
                     Tap(0);
+
                     if (runner.Next.Data == current.Data)
                     {
                         runner.Next = runner.Next.Next;
@@ -69,21 +77,25 @@ namespace Chapter02
         void DeleteDupsC(LinkedListNode head)
         {
             if (head == null) return;
-            LinkedListNode previous = head;
-            LinkedListNode current = previous.Next;
+
+            var previous = head;
+            var current = previous.Next;
+
             while (current != null)
             {
                 // Look backwards for dups, and remove any that you see.
-                LinkedListNode runner = head;
+                var runner = head;
+
                 while (runner != current)
                 {
                     Tap(1);
+
                     if (runner.Data == current.Data)
                     {
-                        LinkedListNode tmp = current.Next;
-                        previous.Next = tmp;
-                        current = tmp;
-                        /* We know we can�t have more than one dup preceding
+                        var temp = current.Next;
+                        previous.Next = temp;
+                        current = temp;
+                        /* We know we can't have more than one dup preceding
                          * our element since it would have been removed 
                          * earlier. */
                         break;
@@ -107,19 +119,21 @@ namespace Chapter02
 
         public void Run()
         {
-		    LinkedListNode first = new LinkedListNode(0, null, null); //AssortedMethods.randomLinkedList(1000, 0, 2);
-		    LinkedListNode originalList = first;
-		    LinkedListNode second = first;
-		    for (int i = 1; i < 8; i++) {
+		    var first = new LinkedListNode(0, null, null);
+		    var originalList = first;
+		    var second = first;
+
+		    for (var i = 1; i < 8; i++) 
+            {
 			    second = new LinkedListNode(i % 2, null, null);
 			    first.SetNext(second);
 			    second.SetPrevious(first);
 			    first = second;
 		    }
 
-            LinkedListNode list1 = originalList.Clone();
-            LinkedListNode list2 = originalList.Clone();
-            LinkedListNode list3 = originalList.Clone();
+            var list1 = originalList.Clone();
+            var list2 = originalList.Clone();
+            var list3 = originalList.Clone();
 
             DeleteDupsA(list1);
             DeleteDupsB(list2);
