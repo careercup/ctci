@@ -221,7 +221,6 @@ head2_4.addToTailWithData(12)
 head2_4.addToTailWithData(15)
 head2_4.addToTailWithData(6)
 head2_4.addToTailWithData(18)
-head2_4.partitionByData(13)
-print(head2_4.partitionByData(13).toString())
+print(head2_4.partitionByData(10).toString())
 
 
