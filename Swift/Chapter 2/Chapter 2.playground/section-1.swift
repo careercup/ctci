@@ -124,6 +124,33 @@ println(head2_2.toString())
 
 
 
+// MARK: Question 2.3
+extension Node {
+    
+    func deleteCurrentNode() -> Bool {
+        var node: Node? = self
+        if let next = node?.next {
+            node!.data = next.data
+            if next.next != nil {
+                node!.next = next.next
+            }else{
+                node!.next = nil
+            }
+            return true
+        }else{
+            return false
+        }
+    }
+}
+
+
+var head2_3 = Node(data: 10)
+head2_3.addToTailWithData(11)
+head2_3.addToTailWithData(12)
+head2_3.addToTailWithData(13)
+var nodeToDelete = head2_3.next?.next
+nodeToDelete?.deleteCurrentNode()
+print(head2_3.toString())
 
 
 
