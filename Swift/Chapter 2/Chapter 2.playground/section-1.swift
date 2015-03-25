@@ -128,13 +128,12 @@ println(head2_2.toString())
 extension Node {
     
     func deleteCurrentNode() -> Bool {
-        var node: Node? = self
-        if let next = node?.next {
-            node!.data = next.data
+        if let next = self.next {
+            self.data = next.data
             if next.next != nil {
-                node!.next = next.next
+                self.next = next.next
             }else{
-                node!.next = nil
+                self.next = nil
             }
             return true
         }else{
