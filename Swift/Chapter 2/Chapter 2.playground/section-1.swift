@@ -72,7 +72,6 @@ extension Node {
         while (node.next != nil) {
             
             var runner: Node? = node.next
-            var previous = node
             while (runner != nil) {
                 if node.data == runner?.data {
                     runner = runner?.deleteNode()
