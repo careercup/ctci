@@ -154,3 +154,74 @@ print(head2_3.toString())
 
 
 
+// MARK: Question 2.4
+extension Node {
+    
+    func partitionByData(data:Int) -> Node {
+        var firstPartition: Node?
+        var secondPartition: Node?
+        
+        var node = self
+        while (node.next != nil){
+            if(node.data < data){
+                if (firstPartition == nil ) {
+                    firstPartition = Node(data: node.data)
+                }else{
+                    firstPartition!.addToTailWithData(node.data)
+                }
+            }else{
+                if (secondPartition == nil) {
+                    secondPartition = Node(data: node.data)
+                }else{
+                    secondPartition!.addToTailWithData(node.data)
+                }
+            }
+            
+            node = node.next!
+        }
+        
+        if(node.data < data){
+            if (firstPartition == nil ) {
+                firstPartition = Node(data: data)
+            }else{
+                firstPartition!.addToTailWithData(node.data)
+            }
+        }else{
+            if (secondPartition == nil) {
+                secondPartition = Node(data: data)
+            }else{
+                secondPartition!.addToTailWithData(node.data)
+            }
+        }
+        
+        if firstPartition == nil {
+            return secondPartition!
+        }
+        if secondPartition == nil {
+            return firstPartition!
+        }
+        
+        
+        var endNode = firstPartition!
+        while (endNode.next != nil){
+            endNode = endNode.next!
+        }
+        
+        endNode.next = secondPartition
+        
+        
+        return firstPartition!
+    }
+    
+}
+
+var head2_4 = Node(data: 10)
+head2_4.addToTailWithData(14)
+head2_4.addToTailWithData(12)
+head2_4.addToTailWithData(15)
+head2_4.addToTailWithData(6)
+head2_4.addToTailWithData(18)
+head2_4.partitionByData(13)
+print(head2_4.partitionByData(13).toString())
+
+
