@@ -12,13 +12,15 @@ class Node {
         self.data = data
     }
     
-    func addToTailWithData(data:Int) {
+    func addToTailWithData(data:Int) -> Node {
         var next = Node(data: data)
         var node = self
         while (node.next != nil) {
             node = node.next!
         }
         node.next = next
+        
+        return next
     }
     
     func deleteNode() ->  Node? {
@@ -160,54 +162,36 @@ extension Node {
     func partitionByData(data:Int) -> Node {
         var firstPartition: Node?
         var secondPartition: Node?
+        var firstPartitionEnd: Node?
         
-        var node = self
-        while (node.next != nil){
-            if(node.data < data){
+        var node: Node? = Node(data: self.data)
+        node?.next = self.next
+        while ( node != nil ){
+            if(node?.data < data){
                 if (firstPartition == nil ) {
-                    firstPartition = Node(data: node.data)
+                    firstPartition = Node(data: node!.data)
+                    firstPartitionEnd = firstPartition
                 }else{
-                    firstPartition!.addToTailWithData(node.data)
+                    firstPartitionEnd = firstPartition!.addToTailWithData(node!.data)
                 }
             }else{
                 if (secondPartition == nil) {
-                    secondPartition = Node(data: node.data)
+                    secondPartition = Node(data: node!.data)
                 }else{
-                    secondPartition!.addToTailWithData(node.data)
+                    secondPartition!.addToTailWithData(node!.data)
                 }
             }
             
-            node = node.next!
+            node = node?.next
         }
         
-        if(node.data < data){
-            if (firstPartition == nil ) {
-                firstPartition = Node(data: data)
-            }else{
-                firstPartition!.addToTailWithData(node.data)
-            }
-        }else{
-            if (secondPartition == nil) {
-                secondPartition = Node(data: data)
-            }else{
-                secondPartition!.addToTailWithData(node.data)
-            }
-        }
-        
+               
         if firstPartition == nil {
             return secondPartition!
         }
-        if secondPartition == nil {
-            return firstPartition!
-        }
-        
-        
-        var endNode = firstPartition!
-        while (endNode.next != nil){
-            endNode = endNode.next!
-        }
-        
-        endNode.next = secondPartition
+      
+
+        firstPartitionEnd?.next = secondPartition
         
         
         return firstPartition!
@@ -221,6 +205,7 @@ head2_4.addToTailWithData(12)
 head2_4.addToTailWithData(15)
 head2_4.addToTailWithData(6)
 head2_4.addToTailWithData(18)
-print(head2_4.partitionByData(10).toString())
+print(head2_4.toString())
+print(head2_4.partitionByData(13).toString())
 
 
