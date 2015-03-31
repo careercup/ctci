@@ -208,4 +208,51 @@ head2_4.addToTailWithData(18)
 print(head2_4.toString())
 print(head2_4.partitionByData(13).toString())
 
+// MARK: Question 2.5
+extension Node {
+    
+    class func addLists(node1: Node?, node2: Node?,  carry:Int) -> Node? {
+        if(node1 == nil && node2 == nil && carry == 0){
+            return nil
+        }
+        
+        var result = Node(data: 0)
+        
+        var value = carry
+        
+        if(node1 != nil){
+            value += node1!.data
+        }
+        
+        if(node2 != nil){
+            value += node2!.data
+        }
+        
+        result.data = value%10
+        
+        if(node1 != nil || node2 != nil){
+            let more = addLists(node1 == nil ? nil : node1!.next,
+                node2: node2 == nil ? nil : node2!.next,
+                carry: value >= 10 ? 1: 0)
+            result.next = more
+        }
+        
+        return result
+    }
+}
+
+var number1 = Node(data: 2)
+number1.addToTailWithData(2)
+number1.addToTailWithData(6)
+number1.addToTailWithData(7)
+print(number1.toString())
+var number2 = Node(data: 3)
+number2.addToTailWithData(3)
+number2.addToTailWithData(4)
+number2.addToTailWithData(5)
+number2.addToTailWithData(1)
+print(number2.toString())
+print(Node.addLists(number1, node2: number2, carry: 0)!.toString())
+
+
 
