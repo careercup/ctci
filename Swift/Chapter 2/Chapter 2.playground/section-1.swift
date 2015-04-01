@@ -208,7 +208,7 @@ head2_4.addToTailWithData(18)
 print(head2_4.toString())
 print(head2_4.partitionByData(13).toString())
 
-// MARK: Question 2.5
+// MARK: Question 2.5_A
 extension Node {
     
     class func addLists(node1: Node?, node2: Node?,  carry:Int) -> Node? {
@@ -241,6 +241,7 @@ extension Node {
     }
 }
 
+
 var number1 = Node(data: 2)
 number1.addToTailWithData(2)
 number1.addToTailWithData(6)
@@ -254,5 +255,99 @@ number2.addToTailWithData(1)
 print(number2.toString())
 print(Node.addLists(number1, node2: number2, carry: 0)!.toString())
 
+
+// MARK: Question 2.5_B
+extension Node {
+    
+    class func addLists(node1: Node?, node2: Node?) -> Node? {
+        if (node1 == nil){
+            return node2
+        }
+        
+        if(node2 == nil){
+            return node1
+        }
+        
+        var length1:Int = length(node1)
+        var length2:Int = length(node2)
+        
+        var list1:Node? = node1
+        var list2:Node? = node2
+        
+        if(length1 < length2){
+            list1 = padList(node1!, length: length2-length1)
+        }
+        
+        if(length2 < length1){
+            list2 = padList(node2!, length: length1-length2)
+        }
+        
+        
+        let result = addListsHelper(list1, digit2: list2)
+        
+        if(result.carry>0){
+            var finalResult = Node(data: 0)
+            finalResult.data = result.carry
+            finalResult.next = result.head
+            return finalResult
+        }else{
+            return result.head
+        }
+        
+    }
+    
+    
+    class func addListsHelper(digit1: Node?, digit2: Node?) -> (head: Node?, carry: Int){
+        
+        if(digit1 == nil && digit2 == nil){
+            return (nil, 0)
+        }
+        
+        var result = addListsHelper(digit1!.next, digit2:digit2!.next)
+        
+        var sum = result.carry + digit1!.data + digit2!.data
+        
+        var finalResult = Node(data: 0)
+        finalResult.data = sum%10
+        finalResult.next = result.head
+        
+        return (finalResult, sum/10)
+        
+    }
+    
+    class func padList(node: Node, length:Int) -> Node {
+        var head = node
+        for i in 0..<length {
+            var zeroHead = Node (data: 0)
+            zeroHead.next = head
+            head = zeroHead
+        }
+        return head
+    }
+    
+    class func length (node: Node?) -> Int {
+        var lenght = 0
+        var currentNode = node
+        while(currentNode != nil){
+            lenght++
+            currentNode = currentNode?.next
+        }
+        return lenght
+    }
+}
+
+
+var list1 = Node(data: 9)
+list1.addToTailWithData(5)
+list1.addToTailWithData(6)
+list1.addToTailWithData(7)
+list1.addToTailWithData(7)
+print(list1.toString())
+var list2 = Node(data: 5)
+list2.addToTailWithData(3)
+list2.addToTailWithData(4)
+list2.addToTailWithData(5)
+print(list2.toString())
+print(Node.addLists(list1, node2: list2)!.toString())
 
 
