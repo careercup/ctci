@@ -350,4 +350,46 @@ list2.addToTailWithData(5)
 print(list2.toString())
 print(Node.addLists(list1, node2: list2)!.toString())
 
+// MARK Question 2.6
+extension Node {
+    
+    class func findBeginning(head: Node?) -> Node? {
+        var slowRunner = head
+        var fastRunner = head
+        
+        while fastRunner != nil  && fastRunner!.next != nil {
+            slowRunner = slowRunner!.next
+            fastRunner = fastRunner!.next!.next
+            
+            if slowRunner === fastRunner {
+                break
+            }
+        }
+        
+        if fastRunner == nil  || fastRunner!.next == nil {
+            return nil
+        }
+        
+        slowRunner = head
+        while slowRunner !== fastRunner {
+            slowRunner = slowRunner!.next
+            fastRunner = fastRunner!.next
+        }
+        
+        return slowRunner
+    }
+}
+
+
+//1->2->3->4->5->6->3
+var loop = Node(data: 1)
+loop.addToTailWithData(2)
+loop.addToTailWithData(3)
+var loopHead = loop.addToTailWithData(3)
+loop.addToTailWithData(4)
+loop.addToTailWithData(5)
+var loopEnd = loop.addToTailWithData(6)
+loopEnd.next = loopHead
+Node.findBeginning(loop)
+
 
