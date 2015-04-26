@@ -10,6 +10,7 @@
 		9C1F620B1846B2690029A2E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F620A1846B2690029A2E7 /* Foundation.framework */; };
 		9C1F620E1846B2690029A2E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F620D1846B2690029A2E7 /* main.m */; };
 		9C1F62121846B2690029A2E7 /* Question1_1.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9C1F62111846B2690029A2E7 /* Question1_1.1 */; };
+		BB2EF7231AEC91D2009DEBCD /* Question1_1.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2EF7221AEC91D2009DEBCD /* Question1_1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		9C1F620D1846B2690029A2E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9C1F62101846B2690029A2E7 /* Question1_1-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Question1_1-Prefix.pch"; sourceTree = "<group>"; };
 		9C1F62111846B2690029A2E7 /* Question1_1.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Question1_1.1; sourceTree = "<group>"; };
+		BB2EF7211AEC91D2009DEBCD /* Question1_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question1_1.h; sourceTree = "<group>"; };
+		BB2EF7221AEC91D2009DEBCD /* Question1_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question1_1.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				9C1F620D1846B2690029A2E7 /* main.m */,
+				BB2EF7211AEC91D2009DEBCD /* Question1_1.h */,
+				BB2EF7221AEC91D2009DEBCD /* Question1_1.m */,
 				9C1F62111846B2690029A2E7 /* Question1_1.1 */,
 				9C1F620F1846B2690029A2E7 /* Supporting Files */,
 			);
@@ -140,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C1F620E1846B2690029A2E7 /* main.m in Sources */,
+				BB2EF7231AEC91D2009DEBCD /* Question1_1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +257,7 @@
 				9C1F62171846B2690029A2E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
