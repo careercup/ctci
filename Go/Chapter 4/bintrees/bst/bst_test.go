@@ -8,7 +8,7 @@ import (
 )
 
 type myInt int
-func (me myInt) Less( he Interface ) bool { return me < he.(myInt) }
+func (a myInt) Less( b Interface ) bool { return a < b.(myInt) }
 
 func randomIntList(N int, max int) []myInt {
     rand.Seed( time.Now().UTC().UnixNano() )

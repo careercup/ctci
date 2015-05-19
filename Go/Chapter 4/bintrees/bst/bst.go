@@ -2,8 +2,6 @@ package bst
 
 import (
     "fmt"
-    // "bytes"
-    // "strings"
 )
 func max(a, b int) int {
    if a < b {
@@ -34,6 +32,9 @@ func (n *Node) Left() *Node {
 }
 func (n *Node) Right() *Node {
     return n.right
+}
+func (n *Node) Key() Interface {
+    return n.key
 }
 
 func Height(n *Node) int {
@@ -143,7 +144,6 @@ func (n *Node) delete() *Node {
         /* the node has 2 children */
         s := n.next_larger()
         n.key, s.key = s.key, n.key
-        // TODO: how to update height now? s.delete takes care of it already, I think SO?
         return s.delete()
     }
 }
@@ -172,35 +172,6 @@ func (n *Node) check_ri() {
 func (n *Node) Height() int {
     return n.height
 }
-// func (n *Node) strInorder() string {
-//     buffer Bytes.Buffer
-// }
-// Internal method for ASCII art.
-// func (n *Node) str() {
-//     label := fmt.Sprintf(n.key)
-//     if n.left == nil {
-//         left_lines, left_pos, left_width := []string{}, 0, 0
-//     } else {
-//         left_lines, left_pos, left_width = n.left.str()
-//     }
-//     if n.right == nil {
-//         right_lines, right_pos, right_width := []string{}, 0, 0
-//     } else {
-//         right_lines, right_pos, right_width := n.right.str()
-//     }
-//     middle = max(right_pos + left_width - left_pos + 1, len(label), 2)
-//     pos := left_pos + middle // 2
-//     width := left_pos + middle + right_width - right_pos
-//     for len(left_lines) < len(right_lines) {
-//         append(left_lines, ' ' * left_width)
-//     }
-//     for len(right_lines) < len(left_lines) {
-//         append(right_lines, ' ' * right_width)
-//     }
-//     if (middle - len(label)) % 2 == 1 && n.parent != nil && n == n.parent.left && len(label) < middle {
-//         label = fmt.Sprintf("%v.", label)
-//     }
-// }
 
 type BST struct {
     // The vanilla BST tree.
