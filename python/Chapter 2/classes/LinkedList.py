@@ -39,12 +39,13 @@ class LinkedList:
         current = self.head
         if current.value == node_value:
             self.head = self.head.next
-        while(current.next != None):
-            if current.next.value == node_value:
-                current.next = current.next.next
-                break
-            else:
-                current = current.next
+        else:
+            while(current.next != None):
+                if current.next.value == node_value:
+                    current.next = current.next.next
+                    break
+                else:
+                    current = current.next
 
 
 def randomLinkedList(length, min, max):
