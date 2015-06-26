@@ -10,7 +10,7 @@ If you want to contribute, respect these rules :
 - Create One playground file calle `Chapter X`.
 - Implement each question under a `// MARK: `
 - Use extension for each question when this is possible
-- Implement a simple exemple below each question
+- Implement a simple example below each question
 
 ## TODO
 ----
