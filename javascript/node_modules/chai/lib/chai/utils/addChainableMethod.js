@@ -9,6 +9,8 @@
  */
 
 var transferFlags = require('./transferFlags');
+var flag = require('./flag');
+var config = require('../config');
 
 /*!
  * Module variables
@@ -74,7 +76,10 @@ module.exports = function (ctx, name, method, chainingBehavior) {
     { get: function () {
         chainableBehavior.chainingBehavior.call(this);
 
-        var assert = function () {
+        var assert = function assert() {
+          var old_ssfi = flag(this, 'ssfi');
+          if (old_ssfi && config.includeStack === false)
+            flag(this, 'ssfi', assert);
           var result = chainableBehavior.method.apply(this, arguments);
           return result === undefined ? this : result;
         };

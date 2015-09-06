@@ -20,9 +20,9 @@
  *     utils.transferFlags(assertion, anotherAssertion, false);
  *
  * @param {Assertion} assertion the assertion to transfer the flags from
- * @param {Object} object the object to transfer the flags too; usually a new assertion
+ * @param {Object} object the object to transfer the flags to; usually a new assertion
  * @param {Boolean} includeAll
- * @name getAllFlags
+ * @name transferFlags
  * @api private
  */
 

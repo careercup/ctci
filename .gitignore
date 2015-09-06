@@ -162,3 +162,6 @@ java/Chapter 11/Question11_8/RankNode.java
 #Java
 *.classpath
 *.project
+
+#JavaScript
+javascript/node_modules
