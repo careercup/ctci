@@ -4,6 +4,7 @@ This project uses Mocha and Chai for testing:
 #####Install dependencies:
 
 ```bash
+npm install
 npm install -g mocha
 npm install -g chai
 

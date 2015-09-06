@@ -1,16 +1,19 @@
 module.exports = Strings_1_1 = (function() {
-  var _isSubstring = function(str1, str2) {
-    return str1.indexOf(str2) != -1
-  }
-  var _sameLengthAndNotBlank = function(str1, str2) {
-    var len = str1.length;
-    return len === str2.length && len > 0
-  }
   return {
-    isUnique: function(str1) {
+    /*
+     * Tests to see if string contains all unique chars.
+     * @param {String} str - The string to be checked for uniqueness
+     * @returns {Boolean} true if string has only unique chars. False if a duplicate exists
+     */
+    isUnique: function(str) {
+      var char_set = Array.apply(null, Array(256)).map(Boolean.prototype.valueOf, false);
+      for (var i = 0; i < str.length; i++) {
+        if (char_set[str[i].charCodeAt(0)]) {
+          return false;
+        }
+        char_set[str[i].charCodeAt(0)] = true;
+      }
       return true;
-      // if(!_sameLengthAndNotBlank(str1, str2)) return false;
-      // if(_isSubstring(str1+str1, str2)) return true;
-    }
-  }
+   }
+  };
 }());
