@@ -1,4 +1,4 @@
-module.exports = Strings_1_8 = (function() {
+module.exports = Strings_1_1 = (function() {
   var _isSubstring = function(str1, str2) {
     return str1.indexOf(str2) != -1
   }
@@ -7,9 +7,10 @@ module.exports = Strings_1_8 = (function() {
     return len === str2.length && len > 0
   }
   return {
-    isRotation: function(str1, str2) {
-      if(!_sameLengthAndNotBlank(str1, str2)) return false;
-      if(_isSubstring(str1+str1, str2)) return true;
+    isUnique: function(str1) {
+      return true;
+      // if(!_sameLengthAndNotBlank(str1, str2)) return false;
+      // if(_isSubstring(str1+str1, str2)) return true;
     }
   }
 }());

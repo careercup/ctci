@@ -14,7 +14,6 @@ var util = require('util')
 function noop () {}
 
 var debug = noop
-var util = require('util')
 if (util.debuglog)
   debug = util.debuglog('gfs')
 else if (/\bgfs\b/i.test(process.env.NODE_DEBUG || ''))
