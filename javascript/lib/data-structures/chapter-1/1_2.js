@@ -1,7 +1,7 @@
 module.exports = Strings_1_2 = (function() {
   return {
 
-    // NOT inline option
+   // NOT inline solution (left here to learn from)
    //  reverseString: function(str) {
    //    if (str.length === 0) {
    //      return '';

@@ -6,10 +6,12 @@ describe(Strings_1_3, function () {
       str1 = 'hello';
       str2 = 'olleh';
       str3 = 'abcdef';
-      str4 = 'aedcbb';
     });
-    it('returns the reverse of hello', function () {
+    it('knows reversed strings are permutations', function () {
       expect(Strings_1_3.isPermutation(str1, str2)).to.be.true;
+    });
+    it('knows unrelated strings are not permutations', function () {
+      expect(Strings_1_3.isPermutation(str1, str3)).to.be.false;
     });
   });
 });
