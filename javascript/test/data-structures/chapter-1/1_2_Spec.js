@@ -1,6 +1,6 @@
 require('../../test_helper');
 describe(Strings_1_2, function () {
-  describe('is', function () {
+  describe('reverseString', function () {
     var str1, str2;
     beforeEach(function () {
       str1 = 'hello';
