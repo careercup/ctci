@@ -64,6 +64,6 @@ def compress(string):
 	if len(result) < len(string):
 	    return result
 	else:
-	    retunr string
+	    return string
 
 print compress("aabccc   ccaaa")
