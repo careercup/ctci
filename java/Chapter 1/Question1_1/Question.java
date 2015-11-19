@@ -29,7 +29,7 @@ public class Question {
 	}
 	
 	public static void main(String[] args) {
-		String[] words = {"abcde", "hello", "apple", "kite", "padle"};
+		String[] words = {"abcde", "hello", "apple", "kite", "banana"};
 		for (String word : words) {
 			System.out.println(word + ": " + isUniqueChars(word) + " " + isUniqueChars2(word));
 		}
