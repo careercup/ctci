@@ -29,10 +29,10 @@ def hasAllUniqueCharsList(inputstring):
 def hasAllUniqueCharsList2(inputstring):
     #another way to use a list
     #O(n)
-    if len(inputstring) > 256: #assume inputstring is ASCII
+    if len(inputstring) > 128: #assume inputstring is ASCII
         return False
     else:
-        charList = [False] * 256;
+        charList = [False] * 128;
         for char in inputstring:
             if charList[ord(char)]:
                 return False
@@ -53,7 +53,7 @@ def hasAllUniqueChars(inputstring):
 
 def hasAllUniqueCharsSet(inputstring):
     #using a hash table (here as a set data structure)
-    if len(inputstring) > 256: return False
+    if len(inputstring) > 128: return False
     return len(set(inputstring)) == len(inputstring)
     
 def hasAllUniqueCharsBitVector(inputstring):
