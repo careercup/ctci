@@ -6,7 +6,7 @@ def isPermutation(s1, s2):
         return False
     else:
         for char in s1:
-            if s2.find(char)==-1:
+            if char not in s2:
                 return False
             else:
                 s2 = s2.replace(char,"",1)
