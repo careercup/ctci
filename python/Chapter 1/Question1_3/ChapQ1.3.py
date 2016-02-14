@@ -18,6 +18,19 @@ def isPermutationSort(s1,s2):
     if len(s1)!=len(s2): return False
     return sorted(s1) == sorted(s2)
 
+#helper function for the fucntion 'isPermutableHash' | O(n)
+#Returns a dict with keys as different chars and their respective values being number of occurances.
+def makeCharCountDict(s):
+    CharCountDict={}
+    for char in s:
+        if char not in CharCountDict:
+            CharCountDict[char]=1
+        else:
+            CharCountDict[char]+=1
+    return CharCountDict
+
+    
+
 #O(n)
 def isPermutationHash(s1,s2):
     #using a dict as a hash table to count occurences, then comparing the 2 dict
@@ -25,12 +38,12 @@ def isPermutationHash(s1,s2):
     charcountdict2 = makeCharCountDict(s2)
     
     if len(charcountdict1) != len(charcountdict2):
-        return false
+        return False
         
-    for char in charcountdict1:
-        if not (char in charcountdict2 and charcountdict1[char]==charcountdict2[char]):
-            return False        
-    return True
+    if charcountdict1==charcountdict2:
+        return True
+    else:
+        return False
 
 
     
