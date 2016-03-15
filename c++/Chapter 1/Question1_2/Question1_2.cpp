@@ -11,12 +11,9 @@ void Question1_2::reverse(char* str)
 
     if (str) 
     {
-        while (*ptrEnd) 
-        {
-            ptrEnd++;
-        }
-        ptrEnd--;
-
+        size_t length = sizeof(str) / sizeof(char);
+        ptrEnd = &str[length-1];
+        
         while (str < ptrEnd) 
         {
             temp = *str;
