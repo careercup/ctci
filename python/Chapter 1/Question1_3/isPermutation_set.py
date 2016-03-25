@@ -1,4 +1,4 @@
-def isPermutation(str1, str2):
+def is_permutation(str1, str2):
 	
 	"""
 	Checks to see if one string is permutation of the other using sets.
