@@ -30,7 +30,7 @@ def test():
 	for t in TEST_DATA:
 		if add(t[0], t[1]) == t[2]:
 			print 'test passed for %d + %d = %d' % t
-		else
+		else:
 			print 'test failed'
 
 if __name__ == '__main__':
