@@ -1,6 +1,6 @@
 # 8.1 Write a function that adds two numbers. 
 # You should not use + or any arithmetic perators.
-# assuming integer arithmetic, below will not work with floats
+# Assuming integer arithmetic, below will not work with floats
 
 def add(a, b):
 
