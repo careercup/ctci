@@ -18,7 +18,7 @@ public class Question {
 		}
 
 		// Error check - there is no meeting point, and therefore no loop
-		if (fast == null || fast.next == null) {
+		if (fast == null || fast.next == null || fast.next.next == null) {
 			return null;
 		}
 
