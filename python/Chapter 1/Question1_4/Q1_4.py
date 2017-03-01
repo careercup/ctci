@@ -17,3 +17,9 @@ if replaceSpace(inputStr) == expectOutput:
 	print "test passed"
 else:
 	print "test failed"
+
+	
+#using String replace() Method.
+def replaceSpace(string):
+	return string.replace(" ","%20")
+	
