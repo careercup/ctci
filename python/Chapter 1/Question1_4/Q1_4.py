@@ -21,5 +21,5 @@ else:
 	
 #using String replace() Method.
 def replaceSpace(string):
-	return string.replace(" ","%20")
+	return string.strip().replace(" ","%20")
 	
