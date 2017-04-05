@@ -36,3 +36,32 @@ public class Question {
 		System.out.println("\"" + AssortedMethods.charArrayToString(arr) + "\"");
 	}
 }
+
+#SOLUTION #2 USE TWO POINTERS, no need to pass chr array
+
+public class replaceSpace {
+
+    String replace(String s1, int len){
+        char[] letters = new char[s1.length()];
+        int j =0;
+        for(int i=0; i< len; i++){
+            char c = s1.charAt(i);
+            if(c == ' '){
+                letters[j] = '%';
+                letters[j+1] = '2';
+                letters[j+2] = '0';
+                j = j + 3;
+            }
+            else {
+                letters[j] = c;
+                j++;
+            }
+        }
+
+         String new_string =  new String(letters);
+
+         return new_string;
+
+    }
+
+}
