@@ -37,7 +37,7 @@ public class Question {
 	}
 }
 
-#SOLUTION #2 USE TWO POINTERS, no need to pass chr array
+//SOLUTION #2: USE TWO POINTERS no need to pass chr array
 
 public class replaceSpace {
 
