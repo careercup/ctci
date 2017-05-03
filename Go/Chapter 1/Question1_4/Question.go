@@ -3,8 +3,8 @@ package Question1_4
 // method to replace all spaces in a string with ‘%20’
 // assuming that the string has sufficient space at the end
 func ReplaceSpace(charsArr []rune, originalLen int) {
-	idx1 := originalLen - 1
-	idx2 := len(charsArr) - 1
+	
+	idx1, idx2 := originalLength - 1, len(input) - 1
 
 	for idx1 > 0 {
 		if charsArr[idx1] == ' ' {
