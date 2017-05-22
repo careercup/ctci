@@ -1,0 +1,36 @@
+{
+    "name": "midorikocak/ctci-php",
+    "description": "php solutions of cracking the code interview using php",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Midori Kocak",
+            "email": "mtkocak@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "MidoriKocak\\": "src/",
+            "CTCILibrary\\":"src/CTCILibrary",
+            "Introduction\\":"src/Introduction",
+            "Chapter01\\Question1_1\\":"src/Chapter01/Question1_1",
+            "Chapter01\\Question1_2\\":"src/Chapter01/Question1_2",
+            "Chapter01\\Question1_3\\":"src/Chapter01/Question1_3",
+            "Chapter01\\Question1_4\\":"src/Chapter01/Question1_4",
+            "Chapter01\\Question1_5\\":"src/Chapter01/Question1_5",
+            "Chapter01\\Question1_6\\":"src/Chapter01/Question1_6",
+            "Chapter01\\Question1_7\\":"src/Chapter01/Question1_7",
+            "Chapter01\\Question1_8\\":"src/Chapter01/Question1_8",
+            "Chapter01\\Question1_9\\":"src/Chapter01/Question1_9",
+            "Chapter02\\Question2_5\\":"src/Chapter02/Question2_5"
+        },
+        "psr-0": {
+            "MidoriKocakTest\\": "tests/"
+        }
+    },
+    "require": {
+        "phpunit/phpunit": "^6.1@dev"
+    }
+}
