@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #Implement an algorithm to determine if a string has all unique characters.
 #What if you cannot use additional data structures?
 
@@ -55,10 +56,10 @@ def hasAllUniqueCharsSet(inputstring):
     #using a hash table (here as a set data structure)
     if len(inputstring) > 256: return False
     return len(set(inputstring)) == len(inputstring)
-    
+
 def hasAllUniqueCharsBitVector(inputstring):
     #using a bit vector
-    #here as assumption in book, assume string only use  
+    #here as assumption in book, assume string only use
     if len(inputstring) > 26: return False
     checker = 0
     for char in inputstring:
@@ -66,6 +67,24 @@ def hasAllUniqueCharsBitVector(inputstring):
             return False
         checker |= (1 << ord(char))
     return True
+
+# My alternative solutions
+
+# Using library available to us but could be considered 'cheating'
+def hasUniqueCharsCount(inputstring):
+  # Either #O(n^2) assuming string.count interates over the string
+  for char in inputstring:
+    if inputstring.count(char) > 1:
+      return False
+  return True
+
+def hasUniqueCharsWhile(inputstring):
+  #O(n^2)
+  charList = list(inputstring)
+  while len(charList) > 0:
+    if charList.pop() in charList:
+      return False
+  return True
 
 #testing
 
@@ -75,7 +94,7 @@ teststringtrue = "abcdefghijkl"
 teststringfalse = "aabvcgdfgbvxbj"
 
 #list of all functions to test
-funclist = [hasAllUniqueCharsNoDS,hasAllUniqueCharsList,hasAllUniqueCharsList2,hasAllUniqueChars, hasAllUniqueCharsSet, hasAllUniqueCharsBitVector]
+funclist = [hasAllUniqueCharsNoDS,hasAllUniqueCharsList,hasAllUniqueCharsList2,hasAllUniqueChars, hasAllUniqueCharsSet, hasAllUniqueCharsBitVector, hasUniqueCharsCount, hasUniqueCharsWhile]
 
 for func in funclist:
     print "Testing function " + str(func)
@@ -83,7 +102,7 @@ for func in funclist:
         print "Test 1 passed"
     else:
         print "Test 1 failed"
-    
+
     if not func(teststringfalse):
         print "Test 2 passed"
     else:
