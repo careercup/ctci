@@ -6,6 +6,10 @@ public class Question {
 		if (str.length() > 128) {
 			return false;
 		}
+		if (str == null) {
+			return true;
+		}
+		
 		int checker = 0;
 		for (int i = 0; i < str.length(); i++) {
 			int val = str.charAt(i) - 'a';
@@ -19,6 +23,9 @@ public class Question {
 		if (str.length() > 128) {
 			return false;
 		}
+		if (str == null) {
+			return true;
+		}
 		boolean[] char_set = new boolean[128];
 		for (int i = 0; i < str.length(); i++) {
 			int val = str.charAt(i);
@@ -29,7 +36,7 @@ public class Question {
 	}
 	
 	public static void main(String[] args) {
-		String[] words = {"abcde", "hello", "apple", "kite", "padle"};
+		String[] words = {"abcde", "hello", "apple", "kite", "padle", null};
 		for (String word : words) {
 			System.out.println(word + ": " + isUniqueChars(word) + " " + isUniqueChars2(word));
 		}
