@@ -3,9 +3,13 @@ package Question1_1;
 public class Question {
 
 	public static boolean isUniqueChars(String str) {
+		if (str == null) {
+			return true;
+		}
 		if (str.length() > 128) {
 			return false;
 		}
+		
 		int checker = 0;
 		for (int i = 0; i < str.length(); i++) {
 			int val = str.charAt(i) - 'a';
@@ -16,6 +20,9 @@ public class Question {
 	}
 	
 	public static boolean isUniqueChars2(String str) {
+		if (str == null) {
+			return true;
+		}
 		if (str.length() > 128) {
 			return false;
 		}
@@ -29,7 +36,7 @@ public class Question {
 	}
 	
 	public static void main(String[] args) {
-		String[] words = {"abcde", "hello", "apple", "kite", "padle"};
+		String[] words = {"abcde", "hello", "apple", "kite", "padle", null};
 		for (String word : words) {
 			System.out.println(word + ": " + isUniqueChars(word) + " " + isUniqueChars2(word));
 		}
