@@ -12,56 +12,74 @@ namespace ctci.Library
 	    public TreeNode Parent {get; set;}
 	    public int Size {get; set;}
 
-	    public TreeNode(int d) 
+	    public TreeNode(int data) 
         {
-		    Data = d;
+		    Data = data;
 		    Size = 1;
 	    }
 	
 	    public void SetLeftChild(TreeNode left) 
         {
-		    this.Left = left;
-		    if (left != null) {
+		    Left = left;
+
+		    if (left != null) 
+            {
 			    left.Parent = this;
 		    }
 	    }
 	
 	    public void SetRightChild(TreeNode right) 
         {
-		    this.Right = right;
-		    if (right != null) {
+		    Right = right;
+            
+		    if (right != null) 
+            {
 			    right.Parent = this;
 		    }
 	    }
 	
-	    public void InsertInOrder(int d) 
+	    public void InsertInOrder(int data) 
         {
-		    if (d <= Data) {
-			    if (Left == null) {
-				    SetLeftChild(new TreeNode(d));
-			    } else {
-				    Left.InsertInOrder(d);
+		    if (data <= Data) 
+            {
+			    if (Left == null) 
+                {
+				    SetLeftChild(new TreeNode(data));
+			    } 
+                else 
+                {
+				    Left.InsertInOrder(data);
 			    }
-		    } else {
-			    if (Right == null) {
-				    SetRightChild(new TreeNode(d));
-			    } else {
-				    Right.InsertInOrder(d);
+		    } 
+            else 
+            {
+			    if (Right == null) 
+                {
+				    SetRightChild(new TreeNode(data));
+			    }
+                else 
+                {
+				    Right.InsertInOrder(data);
 			    }
 		    }
+
 		    Size++;
 	    }
 	
 	    public bool IsBst() 
         {
-		    if (Left != null) {
-			    if (Data < Left.Data || !Left.IsBst()) {
+		    if (Left != null)
+            {
+			    if (Data < Left.Data || !Left.IsBst()) 
+                {
 				    return false;
 			    }
 		    }
 		
-		    if (Right != null) {
-			    if (Data >= Right.Data || !Right.IsBst()) {
+		    if (Right != null) 
+            {
+			    if (Data >= Right.Data || !Right.IsBst()) 
+                {
 				    return false;
 			    }
 		    }		
@@ -71,33 +89,43 @@ namespace ctci.Library
 	
 	    public int Height() 
         {
-		    int leftHeight = Left != null ? Left.Height() : 0;
-		    int rightHeight = Right != null ? Right.Height() : 0;
+		    var leftHeight = Left != null ? Left.Height() : 0;
+		    var rightHeight = Right != null ? Right.Height() : 0;
+
 		    return 1 + Math.Max(leftHeight, rightHeight);
 	    }
 	
-	    public TreeNode Find(int d) 
+	    public TreeNode Find(int data) 
         {
-		    if (d == Data) {
+		    if (data == Data) 
+            {
 			    return this;
-		    } else if (d <= Data) {
-			    return Left != null ? Left.Find(d) : null;
-		    } else if (d > Data) {
-			    return Right != null ? Right.Find(d) : null;
+		    } 
+            else if (data <= Data) 
+            {
+			    return Left != null ? Left.Find(data) : null;
+		    } 
+            else if (data > Data) 
+            {
+			    return Right != null ? Right.Find(data) : null;
 		    }
+
 		    return null;
 	    }
 	
-	    private static TreeNode CreateMinimalBst(int[] arr, int start, int end)
+	    private static TreeNode CreateMinimalBst(int[] array, int start, int end)
         {
-		    if (end < start) {
+		    if (end < start) 
+            {
 			    return null;
 		    }
-		    int mid = (start + end) / 2;
-		    TreeNode n = new TreeNode(arr[mid]);
-		    n.SetLeftChild(CreateMinimalBst(arr, start, mid - 1));
-		    n.SetRightChild(CreateMinimalBst(arr, mid + 1, end));
-		    return n;
+
+		    var mid = (start + end) / 2;
+		    var treeNode = new TreeNode(array[mid]);
+		    treeNode.SetLeftChild(CreateMinimalBst(array, start, mid - 1));
+		    treeNode.SetRightChild(CreateMinimalBst(array, mid + 1, end));
+
+		    return treeNode;
 	    }
 	
 	    public static TreeNode CreateMinimalBst(int[] array) 
@@ -105,7 +133,8 @@ namespace ctci.Library
 		    return CreateMinimalBst(array, 0, array.Length - 1);
 	    }
 	
-	    public void Print() {
+	    public void Print() 
+        {
             BTreePrinter.PrintNode(this);
 	    }
     }

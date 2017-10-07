@@ -5,7 +5,8 @@
 
 using std::string;
 
-class Question1_5 {
+class Question1_5 
+{
 public:
     int run();
     int stringToInt(const string& value);

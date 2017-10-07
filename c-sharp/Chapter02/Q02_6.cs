@@ -1,6 +1,7 @@
-﻿using System;
+﻿
 using ctci.Contracts;
 using ctci.Library;
+using System;
 
 namespace Chapter02
 {
@@ -8,14 +9,15 @@ namespace Chapter02
     {
         LinkedListNode FindBeginning(LinkedListNode head)
         {
-            LinkedListNode slow = head;
-            LinkedListNode fast = head;
+            var slow = head;
+            var fast = head;
 
             // Find meeting point
             while (fast != null && fast.Next != null)
             {
                 slow = slow.Next;
                 fast = fast.Next.Next;
+
                 if (slow == fast)
                 {
                     break;
@@ -48,9 +50,11 @@ namespace Chapter02
 		    const int k = 3;
 		
 		    // Create linked list
-		    LinkedListNode[] nodes = new LinkedListNode[listLength];
-		    for (int i = 1; i <= listLength; i++) {
-			    nodes[i-1] = new LinkedListNode(i, null, i-1 > 0 ? nodes[i - 2] : null);
+		    var nodes = new LinkedListNode[listLength];
+
+		    for (var i = 1; i <= listLength; i++) 
+            {
+			    nodes[i - 1] = new LinkedListNode(i, null, i - 1 > 0 ? nodes[i - 2] : null);
                 Console.Write("{0} -> ", nodes[i-1].Data);
 		    }
             Console.WriteLine();
@@ -60,10 +64,13 @@ namespace Chapter02
 		    nodes[listLength - 1].Next = nodes[listLength - k - 1];
             Console.WriteLine("{0} -> {1}", nodes[listLength - 1].Data, nodes[listLength - k - 1].Data);
 		
-		    LinkedListNode loop = FindBeginning(nodes[0]);
-		    if (loop == null) {
+		    var loop = FindBeginning(nodes[0]);
+
+		    if (loop == null) 
+            {
 			    Console.WriteLine("No Cycle.");
-		    } else {
+		    } else 
+            {
 			    Console.WriteLine(loop.Data);
 		    }            
         }

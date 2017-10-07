@@ -106,3 +106,71 @@ print "Doubling size of input changed run time by a factor of " + str(timer3/tim
 ##Test case 4 passed
 ##Test case 4 time: 2.22199988365
 ##Doubling size of input changed run time by a factor of 2.08842350063
+
+
+# ------------------Same solution but different notation--------------
+class TreeNode:
+	def __init__(self,key):
+		self.key = key
+		self.left = None
+		self.right = None
+		self.p = None
+
+	def __str__(self):
+		return str(self.key)
+
+class BinarySearchTree:
+	def __init__(self):
+		self.root = None
+
+	def addUsingKey(self, key):
+		treenode = TreeNode(key)
+		if self.root == None:
+			self.root = treenode
+		else:
+			buff = self.root
+			current =self.root
+			while current != None:
+				if current.key < treenode.key:
+					buff = current
+					current = current.right
+				else:
+					buff = current
+					current = current.left
+			if buff.key < treenode.key:
+				buff.right = treenode
+				treenode.p = buff
+			else:
+				buff.left = treenode
+				treenode.p = buff
+
+def isInc(r1, r2):
+	if r2 == None:
+		return True
+	elif r1 == None:
+		return False
+	elif r1.key == r2.key:
+		if matchTree(r1,r2):
+			return True
+	return isInc(r1.left, r2) or isInc(r1.right, r2)
+
+def matchTree(r1,r2):
+	if r1 == None and r2 == None:
+		return True
+	elif r1 == None or r2 == None:
+		return False
+	elif r1.key != r2.key:
+		return False
+	else:
+		return matchTree(r1.left, r2.left) and matchTree(r1.right, r2.right)
+
+bst1 = BinarySearchTree()
+for i in range(2):
+	bst1.addUsingKey(i+2)
+
+bst2 = BinarySearchTree()
+for i in range(3):
+    bst2.addUsingKey(i)
+    bst2.addUsingKey(-i)
+
+print isInc(bst1.root, bst2.root)

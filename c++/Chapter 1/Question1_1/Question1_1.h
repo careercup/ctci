@@ -5,7 +5,8 @@
 
 using std::string;
 
-class Question1_1 {
+class Question1_1 
+{
 public:
     int run();
     bool isUniqueChars(const string& str);

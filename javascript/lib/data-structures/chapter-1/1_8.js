@@ -1,4 +1,4 @@
-module.exports = Strings = (function() {
+module.exports = Strings_1_8 = (function() {
   var _isSubstring = function(str1, str2) {
     return str1.indexOf(str2) != -1
   }

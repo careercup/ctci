@@ -49,3 +49,69 @@ for T in T_set:
 		print "pass"
 	else:
 		print "wrong"
+
+
+
+
+#-------------Another Solution-----------------
+
+class TreeNode:
+	def __init__(self,key):
+		self.key = key
+		self.left = None
+		self.right = None
+
+class BinarySearchTree:
+	def __init__(self):
+		self.root = None
+
+	def addUsingKey(self, key):
+		treenode = TreeNode(key)
+		if self.root == None:
+			self.root = treenode
+		else:
+			buff = self.root
+			current =self.root
+			while current != None:
+				if current.key < treenode.key:
+					buff = current
+					current = current.right
+				else:
+					buff = current
+					current = current.left
+			if buff.key < treenode.key:
+				buff.right = treenode
+			else:
+				buff.left = treenode
+# min/max solution
+def checkBST(root,mini,maxi):
+	if root == None:
+		return True
+	elif (mini != None and root.key <= mini) or (maxi != None and root.key > maxi):
+		return False
+	elif checkBST(root.left, mini, root.key) == False or checkBST(root.right, root.key, maxi) == False:
+		return False
+	return True
+
+def checkBSTApp(tree):
+	return checkBST(tree.root, None, None)
+
+# copying bst to array, chacking if the arr is sorted is easy
+arr = []
+def copyBST(root,arr):
+	if root == None:
+		1
+	else:
+		copyBST(root.left,arr)
+		arr.append(root.key)
+		copyBST(root.right,arr)
+# test
+bst = BinarySearchTree()
+for i in range(5):
+	bst.addUsingKey(i)
+for i in range(5):
+	bst.addUsingKey(-i)
+
+copyBST(bst.root,arr)
+print arr
+print checkBSTApp(bst)
