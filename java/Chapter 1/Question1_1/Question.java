@@ -28,6 +28,10 @@ public class Question {
 		return true;
 	}
 	
+	public static boolean isUniqueChars3(String str) {
+            return !str.matches("^.*?(.).*?\\1.*$");
+        }
+	
 	public static void main(String[] args) {
 		String[] words = {"abcde", "hello", "apple", "kite", "padle"};
 		for (String word : words) {
