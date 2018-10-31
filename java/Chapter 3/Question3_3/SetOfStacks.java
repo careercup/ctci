@@ -30,6 +30,9 @@ public class SetOfStacks {
 	
 	public int pop() {
 		Stack last = getLastStack();
+        if (last==null){
+            throw new Exception("Stack is empty - No more element is available");
+        }        
 		int v = last.pop();
 		if (last.size == 0) {
 			stacks.remove(stacks.size() - 1);

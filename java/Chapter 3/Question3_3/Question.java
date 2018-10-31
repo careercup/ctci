@@ -8,7 +8,9 @@ public class Question {
 			set.push(i);
 		}
 		for (int i = 0; i < 34; i++) {
-			System.out.println("Popped " + set.pop());
+            if (!set.isEmpty()) {
+                System.out.println("Popped " + set.pop());
+            }
 		}		
 	}
 }
