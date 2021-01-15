@@ -9,7 +9,7 @@ class BinaryTree:
     def __str__(self):
         return "( " + str(self.content) + " ( " + str(self.left) + " | " + str(self.right) + "))" 
 
-#write an algorithm to fint the  'next' node (i.e., in-order successor) of a given node in a binary search btre.
+#write an algorithm to find the  'next' node (i.e., in-order successor) of a given node in a binary search btree.
 #You may assume that each node has a link to its parent.
 
 def find_next_btree(btree):
