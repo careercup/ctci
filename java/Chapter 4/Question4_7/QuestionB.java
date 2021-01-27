@@ -15,7 +15,7 @@ public class QuestionB {
 		}
 		boolean is_p_on_left = covers(root.left, p);
 		boolean is_q_on_left = covers(root.left, q);
-		if (is_p_on_left != is_q_on_left) { // Nodes are on different side
+		if (is_p_on_left != is_q_on_left || root == p || root == q) { // Nodes are on different side
 			return root;
 		}
 		TreeNode child_side = is_p_on_left ? root.left : root.right;
