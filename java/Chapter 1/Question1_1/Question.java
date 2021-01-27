@@ -3,6 +3,9 @@ package Question1_1;
 public class Question {
 
 	public static boolean isUniqueChars(String str) {
+        if (null==str) {
+            return false;
+        }
 		if (str.length() > 128) {
 			return false;
 		}
@@ -16,6 +19,9 @@ public class Question {
 	}
 	
 	public static boolean isUniqueChars2(String str) {
+        if (null==str) {
+            return false;
+        }
 		if (str.length() > 128) {
 			return false;
 		}
