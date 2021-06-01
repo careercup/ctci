@@ -6,17 +6,10 @@ using std::endl;
 
 void Question1_2::reverse(char* str) 
 {
-    char *ptrEnd = str;
-    char temp;
-
     if (str) 
     {
-        while (*ptrEnd) 
-        {
-            ptrEnd++;
-        }
-        ptrEnd--;
-
+        char *ptrEnd = &str[strlen(str) - 1];
+        char temp;
         while (str < ptrEnd) 
         {
             temp = *str;
