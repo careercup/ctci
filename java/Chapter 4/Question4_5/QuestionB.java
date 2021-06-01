@@ -11,11 +11,7 @@ public class QuestionB {
 		if ((min != null && n.data <= min) || (max != null && n.data > max)) {
 			return false;
 		}
-		if (!checkBST(n.left, min, n.data) ||
-			!checkBST(n.right, n.data, max)) {
-			return false;
-		}
-		return true;
+		return checkBST(n.left, min, n.data) && checkBST(n.right, n.data, max);
 	}
 		
 	public static boolean checkBST(TreeNode n) {
